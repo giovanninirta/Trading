@@ -1,0 +1,35 @@
+### python verifica_coppie.py
+Moneta            USDT         USD         EUR   Ordine minimo (in monete / in valuta)
+BTC          ✅ XBTUSDT    ✅ XBTUSD    ✅ XBTEUR   0.00006 / 0.5
+ETH          ✅ ETHUSDT    ✅ ETHUSD    ✅ ETHEUR   0.002 / 0.5
+SOL          ✅ SOLUSDT    ✅ SOLUSD    ✅ SOLEUR   0.05 / 0.5
+XRP          ✅ XRPUSDT    ✅ XRPUSD    ✅ XRPEUR   4 / 0.5
+ADA          ✅ ADAUSDT    ✅ ADAUSD    ✅ ADAEUR   20 / 0.5
+DOGE         ✅ XDGUSDT    ✅ XDGUSD    ✅ XDGEUR   50 / 0.5
+LTC          ✅ LTCUSDT    ✅ LTCUSD    ✅ LTCEUR   0.08 / 0.5
+LINK        ✅ LINKUSDT   ✅ LINKUSD   ✅ LINKEUR   0.35 / 0.5
+AVAX        ✅ AVAXUSDT   ✅ AVAXUSD   ✅ AVAXEUR   0.5 / 0.5
+DOT          ✅ DOTUSDT    ✅ DOTUSD    ✅ DOTEUR   3.9 / 0.5
+BCH          ✅ BCHUSDT    ✅ BCHUSD    ✅ BCHEUR   0.018 / 0.5
+ATOM        ✅ ATOMUSDT   ✅ ATOMUSD   ✅ ATOMEUR   3.5 / 0.5
+UNI                  ❌    ✅ UNIUSD    ✅ UNIEUR   0.7 / 0.5
+XLM                  ❌    ✅ XLMUSD    ✅ XLMEUR   25 / 0.5
+ETC                  ❌    ✅ ETCUSD    ✅ ETCEUR   0.7 / 0.5
+FIL                  ❌    ✅ FILUSD    ✅ FILEUR   6 / 0.5
+AAVE                 ❌   ✅ AAVEUSD   ✅ AAVEEUR   0.03 / 0.5
+ALGO        ✅ ALGOUSDT   ✅ ALGOUSD   ✅ ALGOEUR   41 / 0.5
+TRX                  ❌    ✅ TRXUSD    ✅ TRXEUR   16 / 0.5
+NEAR                 ❌   ✅ NEARUSD   ✅ NEAREUR   1 / 0.5
+APE          ✅ APEUSDT    ✅ APEUSD    ✅ APEEUR   45 / 0.5
+SAND                 ❌   ✅ SANDUSD   ✅ SANDEUR   120 / 0.5
+MANA        ✅ MANAUSDT   ✅ MANAUSD   ✅ MANAEUR   70 / 0.5
+AXS                  ❌    ✅ AXSUSD    ✅ AXSEUR   6 / 0.5
+CRV                  ❌    ✅ CRVUSD    ✅ CRVEUR   15 / 0.5
+COMP                 ❌   ✅ COMPUSD   ✅ COMPEUR   0.25 / 0.5
+OP                   ❌     ✅ OPUSD     ✅ OPEUR   45 / 0.5
+ARB                  ❌    ✅ ARBUSD    ✅ ARBEUR   30 / 0.5
+INJ                  ❌    ✅ INJUSD    ✅ INJEUR   0.7 / 0.5
+XTZ          ✅ XTZUSDT    ✅ XTZUSD    ✅ XTZEUR   20 / 0.5
+
+Monete senza coppia USDT: UNI, XLM, ETC, FIL, AAVE, TRX, NEAR, SAND, AXS, CRV, COMP, OP, ARB, INJ
+
