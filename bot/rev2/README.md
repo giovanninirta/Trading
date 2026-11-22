@@ -1,4 +1,4 @@
-# Bot trend · SIMULATO
+# Bot trend Rev 2 (senza filtro) · SIMULATO
 
 Nessun ordine reale: il bot segue i prezzi veri di Kraken e registra cosa avrebbe fatto.
 
