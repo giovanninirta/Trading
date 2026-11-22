@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-analizza_perdite_rev1.py
+misuratore_trend_rev5.py
