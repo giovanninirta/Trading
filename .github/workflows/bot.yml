@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:                        # riparte anche quando il bot viene aggiornato
     branches: [main]
-    paths: ["bot/*.py", ".github/workflows/bot.yml"]
+    paths: ["bot/rev*/*.py", ".github/workflows/bot.yml"]
 
 permissions:
   contents: write
@@ -24,10 +24,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Esegue il bot
-        working-directory: bot
+      - name: Bot Rev 2 (senza filtro)
+        working-directory: bot/rev2
         run: python bot_trend_rev2.py
+      - name: Bot Rev 3 (con filtro forza contro BTC)
+        if: always()
+        working-directory: bot/rev3
+        run: python bot_trend_rev3.py
       - name: Salva i risultati
+        if: always()
         run: |
           git config user.name "bot-trend"
           git config user.email "bot-trend@users.noreply.github.com"

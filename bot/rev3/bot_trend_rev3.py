@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-BOT TREND - Rev 2 - MODALITA' SIMULATA (non manda nessun ordine, non usa chiavi API)
+BOT TREND - Rev 3 - MODALITA' SIMULATA (non manda nessun ordine, non usa chiavi API)
 
 Regola (Canale 55/20, solo long, una volta al giorno sulla chiusura giornaliera):
   - se una moneta chiude sopra il massimo delle 55 chiusure precedenti -> compra
   - se e' dentro e chiude sotto il minimo delle 20 chiusure precedenti -> vende tutto
 Capitale simulato diviso in parti uguali tra le monete; ogni parte lavora da sola.
 Rev 2: 30 monete, in euro, quota fissa di 1/30 del capitale per moneta.
+Rev 3: aggiunto il filtro "forza contro BTC": non compra una moneta salita piu' di BTC di oltre
+il 10 % negli ultimi 55 giorni. Gira in parallelo alla Rev 2 per confrontarle sui prezzi reali.
 Prezzi: spot Kraken contro EUR (dati pubblici). Commissione simulata: 0,40 % per ordine.
 Il bot lavora solo con la cifra indicata in CAPITALE: il resto del conto non lo considera.
 
@@ -23,6 +25,7 @@ CAPITALE = 2000.0          # cifra affidata al bot (simulata), nella valuta qui 
 VALUTA = "EUR"
 INGRESSO, USCITA = 55, 20  # giorni del canale
 COMMISSIONE = 0.004        # 0,40 % per ordine (spot Kraken Pro, ordine limite)
+SOGLIA_FORZA = 0.10        # filtro: non compra se la moneta e' salita piu' di BTC di oltre il 10 % in 55 giorni
 MONETE = {                 # nome -> nome della coppia su Kraken
     "BTC": ["XBTEUR"], "ETH": ["ETHEUR"], "SOL": ["SOLEUR"], "XRP": ["XRPEUR"], "ADA": ["ADAEUR"],
     "DOGE": ["XDGEUR"], "LTC": ["LTCEUR"], "LINK": ["LINKEUR"], "AVAX": ["AVAXEUR"], "DOT": ["DOTEUR"],
@@ -79,7 +82,7 @@ def registra(riga):
         if nuovo: w.writerow(["data", "moneta", "azione", "prezzo", "quantita", "valore", "risultato_pct"])
         w.writerow(riga)
 
-def elabora(moneta, s, dati):
+def elabora(moneta, s, dati, btc):
     """Applica la regola a ogni giorno chiuso non ancora elaborato. Ritorna le informazioni per il cruscotto."""
     ts = [d[0] for d in dati]; c = [d[1] for d in dati]
     if len(c) <= INGRESSO:
@@ -91,6 +94,14 @@ def elabora(moneta, s, dati):
     for t in range(max(primo, INGRESSO), len(c)):
         dentro = s["quantita"] > 0
         if not dentro and c[t] > max(c[t - INGRESSO:t]):
+            b0, b1 = btc.get(ts[t - INGRESSO]), btc.get(ts[t])
+            if b0 and b1:
+                forza = c[t] / c[t - INGRESSO] - b1 / b0
+                if forza > SOGLIA_FORZA:
+                    if t > INGRESSO and c[t - 1] > max(c[t - 1 - INGRESSO:t - 1]):
+                        continue                  # rottura gia' segnalata ieri: non la ripete nel registro
+                    registra([giorno(ts[t]), moneta, "SALTATA", c[t], 0, 0, round(forza * 100, 1)])
+                    continue
             q = s["cassa"] * (1 - COMMISSIONE) / c[t]
             registra([giorno(ts[t]), moneta, "COMPRA", c[t], q, round(s["cassa"], 2), ""])
             s.update(quantita=q, prezzo_in=c[t], data_in=giorno(ts[t]), cassa_in=s["cassa"], cassa=0.0)
@@ -100,8 +111,13 @@ def elabora(moneta, s, dati):
             registra([giorno(ts[t]), moneta, "VENDE", c[t], s["quantita"], round(incasso, 2), round(ris * 100, 2)])
             s.update(cassa=incasso, quantita=0.0, prezzo_in=None, data_in=None)
     s["ultimo"] = ts[-1]
+    u = len(c) - 1; bloccata = None                   # l'ultima rottura e' stata fermata dal filtro?
+    b0, b1 = btc.get(ts[u - INGRESSO]), btc.get(ts[u])
+    if s["quantita"] == 0 and c[u] > max(c[u - INGRESSO:u]) and b0 and b1:
+        f = c[u] / c[u - INGRESSO] - b1 / b0
+        if f > SOGLIA_FORZA: bloccata = f
     t = len(c)                                        # livelli validi per la PROSSIMA chiusura
-    return dict(prezzo=c[-1], entra=max(c[t - INGRESSO:t]), esce=min(c[t - USCITA:t]), data=ts[-1])
+    return dict(prezzo=c[-1], entra=max(c[t - INGRESSO:t]), esce=min(c[t - USCITA:t]), data=ts[-1], bloccata=bloccata)
 
 def cruscotto(stato, info, errori):
     righe, valore, investito = [], 0.0, 0.0
@@ -109,6 +125,7 @@ def cruscotto(stato, info, errori):
         m, s = kv; i = info.get(m)
         if not i: return (2, 0)
         if s["quantita"] > 0: return (0, i["esce"] / i["prezzo"])
+        if i.get("bloccata") is not None: return (0.5, 0)
         return (1, i["entra"] / i["prezzo"])
     for m, s in sorted(stato["monete"].items(), key=ordine):
         i = info.get(m)
@@ -120,29 +137,33 @@ def cruscotto(stato, info, errori):
         if s["quantita"] > 0:
             ris = p * (1 - COMMISSIONE) * s["quantita"] / s.get("cassa_in", v) - 1
             righe.append(f"| 🟢 | **{m}** | Dentro dal {s['data_in']} | {prezzo(p)} | Esce sotto {prezzo(i['esce'])} | {pct(i['esce'] / p - 1)} | {pct(ris)} |")
+        elif i.get("bloccata") is not None:
+            righe.append(f"| 🟡 | {m} | Fuori · bloccata dal filtro | {prezzo(p)} | Corre troppo rispetto a BTC ({pct(i['bloccata'])}) | | |")
         else:
             righe.append(f"| ⚪ | {m} | Fuori | {prezzo(p)} | Entra sopra {prezzo(i['entra'])} | {pct(i['entra'] / p - 1)} | |")
-    chiuse, vinte, ultime = 0, 0, []
+    chiuse, vinte, ultime, saltate = 0, 0, [], 0
     if os.path.exists(REGISTRO):
         with open(REGISTRO) as f:
             tutte = list(csv.DictReader(f))
         for r in tutte:
             if r["azione"] == "VENDE":
                 chiuse += 1; vinte += float(r["risultato_pct"]) > 0
+        saltate = sum(1 for r in tutte if r["azione"] == "SALTATA")
+        tutte = [r for r in tutte if r["azione"] != "SALTATA"]
         for r in tutte[-8:][::-1]:
             esito = f" ({pct(float(r['risultato_pct']) / 100)})" if r["risultato_pct"] else ""
             ultime.append(f"- {r['data']} · {r['azione']} {r['moneta']} a {prezzo(float(r['prezzo']))}{esito}")
     ini = stato["capitale_iniziale"]
     data = giorno(max(i["data"] for i in info.values())) if info else "-"
     out = [
-        "# Bot trend · SIMULATO",
+        "# Bot trend Rev 3 (con filtro) · SIMULATO",
         "",
         "Nessun ordine reale: il bot segue i prezzi veri di Kraken e registra cosa avrebbe fatto.",
         "",
         f"## Conto simulato: {eur(valore)} {VALUTA}  {pct(valore / ini - 1)}",
         "",
         f"Partenza {eur(ini)} {VALUTA} il {stato['creato']} · Investito {investito / valore * 100:.0f} % · "
-        f"Operazioni chiuse {chiuse} ({vinte} in guadagno) · Dati al {data}",
+        f"Operazioni chiuse {chiuse} ({vinte} in guadagno) · Ingressi bloccati dal filtro {saltate} · Dati al {data}",
         "",
         f"| | Moneta | Stato | Prezzo {VALUTA} | Prossima mossa | Distanza | Risultato |",
         "|---|---|---|---|---|---|---|",
@@ -166,9 +187,13 @@ def cruscotto(stato, info, errori):
 def main():
     stato = carica_stato()
     info, errori = {}, []
+    try:
+        btc = dict(candele(MONETE["BTC"]))
+    except Exception as e:
+        btc = {}; errori.append(f"BTC (serve al filtro): {e}")
     for m, nomi in MONETE.items():
         try:
-            info[m] = elabora(m, stato["monete"][m], candele(nomi))
+            info[m] = elabora(m, stato["monete"][m], candele(nomi), btc)
         except Exception as e:
             errori.append(f"{m}: {e}")
         time.sleep(1)                                 # rispetta i limiti dell'API pubblica
