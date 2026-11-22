@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
       - name: Esegue il bot
         working-directory: bot
-        run: python bot_trend_rev1.py
+        run: python bot_trend_rev2.py
       - name: Salva i risultati
         run: |
           git config user.name "bot-trend"

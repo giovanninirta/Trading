@@ -7,6 +7,6 @@
 
 | Cartella | Contenuto |
 |---|---|
-| `bot/` | Bot trend (Canale 55/20, candele giornaliere) in modalità simulata: nessun ordine reale, nessuna chiave API |
+| `bot/` | Bot trend Rev 2 (Canale 55/20, candele giornaliere, 30 monete in EUR) in modalità simulata: nessun ordine reale, nessuna chiave API |
 | `test/` | Script di verifica delle strategie sui dati storici di Kraken |
 | `test/comando.txt` | Quali test eseguire: modificandolo, GitHub li lancia e salva l'output in `test/risultati/` |
