@@ -1,0 +1,38 @@
+### python verifica_coppie.py
+Moneta            USDC          USDT         USD         EUR
+BTC          ✅ XBTUSDC     ✅ XBTUSDT    ✅ XBTUSD    ✅ XBTEUR
+ETH          ✅ ETHUSDC     ✅ ETHUSDT    ✅ ETHUSD    ✅ ETHEUR
+SOL          ✅ SOLUSDC     ✅ SOLUSDT    ✅ SOLUSD    ✅ SOLEUR
+XRP          ✅ XRPUSDC     ✅ XRPUSDT    ✅ XRPUSD    ✅ XRPEUR
+ADA          ✅ ADAUSDC     ✅ ADAUSDT    ✅ ADAUSD    ✅ ADAEUR
+DOGE         ✅ XDGUSDC     ✅ XDGUSDT    ✅ XDGUSD    ✅ XDGEUR
+LTC          ✅ LTCUSDC     ✅ LTCUSDT    ✅ LTCUSD    ✅ LTCEUR
+LINK        ✅ LINKUSDC    ✅ LINKUSDT   ✅ LINKUSD   ✅ LINKEUR
+AVAX        ✅ AVAXUSDC    ✅ AVAXUSDT   ✅ AVAXUSD   ✅ AVAXEUR
+DOT          ✅ DOTUSDC     ✅ DOTUSDT    ✅ DOTUSD    ✅ DOTEUR
+BCH          ✅ BCHUSDC     ✅ BCHUSDT    ✅ BCHUSD    ✅ BCHEUR
+ATOM        ✅ ATOMUSDC    ✅ ATOMUSDT   ✅ ATOMUSD   ✅ ATOMEUR
+UNI                  ❌             ❌    ✅ UNIUSD    ✅ UNIEUR
+XLM                  ❌             ❌    ✅ XLMUSD    ✅ XLMEUR
+ETC                  ❌             ❌    ✅ ETCUSD    ✅ ETCEUR
+FIL                  ❌             ❌    ✅ FILUSD    ✅ FILEUR
+AAVE                 ❌             ❌   ✅ AAVEUSD   ✅ AAVEEUR
+ALGO        ✅ ALGOUSDC    ✅ ALGOUSDT   ✅ ALGOUSD   ✅ ALGOEUR
+TRX                  ❌             ❌    ✅ TRXUSD    ✅ TRXEUR
+NEAR                 ❌             ❌   ✅ NEARUSD   ✅ NEAREUR
+APE          ✅ APEUSDC     ✅ APEUSDT    ✅ APEUSD    ✅ APEEUR
+SAND                 ❌             ❌   ✅ SANDUSD   ✅ SANDEUR
+MANA        ✅ MANAUSDC    ✅ MANAUSDT   ✅ MANAUSD   ✅ MANAEUR
+AXS                  ❌             ❌    ✅ AXSUSD    ✅ AXSEUR
+CRV                  ❌             ❌    ✅ CRVUSD    ✅ CRVEUR
+COMP                 ❌             ❌   ✅ COMPUSD   ✅ COMPEUR
+OP                   ❌             ❌     ✅ OPUSD     ✅ OPEUR
+ARB                  ❌             ❌    ✅ ARBUSD    ✅ ARBEUR
+INJ                  ❌             ❌    ✅ INJUSD    ✅ INJEUR
+XTZ          ✅ XTZUSDC     ✅ XTZUSDT    ✅ XTZUSD    ✅ XTZEUR
+
+USDC  16 su 30   mancano: UNI, XLM, ETC, FIL, AAVE, TRX, NEAR, SAND, AXS, CRV, COMP, OP, ARB, INJ
+USDT  16 su 30   mancano: UNI, XLM, ETC, FIL, AAVE, TRX, NEAR, SAND, AXS, CRV, COMP, OP, ARB, INJ
+USD   30 su 30
+EUR   30 su 30
+
