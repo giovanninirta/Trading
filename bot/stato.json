@@ -1,0 +1,216 @@
+{
+ "creato": "2026-11-22",
+ "capitale_iniziale": 2000.0,
+ "monete": {
+  "BTC": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ETH": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "SOL": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "XRP": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ADA": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "DOGE": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "LTC": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "LINK": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "AVAX": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "DOT": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "BCH": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ATOM": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "UNI": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "XLM": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ETC": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "FIL": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "AAVE": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ALGO": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "TRX": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "NEAR": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "APE": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "SAND": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "MANA": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "AXS": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "CRV": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "COMP": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "OP": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ARB": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "INJ": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "XTZ": {
+   "cassa": 66.66666666666667,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  }
+ }
+}
