@@ -1,0 +1,76 @@
+{
+ "creato": "2026-11-22",
+ "capitale_iniziale": 2000.0,
+ "monete": {
+  "BTC": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ETH": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "SOL": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "XRP": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "ADA": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "DOGE": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "LTC": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "LINK": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "AVAX": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  },
+  "DOT": {
+   "cassa": 200.0,
+   "quantita": 0.0,
+   "prezzo_in": null,
+   "data_in": null,
+   "ultimo": 1795219200
+  }
+ }
+}
