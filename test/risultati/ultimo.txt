@@ -1,30 +1,44 @@
-### python misuratore_trend_rev5.py
-30 monete, dal 2022-12-12 al 2026-11-22. Prova fino al 2025-04-25, poi verifica.
+### python misuratore_etf_rev1.py
+SPY: 8512 giorni da Yahoo
+QQQ: 6970 giorni da Yahoo
+IWM: 6662 giorni da Yahoo
+VGK: 5461 giorni da Yahoo
+EWJ: 7721 giorni da Yahoo
+EEM: 5941 giorni da Yahoo
+TLT: 6119 giorni da Yahoo
+IEF: 6119 giorni da Yahoo
+LQD: 6119 giorni da Yahoo
+TIP: 5777 giorni da Yahoo
+GLD: 5537 giorni da Yahoo
+SLV: 5175 giorni da Yahoo
+DBC: 5232 giorni da Yahoo
+USO: 5188 giorni da Yahoo
+VNQ: 5573 giorni da Yahoo
+UUP: 4965 giorni da Yahoo
 
-BTC sopra la media a 200 giorni: 65 % dei giorni (prova 77 %, verifica 48 %)
+16 ETF, dal 1994-01-25 al 2026-11-20 (33 anni). Prova fino al 2013-10-02, poi verifica.
 
-1) MERCATO ROSSO: VENDERE ALLO SCOPERTO?
-                                                Prova        Verifica  Capitale   Long  Short  Operaz.  Vinte
-   Tenere le monete (riferimento)       +30 % / -64 %   -41 % / -69 %    x 0,82   100%     0%        0     0%
-   1) Solo long (bot attuale)           +47 % / -29 %   -11 % / -30 %    x 2,07    27%     0%      371    41%
-🟡 2) Solo long, solo in fase verde     +44 % / -26 %    -7 % / -25 %    x 2,14    23%     0%      318    44%
-🔴 3) Long + short sempre               +14 % / -50 %    +7 % / -31 %    x 1,52    27%    36%      852    35%
-🔴 4) Long in verde, short in rosso     +12 % / -46 %    +4 % / -35 %    x 1,39    23%    18%      664    34%
-🔴 5) Come 4, fase su media 100 g       +22 % / -43 %    +1 % / -39 %    x 1,61    24%    23%      857    34%
+                                           Prova         Verifica  Capitale   A caso  Investito  Oper./anno
+   Tenere tutti gli ETF           +4,2 % / -35 %   +6,5 % / -24 %    x 5,14               100 %           -
+   Tenere solo azioni USA (SPY)   +8,7 % / -55 %  +13,2 % / -34 %   x 26,05               100 %           -
+🔴 Canale 20/10                    +1,6 % / -7 %    +1,6 % / -9 %    x 1,68   x 1,74       32 %          68
+🟢 Canale 55/20                    +1,6 % / -8 %    +2,7 % / -6 %    x 1,93   x 1,68       30 %          31
+🟢 Canale 100/50                   +2,5 % / -8 %    +3,1 % / -7 %    x 2,41   x 1,85       35 %          14
+🟢 Canale 150/75                   +2,2 % / -9 %    +4,2 % / -8 %    x 2,62   x 1,87       36 %           9
+🟢 Canale 200/100                  +2,5 % / -8 %    +4,3 % / -8 %    x 2,79   x 1,89       37 %           7
+🟢 Media 200 giorni               +2,3 % / -10 %    +3,5 % / -9 %    x 2,43   x 2,23       47 %          49
 
-2) FILTRO "FORZA CONTRO BTC": non comprare le monete salite piu' di BTC di oltre X % in 55 giorni (solo long)
-                                                Prova        Verifica  Capitale   Long  Short  Operaz.  Vinte
-   Nessun filtro                        +47 % / -29 %   -11 % / -30 %    x 2,07    27%     0%      371    41%
-🟢 Soglia +40 %                         +49 % / -28 %    -9 % / -29 %    x 2,22    26%     0%      358    42%
-🟢 Soglia +20 %                         +48 % / -28 %    -5 % / -26 %    x 2,33    25%     0%      325    44%
-🟢 Soglia +10 %                         +47 % / -26 %    -6 % / -25 %    x 2,28    22%     0%      293    44%
-🟢 Soglia +5 %                          +49 % / -23 %    -2 % / -21 %    x 2,48    20%     0%      257    47%
-🔴 Soglia +0 %                          +38 % / -22 %    -2 % / -19 %    x 2,07    18%     0%      228    46%
-🔴 Soglia -10 %                         +35 % / -20 %    -1 % / -11 %    x 2,01    11%     0%      129    56%
+ANNI DIFFICILI (rendimento dell'anno)
+                                   2008    2011    2015    2018    2020    2022
+   Tenere tutti gli ETF            -19%     +4%     -6%     -6%    +10%    -10%
+   Tenere solo azioni USA (SPY)    -37%     +2%     +1%     -5%    +18%    -18%
+   Canale 55/20                     +4%     -2%     -3%     -0%    +11%     -1%
+   Canale 100/50                    +3%     +2%     -2%     -0%     +6%     +2%
+   Media 200 giorni                 -2%     +1%     -5%     -2%    +10%     -5%
 
-Prova / Verifica: rendimento annuo / calo massimo.   Capitale: quante volte il capitale iniziale su tutto il periodo.
-Long / Short: quota media del capitale in posizioni long e short.   Vinte: operazioni chiuse in guadagno.
-🟢 meglio del bot attuale sia in prova sia in verifica   🟡 meglio solo sul capitale finale   🔴 peggio
-Per il filtro: e' credibile solo se migliora in modo graduale al variare della soglia, non con una soglia sola.
-Short simulati sui perpetui con funding stimato: nella realta' il funding varia e puo' pesare di piu'.
+Prova / Verifica: rendimento annuo / calo massimo dal picco.   Capitale: quante volte il capitale iniziale.
+A caso: chi tiene sempre investita la stessa quota media, senza scegliere il momento.
+🟢 batte "a caso" e ha cali piu' piccoli di "Tenere tutti gli ETF" in entrambi i periodi
+🟡 batte solo "a caso"   🔴 non batte nemmeno "a caso"
+La liquidita' ferma qui non rende: nella realta' renderebbe il tasso dei titoli a breve, a favore della strategia.
 
