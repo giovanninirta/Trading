@@ -1,0 +1,38 @@
+name: Bot trend (simulato)
+
+on:
+  schedule:
+    - cron: "20 0 * * *"      # ogni giorno alle 00:20 UTC, dopo la chiusura della candela giornaliera
+  workflow_dispatch:
+  push:                        # riparte anche quando il bot viene aggiornato
+    branches: [main]
+    paths: ["bot/*.py", ".github/workflows/bot.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrittura-repository
+  cancel-in-progress: false
+
+jobs:
+  esegui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Esegue il bot
+        working-directory: bot
+        run: python bot_trend_rev1.py
+      - name: Salva i risultati
+        run: |
+          git config user.name "bot-trend"
+          git config user.email "bot-trend@users.noreply.github.com"
+          git add bot
+          git diff --cached --quiet && exit 0
+          git commit -m "Bot: aggiornamento del $(date -u +%Y-%m-%d)"
+          git pull --rebase
+          git push

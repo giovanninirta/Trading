@@ -1,0 +1,53 @@
+name: Test
+
+# Parte quando cambia test/comando.txt: esegue ogni riga (uno script della cartella test con i suoi
+# parametri) e salva l'output in test/risultati/. I dati scaricati restano in cache tra un test e l'altro.
+on:
+  push:
+    branches: [main]
+    paths: ["test/comando.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrittura-repository
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/cache@v4
+        with:
+          path: test/dati
+          key: dati-${{ github.run_id }}
+          restore-keys: dati-
+      - name: Esegue i test
+        run: |
+          mkdir -p test/dati test/risultati
+          cd test/dati
+          esito="../risultati/$(date -u +%Y%m%d-%H%M).txt"
+          while IFS= read -r riga || [ -n "$riga" ]; do
+            riga="${riga%%#*}"
+            [ -z "${riga// }" ] && continue
+            echo "### python $riga" >> "$esito"
+            python ../$riga >> "$esito" 2>&1 || echo "(terminato con errore)" >> "$esito"
+            echo >> "$esito"
+          done < ../comando.txt
+          cp "$esito" ../risultati/ultimo.txt
+      - name: Salva i risultati
+        run: |
+          git config user.name "test-bot"
+          git config user.email "test-bot@users.noreply.github.com"
+          git add test/risultati
+          git diff --cached --quiet && exit 0
+          git commit -m "Risultati test $(date -u +%Y-%m-%d_%H:%M)"
+          git pull --rebase
+          git push
