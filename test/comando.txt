@@ -1,2 +1,3 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
 verifica_coppie.py
+# verifica USDC
