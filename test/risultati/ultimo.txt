@@ -1,114 +1,30 @@
-### python analizza_perdite_rev1.py
-PF_XBTUSD: 39420 candele scaricate
-PF_ETHUSD: 39420 candele scaricate
-PF_SOLUSD: 39420 candele scaricate
-PF_XRPUSD: 39420 candele scaricate
-PF_ADAUSD: 39420 candele scaricate
-PF_DOGEUSD: 38793 candele scaricate
-PF_LTCUSD: 39420 candele scaricate
-PF_LINKUSD: 39420 candele scaricate
-PF_AVAXUSD: 39420 candele scaricate
-PF_DOTUSD: 39420 candele scaricate
-PF_BCHUSD: 39420 candele scaricate
-PF_ATOMUSD: 39420 candele scaricate
-PF_UNIUSD: 39420 candele scaricate
-PF_XLMUSD: 38410 candele scaricate
-PF_ETCUSD: 37737 candele scaricate
-PF_FILUSD: 39420 candele scaricate
-PF_AAVEUSD: 38624 candele scaricate
-PF_ALGOUSD: 38410 candele scaricate
-PF_TRXUSD: 38792 candele scaricate
-PF_NEARUSD: 38962 candele scaricate
-PF_APEUSD: 38962 candele scaricate
-PF_SANDUSD: 38239 candele scaricate
-PF_MANAUSD: 38624 candele scaricate
-PF_AXSUSD: 37734 candele scaricate
-PF_CRVUSD: 38624 candele scaricate
-PF_COMPUSD: 38239 candele scaricate
-PF_OPUSD: 39213 candele scaricate
-PF_ARBUSD: 32170 candele scaricate
-PF_INJUSD: 31858 candele scaricate
-PF_XTZUSD: 38410 candele scaricate
+### python misuratore_trend_rev5.py
+30 monete, dal 2022-12-12 al 2026-11-22. Prova fino al 2025-04-25, poi verifica.
 
-30 monete, 1642 giorni, 371 operazioni chiuse (223 in prova fino al 2025-02-04, 148 in verifica)
+BTC sopra la media a 200 giorni: 65 % dei giorni (prova 77 %, verifica 48 %)
 
-1) COME SONO FATTE VINCITE E PERDITE
-                        Numero  Risultato medio   Durata media  Durata mediana
-Vinte                      151           +36.8%           49 g            44 g
-Perse                      220           -13.4%           20 g            20 g
-Perdite chiuse entro 10 giorni: 35 su 220 (16 %), costo medio -17.9 %
-Somma vincite +5554 %, somma perdite -2954 % (in % della quota di una moneta)
-Il 10 % migliore delle vincite (15 operazioni) vale 99 % del guadagno netto totale
+1) MERCATO ROSSO: VENDERE ALLO SCOPERTO?
+                                                Prova        Verifica  Capitale   Long  Short  Operaz.  Vinte
+   Tenere le monete (riferimento)       +30 % / -64 %   -41 % / -69 %    x 0,82   100%     0%        0     0%
+   1) Solo long (bot attuale)           +47 % / -29 %   -11 % / -30 %    x 2,07    27%     0%      371    41%
+🟡 2) Solo long, solo in fase verde     +44 % / -26 %    -7 % / -25 %    x 2,14    23%     0%      318    44%
+🔴 3) Long + short sempre               +14 % / -50 %    +7 % / -31 %    x 1,52    27%    36%      852    35%
+🔴 4) Long in verde, short in rosso     +12 % / -46 %    +4 % / -35 %    x 1,39    23%    18%      664    34%
+🔴 5) Come 4, fase su media 100 g       +22 % / -43 %    +1 % / -39 %    x 1,61    24%    23%      857    34%
 
-2) CONTESTO ALL'INGRESSO
-Gruppo                 Oper.   Vinte     Medio     Totale       Oper.   Vinte     Medio     Totale
-                        ------------- PROVA -------------         ----------- VERIFICA -----------
+2) FILTRO "FORZA CONTRO BTC": non comprare le monete salite piu' di BTC di oltre X % in 55 giorni (solo long)
+                                                Prova        Verifica  Capitale   Long  Short  Operaz.  Vinte
+   Nessun filtro                        +47 % / -29 %   -11 % / -30 %    x 2,07    27%     0%      371    41%
+🟢 Soglia +40 %                         +49 % / -28 %    -9 % / -29 %    x 2,22    26%     0%      358    42%
+🟢 Soglia +20 %                         +48 % / -28 %    -5 % / -26 %    x 2,33    25%     0%      325    44%
+🟢 Soglia +10 %                         +47 % / -26 %    -6 % / -25 %    x 2,28    22%     0%      293    44%
+🟢 Soglia +5 %                          +49 % / -23 %    -2 % / -21 %    x 2,48    20%     0%      257    47%
+🔴 Soglia +0 %                          +38 % / -22 %    -2 % / -19 %    x 2,07    18%     0%      228    46%
+🔴 Soglia -10 %                         +35 % / -20 %    -1 % / -11 %    x 2,01    11%     0%      129    56%
 
-BTC vs media 200 g
-  sopra                    178     48%    +18.3%     +3260%         105     33%     -3.8%      -397%
-  sotto                     20     75%    +15.3%      +306%          43     26%     -5.0%      -217%
-
-BTC vs media 50 g
-  sopra                    212     47%    +15.0%     +3181%         135     31%     -3.7%      -503%
-  sotto                     11     45%     +3.1%       +34%          13     31%     -8.6%      -112%
-
-Ampiezza
-  bassa (<87%)              72     51%    +18.0%     +1297%          45     36%     -4.1%      -183%
-  media                    151     45%    +12.7%     +1918%         103     29%     -4.2%      -431%
-  alta (>100%)               -           -
-
-Ondata
-  bassa (<9)                69     42%     +9.5%      +652%          51     37%     -4.1%      -209%
-  media                     84     33%     +5.6%      +471%          51     31%     -3.0%      -152%
-  alta (>30)                70     69%    +29.9%     +2091%          46     24%     -5.5%      -253%
-
-Corsa precedente
-  bassa (<+8%)              74     36%    +13.6%     +1009%          39     26%     -6.5%      -253%
-  media                     75     56%    +20.5%     +1534%          57     37%     -3.1%      -179%
-  alta (>+19%)              74     49%     +9.1%      +671%          52     29%     -3.5%      -182%
-
-Estensione
-  bassa (<+12%)             74     42%    +14.6%     +1079%          44     30%     -2.3%      -100%
-  media                     75     41%    +14.6%     +1094%          49     37%     -3.6%      -178%
-  alta (>+19%)              74     58%    +14.1%     +1042%          55     27%     -6.1%      -336%
-
-Volatilita'
-  bassa (<3.2%)             74     50%    +17.1%     +1266%          43     33%     -1.7%       -75%
-  media                     75     52%    +21.6%     +1621%          54     33%     -3.8%      -208%
-  alta (>4.4%)              74     39%     +4.4%      +327%          51     27%     -6.5%      -331%
-
-Forza vs BTC
-  bassa (<-11%)             74     62%    +30.6%     +2263%          20     30%     -3.4%       -68%
-  media                     75     48%    +13.7%     +1028%          65     35%     -1.1%       -74%
-  alta (>+5%)               74     31%     -1.0%       -77%          63     27%     -7.5%      -472%
-
-3) FILTRI POSSIBILI: cosa succede escludendo il gruppo peggiore (scelto solo sulla prova)
-   Contesto              Gruppo escluso          Effetto prova  Effetto verifica  Operaz. tolte
-🟡 Forza vs BTC          alta (>+5%)                      +77%             +472%            137
-🔴 Ampiezza              media                          -1918%             +431%            254
-🔴 Estensione            alta (>+19%)                   -1042%             +336%            129
-🔴 Volatilita'           alta (>4.4%)                    -327%             +331%            125
-🔴 BTC vs media 200 g    sotto                           -306%             +217%             63
-🔴 Corsa precedente      alta (>+19%)                    -671%             +182%            126
-🔴 Ondata                media                           -471%             +152%            135
-
-Totale senza filtri: prova +3215 %, verifica -614 % (somma dei risultati, in % della quota di una moneta)
-
-4) LE 10 PERDITE PEGGIORI
-  2025-11-08 FIL    -46.0% in  22 g · BTC sotto media 200 · ampiezza 13% · corsa +13% · ondata 1
-  2025-09-19 DOT    -38.8% in  22 g · BTC sopra media 200 · ampiezza 87% · corsa +17% · ondata 8
-  2022-11-05 ALGO   -35.0% in   5 g · BTC - media 200 · ampiezza 82% · corsa +30% · ondata 10
-  2026-01-23 SAND   -31.6% in   8 g · BTC sotto media 200 · ampiezza 27% · corsa +4% · ondata 4
-  2025-05-11 ARB    -31.2% in  20 g · BTC sopra media 200 · ampiezza 100% · corsa +33% · ondata 60
-  2025-09-13 DOGE   -30.1% in  28 g · BTC sopra media 200 · ampiezza 87% · corsa +12% · ondata 7
-  2022-10-30 UNI    -28.6% in  11 g · BTC - media 200 · ampiezza 68% · corsa +9% · ondata 5
-  2024-06-11 INJ    -27.5% in   7 g · BTC sopra media 200 · ampiezza 20% · corsa +18% · ondata 1
-  2022-11-05 LINK   -27.0% in   5 g · BTC - media 200 · ampiezza 82% · corsa +11% · ondata 10
-  2026-10-14 OP     -26.5% in   9 g · BTC sopra media 200 · ampiezza 73% · corsa +78% · ondata 4
-
-Medio: risultato medio per operazione. Totale: somma dei risultati (in % della quota di una moneta).
-🟢 escludere quel gruppo avrebbe migliorato in modo netto (oltre il 10 %) sia la prova sia la verifica
-🟡 migliora in entrambi ma poco   🔴 in verifica peggiora: il filtro e' solo adattamento al passato
-Attenzione: con 8 contesti provati, uno o due "verdi" possono uscire per caso. Un filtro serio deve avere
-anche una spiegazione sensata, non solo un numero buono.
+Prova / Verifica: rendimento annuo / calo massimo.   Capitale: quante volte il capitale iniziale su tutto il periodo.
+Long / Short: quota media del capitale in posizioni long e short.   Vinte: operazioni chiuse in guadagno.
+🟢 meglio del bot attuale sia in prova sia in verifica   🟡 meglio solo sul capitale finale   🔴 peggio
+Per il filtro: e' credibile solo se migliora in modo graduale al variare della soglia, non con una soglia sola.
+Short simulati sui perpetui con funding stimato: nella realta' il funding varia e puo' pesare di piu'.
 

@@ -1,0 +1,30 @@
+### python misuratore_trend_rev5.py
+30 monete, dal 2022-12-12 al 2026-11-22. Prova fino al 2025-04-25, poi verifica.
+
+BTC sopra la media a 200 giorni: 65 % dei giorni (prova 77 %, verifica 48 %)
+
+1) MERCATO ROSSO: VENDERE ALLO SCOPERTO?
+                                                Prova        Verifica  Capitale   Long  Short  Operaz.  Vinte
+   Tenere le monete (riferimento)       +30 % / -64 %   -41 % / -69 %    x 0,82   100%     0%        0     0%
+   1) Solo long (bot attuale)           +47 % / -29 %   -11 % / -30 %    x 2,07    27%     0%      371    41%
+🟡 2) Solo long, solo in fase verde     +44 % / -26 %    -7 % / -25 %    x 2,14    23%     0%      318    44%
+🔴 3) Long + short sempre               +14 % / -50 %    +7 % / -31 %    x 1,52    27%    36%      852    35%
+🔴 4) Long in verde, short in rosso     +12 % / -46 %    +4 % / -35 %    x 1,39    23%    18%      664    34%
+🔴 5) Come 4, fase su media 100 g       +22 % / -43 %    +1 % / -39 %    x 1,61    24%    23%      857    34%
+
+2) FILTRO "FORZA CONTRO BTC": non comprare le monete salite piu' di BTC di oltre X % in 55 giorni (solo long)
+                                                Prova        Verifica  Capitale   Long  Short  Operaz.  Vinte
+   Nessun filtro                        +47 % / -29 %   -11 % / -30 %    x 2,07    27%     0%      371    41%
+🟢 Soglia +40 %                         +49 % / -28 %    -9 % / -29 %    x 2,22    26%     0%      358    42%
+🟢 Soglia +20 %                         +48 % / -28 %    -5 % / -26 %    x 2,33    25%     0%      325    44%
+🟢 Soglia +10 %                         +47 % / -26 %    -6 % / -25 %    x 2,28    22%     0%      293    44%
+🟢 Soglia +5 %                          +49 % / -23 %    -2 % / -21 %    x 2,48    20%     0%      257    47%
+🔴 Soglia +0 %                          +38 % / -22 %    -2 % / -19 %    x 2,07    18%     0%      228    46%
+🔴 Soglia -10 %                         +35 % / -20 %    -1 % / -11 %    x 2,01    11%     0%      129    56%
+
+Prova / Verifica: rendimento annuo / calo massimo.   Capitale: quante volte il capitale iniziale su tutto il periodo.
+Long / Short: quota media del capitale in posizioni long e short.   Vinte: operazioni chiuse in guadagno.
+🟢 meglio del bot attuale sia in prova sia in verifica   🟡 meglio solo sul capitale finale   🔴 peggio
+Per il filtro: e' credibile solo se migliora in modo graduale al variare della soglia, non con una soglia sola.
+Short simulati sui perpetui con funding stimato: nella realta' il funding varia e puo' pesare di piu'.
+
