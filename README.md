@@ -1,0 +1,2 @@
+# Trading
+Creating trading bot
