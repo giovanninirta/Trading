@@ -1,3 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-misuratore_trend_rev3.py --robustezza --candele 4 --costo 0.0007
-misuratore_trend_rev3.py --robustezza --candele 1 --costo 0.0007
+misuratore_grid_media_rev1.py
