@@ -1,0 +1,25 @@
+### python misuratore_grid_media_rev1.py
+
+30 monete, 4.5 anni di dati.
+
+A) RITORNO ALLA MEDIA BREVE (candele da 4 ore)
+                                                Prova        Verifica  Capitale  Operaz./anno  Vinte  Media vinte  Media perse
+   Tenere le monete (riferimento)       +32 % / -60 %   -44 % / -71 %    x 0,75
+🔴 RSI 2                                 +7 % / -42 %   -11 % / -31 %    x 0,97          3434    64%       +2.0 %       -3.3 %
+🟡 RSI 2 + filtro di trend              +11 % / -20 %    -8 % / -17 %    x 1,15          1149    64%       +2.0 %       -3.1 %
+🟢 Bande                                 +3 % / -24 %    +8 % / -21 %    x 1,23           792    62%       +4.0 %       -5.6 %
+🟢 Bande + filtro di trend               +5 % / -17 %     +2 % / -4 %    x 1,18           164    63%       +4.3 %       -5.1 %
+
+B) GRID (candele da 1 ora)
+                                                Prova        Verifica  Capitale  Operaz./anno  Vinte  Media vinte  Media perse
+   Tenere le monete (riferimento)       +34 % / -60 %   -44 % / -71 %    x 0,78
+🔴 Grid, livelli ogni 1 %                -8 % / -45 %   -24 % / -45 %    x 0,49          2172   100%       +0.9 %            -
+🔴 Grid, livelli ogni 2 %                +1 % / -39 %   -19 % / -37 %    x 0,70          1702   100%       +2.0 %            -
+🔴 Grid, livelli ogni 4 %                +9 % / -32 %   -15 % / -31 %    x 0,93          1153   100%       +4.1 %            -
+
+Prova / Verifica: rendimento annuo / calo massimo dal picco (primo 60 % e ultimo 40 % dei dati).
+Capitale: quante volte il capitale iniziale su tutto il periodo.   Vinte: operazioni chiuse in guadagno.
+🟢 guadagna sia in prova sia in verifica   🟡 guadagna solo nel complesso   🔴 perde
+Per il grid conta soprattutto il calo massimo: le operazioni chiuse sono quasi tutte in guadagno per costruzione,
+le perdite stanno nelle monete comprate e rimaste in mano quando il prezzo scende sotto la griglia.
+
