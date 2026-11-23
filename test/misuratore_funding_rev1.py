@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
-MISURATORE FUNDING - Rev 1
+MISURATORE FUNDING - Rev 1 (adattato all'anno di funding disponibile)
 Il funding dei perpetui Kraken dice qualcosa sui movimenti successivi?
 
 Dati: storico pubblico dei tassi di funding (Kraken Futures, nessuna chiave) + candele gia' scaricate.
 Funding giornaliero = somma dei tassi del giorno; mostrato in % annuo.
+ATTENZIONE: l'API pubblica di Kraken fornisce solo circa l'ultimo anno di funding. Prova e verifica sono
+quindi il primo 60 % e l'ultimo 40 % di QUELL'anno: un test breve, da leggere come indizio.
 
 1) SEGNALE: per ogni moneta e giorno, funding medio degli ultimi 3 giorni. Le soglie "molto alto"
    (10 % dei giorni piu' alti) e "molto basso" (10 % piu' bassi) si calcolano sul PRIMO 60 % dei dati.
@@ -71,8 +73,10 @@ def main():
         if c and f: dati[m] = (c, f)
     if "XBT" not in dati: sys.exit("Mancano prezzi o funding di BTC.")
     giorni = sorted(dati["XBT"][0])
-    taglio_t = giorni[int(len(giorni) * 0.6)]
     f_btc = dati["XBT"][1]
+    con_funding = [t for t in giorni if t in f_btc]
+    inizio_f = giorni.index(con_funding[0])
+    taglio_t = con_funding[int(len(con_funding) * 0.6)]
     data = lambda t: time.strftime("%Y-%m-%d", time.gmtime(t))
     print(f"\n{len(dati)} monete con prezzi e funding. Funding BTC dal {data(min(f_btc))} al {data(max(f_btc))}.")
     v = sorted(f_btc.values())
@@ -89,7 +93,7 @@ def main():
     taglio = giorni.index(taglio_t)
     soglie = {}
     for m in dati:
-        p = sorted(x for x in F3[m][:taglio] if x is not None)
+        p = sorted(x for x in F3[m][inizio_f:taglio] if x is not None)
         if len(p) > 50: soglie[m] = (p[len(p) // 10], p[len(p) * 8 // 10], p[len(p) * 9 // 10])
 
     # 1) segnale
@@ -99,7 +103,7 @@ def main():
     gruppi = defaultdict(lambda: defaultdict(list))
     for m, (b, _, a) in soglie.items():
         c = C[m]
-        for i in range(len(giorni) - 7):
+        for i in range(inizio_f, len(giorni) - 7):
             f = F3[m][i]
             if f is None or c[i] is None: continue
             g = "Molto basso (10 %)" if f <= b else "Molto alto (10 %)" if f >= a else "Normale"
@@ -136,23 +140,26 @@ def main():
         for x in v[a:b]: picco = max(picco, x); calo = min(calo, x / picco - 1)
         return v[b - 1] / v[a] - 1, calo
     print("\n2) FILTRO SUL BOT GIORNALIERO (spot): non comprare quando il funding della moneta e' troppo alto")
-    anni = sorted({time.gmtime(t).tm_year for t in giorni[55:]})
-    print(f"{'':3}{'':30}{'Prova':>15}{'Verifica':>15}{'Capitale':>10}" + "".join(f"{a:>8}" for a in anni))
+    a0 = max(55, inizio_f)
+    mesi = sorted({(time.gmtime(t).tm_year, time.gmtime(t).tm_mon) for t in giorni[a0:]})[::2]
+    print(f"   Periodo con funding: dal {data(giorni[a0])}. Rendimento a bimestri sotto.")
+    print(f"{'':3}{'':30}{'Prova':>15}{'Verifica':>15}{'Capitale':>10}" + "".join(f"{f'{a % 100:02d}/{m:02d}':>8}" for a, m in mesi))
     base = None
     for nome, idx in (("Bot attuale (nessun filtro)", None), ("Filtro: funding nel 20 % alto", 1), ("Filtro: funding nel 10 % alto", 2)):
         v = bot(idx)
-        p, q = stat(v, 55, taglio + 1), stat(v, taglio, len(v))
-        cap = v[-1] / v[55]
+        p, q = stat(v, a0, taglio + 1), stat(v, taglio, len(v))
+        cap = v[-1] / v[a0]
         celle = ""
-        for a in anni:
-            idx_a = [i for i in range(55, len(giorni)) if time.gmtime(giorni[i]).tm_year == a]
-            g = v[idx_a[-1]] / v[max(idx_a[0] - 1, 55)] - 1
+        for k, (a, m) in enumerate(mesi):
+            inizio_b = next(i for i in range(a0, len(giorni)) if (time.gmtime(giorni[i]).tm_year, time.gmtime(giorni[i]).tm_mon) == (a, m))
+            fine_b = next((i for i in range(a0, len(giorni)) if (time.gmtime(giorni[i]).tm_year, time.gmtime(giorni[i]).tm_mon) == mesi[k + 1]), len(giorni)) if k + 1 < len(mesi) else len(giorni)
+            g = v[fine_b - 1] / v[max(inizio_b - 1, a0)] - 1
             celle += f"{g * 100:>+7.0f}%"
         sem = "  " if base is None else ("🟢" if p[0] > base[0][0] and q[0] > base[1][0] else "🔴")
         if base is None: base = (p, q)
         print(f"{sem} {nome:30}{f'{p[0] * 100:+.0f}%/{p[1] * 100:.0f}%':>15}{f'{q[0] * 100:+.0f}%/{q[1] * 100:.0f}%':>15}{f'x{cap:.2f}'.replace('.', ','):>10}{celle}")
     print("""
-Prova / Verifica (parte 2): rendimento totale del periodo / calo massimo.   Anni: rendimento dell'anno.
+Prova / Verifica (parte 2): rendimento totale del periodo / calo massimo.   Colonne: rendimento di ogni bimestre.
 🟢 il filtro migliora il bot sia in prova sia in verifica   🔴 no
 Parte 1: se dopo il funding "molto alto" i rendimenti sono piu' bassi del "normale" in entrambi i periodi,
 il funding estremo segnala un mercato fragile.""")
