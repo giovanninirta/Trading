@@ -1,19 +1,61 @@
-### python portafoglio_rottura_rev1.py
+### python misuratore_trendline_rev1.py
+XBT: 7310 segnali
+ETH: 7178 segnali
+SOL: 6936 segnali
+XRP: 7187 segnali
+ADA: 7132 segnali
+DOGE: 7075 segnali
+LTC: 7239 segnali
+LINK: 7013 segnali
+AVAX: 7120 segnali
+DOT: 7095 segnali
+BCH: 7214 segnali
+ATOM: 7112 segnali
+UNI: 7233 segnali
+XLM: 7394 segnali
+ETC: 7244 segnali
+FIL: 7234 segnali
+AAVE: 7148 segnali
+ALGO: 7215 segnali
+TRX: 7745 segnali
+NEAR: 7158 segnali
+APE: 7098 segnali
+SAND: 7313 segnali
+MANA: 7318 segnali
+AXS: 6947 segnali
+CRV: 6923 segnali
+COMP: 7414 segnali
+OP: 7132 segnali
+ARB: 5873 segnali
+INJ: 5744 segnali
+XTZ: 7370 segnali
 
-30 monete, candele da 4 ore, 2210 segnali di ingresso.
+CANDELE DA 1 ORA: 30 monete, 4.5 anni
+   Segnale               Uscita  Verso        N  Vinte  R prova  R verifica
+🔴 Rottura orizzontale   2R      long     11105    36%    -0.12       -0.07
+🔴 Rottura orizzontale   2R      short    11417    37%    -0.09       -0.09
+🔴 Rottura obliqua       2R      long      8291    34%    -0.09       -0.19
+🔴 Rottura obliqua       2R      short     8693    35%    -0.09       -0.11
+🔴 Rimbalzo orizzontale  2R      long      1532    32%    -0.20       -0.22
+🔴 Rimbalzo orizzontale  2R      short     1447    35%    -0.14       -0.06
+🔴 Rimbalzo obliquo      2R      long      2428    31%    -0.14       -0.27
+🔴 Rimbalzo obliquo      2R      short     2392    36%    -0.16       +0.01
+   Ingresso a caso       2R      long     72296    34%    -0.10       -0.13
+   Ingresso a caso       2R      short    86508    37%    -0.02       -0.02
+🟢 Rottura orizzontale   TREND   long     11105    21%    +0.12       +0.40
+🟢 Rottura orizzontale   TREND   short    11417    22%    +0.18       +0.05
+🔴 Rottura obliqua       TREND   long      8291    20%    +0.05       -0.17
+🔴 Rottura obliqua       TREND   short     8693    21%    -0.01       -0.13
+🔴 Rimbalzo orizzontale  TREND   long      1532    24%    -0.05       +0.37
+🔴 Rimbalzo orizzontale  TREND   short     1447    26%    -0.19       +0.13
+🔴 Rimbalzo obliquo      TREND   long      2428    22%    -0.06       -0.31
+🔴 Rimbalzo obliquo      TREND   short     2392    25%    -0.15       +0.07
+   Ingresso a caso       TREND   long     72296    22%    +0.05       -0.06
+   Ingresso a caso       TREND   short    86508    25%    +0.11       -0.05
 
-GUADAGNO ANNO PER ANNO
-                                          2022     2023     2024     2025     2026   Capitale  Calo max  Operaz.  Vinte
-   Tenere le monete                      ▼-32%   ▲+124%    ▲+51%    ▼-55%    ▼-35%      x0,68      -81%
-   Rischio 0,5 %, esposizione max 1x     ▼-13%    ▲+75%    ▲+16%    ▼-27%     ▲+9%      x1,41      -45%     1023    21%
-   Rischio 1,0 %, esposizione max 1x     ▼-39%    ▲+90%     ▲+4%    ▼-23%     ▲+5%      x0,97      -58%      695    21%
-   Rischio 1,0 %, esposizione max 2x     ▼-34%   ▲+144%    ▲+33%    ▼-51%    ▲+12%      x1,16      -73%     1101    20%
-   Rischio 2,0 %, esposizione max 1x     ▼-39%    ▲+81%    ▲+14%    ▼-36%    ▲+10%      x0,89      -66%      480    21%
-   Rischio 2,0 %, esposizione max 2x     ▼-65%   ▲+153%    ▲+12%    ▼-49%     ▲+3%      x0,52      -83%      759    22%
-
-Il primo anno (2022) parte a meta' anno e l'ultimo (2026) e' in corso.
-Capitale: quante volte il capitale iniziale.   Calo max: discesa piu' ampia dal picco del conto.
-Rischio: quanto si perde, in % del conto, se un'operazione tocca lo stop.
-Esposizione max: valore totale delle posizioni aperte rispetto al conto (2x = leva fino a 2).
-Costi, funding e aperture oltre lo stop inclusi. Dati passati: non e' una previsione.
+N: operazioni.   R: risultato medio per operazione in multipli del rischio, costi e funding inclusi
+(+0,10 con rischio 1 % = +0,1 % del capitale per operazione).   Prova: primo 60 % dei dati, verifica: ultimo 40 %.
+🟢 positivo in prova e in verifica, abbastanza casi e troppo netto per essere fortuna
+🟡 positivo in entrambi ma non dimostrato   🔴 negativo in almeno un periodo
+Ogni segnale deve battere "Ingresso a caso" nello stesso verso e con la stessa uscita.
 
