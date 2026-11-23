@@ -1,0 +1,23 @@
+### python misuratore_funding_rev1.py
+
+30 monete con prezzi e funding. Funding BTC dal 2025-11-19 al 2026-11-23.
+Funding giornaliero BTC in % annuo: mediana +3.3 %, 10 % piu' basso sotto -3.5 %, 10 % piu' alto sopra +10.9 %
+
+1) COSA SUCCEDE DOPO UN FUNDING ESTREMO (rendimento medio della moneta, tutte le monete insieme)
+   Funding ultimi 3 giorni      Casi  1 giorno  3 giorni  7 giorni        Casi  1 giorno  3 giorni  7 giorni
+                                 ------------- PROVA -------------          ----------- VERIFICA -----------
+   Molto basso (10 %)              0    +0.00%    +0.00%    +0.00%            0    +0.00%    +0.00%    +0.00%
+   Normale                         0    +0.00%    +0.00%    +0.00%            0    +0.00%    +0.00%    +0.00%
+   Molto alto (10 %)               0    +0.00%    +0.00%    +0.00%            0    +0.00%    +0.00%    +0.00%
+
+2) FILTRO SUL BOT GIORNALIERO (spot): non comprare quando il funding della moneta e' troppo alto
+                                           Prova       Verifica  Capitale    2022    2023    2024    2025    2026
+   Bot attuale (nessun filtro)        +124%/-29%      -17%/-30%     x1,86    -10%    +68%    +51%    -20%     +1%
+🔴 Filtro: funding nel 20 % alto      +124%/-29%      -17%/-30%     x1,86    -10%    +68%    +51%    -20%     +1%
+🔴 Filtro: funding nel 10 % alto      +124%/-29%      -17%/-30%     x1,86    -10%    +68%    +51%    -20%     +1%
+
+Prova / Verifica (parte 2): rendimento totale del periodo / calo massimo.   Anni: rendimento dell'anno.
+🟢 il filtro migliora il bot sia in prova sia in verifica   🔴 no
+Parte 1: se dopo il funding "molto alto" i rendimenti sono piu' bassi del "normale" in entrambi i periodi,
+il funding estremo segnala un mercato fragile.
+
