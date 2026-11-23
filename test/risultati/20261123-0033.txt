@@ -1,0 +1,72 @@
+### python misuratore_trend_rev3.py --robustezza --candele 4 --costo 0.0007
+10 monete, 9698 candele da 4 h. Solo long, costo 0,07 % per ordine.
+
+Canale ingresso/uscita        Primi 60 %     Ultimi 40 %  Capitale   A caso  Investito  Operaz.
+   Tenere le 10 monete     +60 % / -51 %   -43 % / -74 %    x 1,29               100 %        -
+🟢 20 / 5 candele 4h       +28 % / -25 %   -12 % / -33 %    x 1,53   x 1,27       24 %     2803
+🔴 20 / 7 candele 4h       +28 % / -31 %   -21 % / -42 %    x 1,27   x 1,32       29 %     2451
+🟢 20 / 10 candele 4h      +43 % / -29 %   -19 % / -40 %    x 1,76   x 1,36       35 %     2080
+🟢 30 / 7 candele 4h       +29 % / -29 %   -17 % / -39 %    x 1,40   x 1,26       23 %     1905
+🟢 30 / 11 candele 4h      +43 % / -28 %   -17 % / -41 %    x 1,85   x 1,32       29 %     1555
+🟢 30 / 15 candele 4h      +44 % / -28 %   -21 % / -49 %    x 1,72   x 1,36       34 %     1388
+🟢 40 / 10 candele 4h      +39 % / -25 %    -4 % / -33 %    x 2,22   x 1,27       24 %     1343
+🟢 40 / 15 candele 4h      +38 % / -27 %   -11 % / -45 %    x 1,91   x 1,32       29 %     1163
+🟢 40 / 20 candele 4h      +41 % / -26 %   -18 % / -50 %    x 1,73   x 1,36       34 %     1044
+🟢 55 / 13 candele 4h      +39 % / -23 %    -5 % / -36 %    x 2,16   x 1,26       23 %     1005
+🟢 55 / 20 candele 4h      +39 % / -23 %   -12 % / -45 %    x 1,91   x 1,31       29 %      863
+🟢 55 / 27 candele 4h      +34 % / -28 %   -13 % / -44 %    x 1,71   x 1,35       34 %      767
+🟢 70 / 17 candele 4h      +37 % / -25 %    -6 % / -43 %    x 2,07   x 1,26       23 %      790
+🟢 70 / 25 candele 4h      +34 % / -28 %   -10 % / -43 %    x 1,79   x 1,31       28 %      685
+🟢 70 / 35 candele 4h      +44 % / -28 %   -13 % / -43 %    x 2,02   x 1,36       34 %      591
+🟢 100 / 25 candele 4h     +31 % / -25 %    -1 % / -37 %    x 1,98   x 1,26       23 %      545
+🟢 100 / 36 candele 4h     +45 % / -26 %    -6 % / -38 %    x 2,35   x 1,32       29 %      463
+🟢 100 / 50 candele 4h     +48 % / -30 %    -9 % / -37 %    x 2,37   x 1,36       34 %      401
+🟢 150 / 37 candele 4h     +49 % / -22 %    -7 % / -36 %    x 2,50   x 1,26       23 %      354
+🟢 150 / 55 candele 4h     +53 % / -25 %    -9 % / -36 %    x 2,56   x 1,31       29 %      299
+🟢 150 / 75 candele 4h     +49 % / -31 %    -8 % / -40 %    x 2,47   x 1,36       34 %      264
+
+RISULTATO: 20 varianti su 21 verdi, 0 gialle, 1 rosse.
+Caselle dei periodi: rendimento annuo / calo massimo.   Capitale: quante volte il capitale iniziale, su tutto il periodo.
+Investito: per quanta parte del tempo la strategia e' dentro il mercato.
+A caso: il capitale di chi tiene sempre investita quella stessa quota, senza scegliere il momento.
+        E' il confronto onesto: stare fuori meta' del tempo riduce i cali comunque, anche senza alcuna abilita'.
+🟢 batte sia il tenere tutto fermo sia l'investimento "a caso"   🟡 batte solo "a caso" (sceglie bene i momenti)
+🔴 non batte nemmeno "a caso": nessuna capacita' di scegliere il momento
+Se verde e giallo coprono una zona ampia di varianti vicine, il risultato e' solido. Se e' una riga sola, e' un caso.
+
+### python misuratore_trend_rev3.py --robustezza --candele 1 --costo 0.0007
+10 monete, 38792 candele da 1 h. Solo long, costo 0,07 % per ordine.
+
+Canale ingresso/uscita        Primi 60 %     Ultimi 40 %  Capitale   A caso  Investito  Operaz.
+   Tenere le 10 monete     +59 % / -52 %   -45 % / -74 %    x 1,21               100 %        -
+🔴 20 / 5 ore              -31 % / -68 %   -20 % / -40 %    x 0,25   x 1,26       25 %    11710
+🔴 20 / 7 ore              -27 % / -64 %   -21 % / -48 %    x 0,29   x 1,30       30 %    10142
+🔴 20 / 10 ore             -19 % / -57 %   -23 % / -53 %    x 0,36   x 1,34       36 %     8731
+🔴 30 / 7 ore              -21 % / -59 %   -18 % / -43 %    x 0,37   x 1,25       23 %     7929
+🔴 30 / 11 ore             -14 % / -50 %   -18 % / -47 %    x 0,47   x 1,30       30 %     6549
+🔴 30 / 15 ore              -5 % / -47 %   -24 % / -49 %    x 0,54   x 1,34       35 %     5718
+🔴 40 / 10 ore             -10 % / -46 %   -13 % / -44 %    x 0,59   x 1,26       24 %     5792
+🔴 40 / 15 ore              -1 % / -41 %   -20 % / -45 %    x 0,66   x 1,30       30 %     4867
+🔴 40 / 20 ore             +10 % / -33 %   -22 % / -47 %    x 0,84   x 1,33       34 %     4295
+🔴 55 / 13 ore              -3 % / -45 %   -14 % / -42 %    x 0,71   x 1,25       23 %     4324
+🔴 55 / 20 ore             +13 % / -34 %   -19 % / -45 %    x 0,96   x 1,29       29 %     3583
+🔴 55 / 27 ore             +23 % / -42 %   -27 % / -51 %    x 0,98   x 1,33       34 %     3140
+🔴 70 / 17 ore              +7 % / -36 %   -15 % / -38 %    x 0,90   x 1,25       23 %     3364
+🔴 70 / 25 ore             +19 % / -38 %   -20 % / -43 %    x 1,07   x 1,29       29 %     2832
+🟢 70 / 35 ore             +37 % / -32 %   -24 % / -45 %    x 1,43   x 1,34       35 %     2424
+🔴 100 / 25 ore            +24 % / -29 %   -18 % / -40 %    x 1,25   x 1,25       23 %     2267
+🟢 100 / 36 ore            +41 % / -28 %   -23 % / -45 %    x 1,57   x 1,29       29 %     1922
+🟢 100 / 50 ore            +42 % / -28 %   -25 % / -47 %    x 1,52   x 1,33       34 %     1684
+🟢 150 / 37 ore            +43 % / -25 %    -7 % / -36 %    x 2,24   x 1,25       23 %     1435
+🟢 150 / 55 ore            +46 % / -24 %   -11 % / -41 %    x 2,21   x 1,29       29 %     1230
+🟢 150 / 75 ore            +45 % / -25 %   -21 % / -52 %    x 1,75   x 1,33       33 %     1107
+
+RISULTATO: 6 varianti su 21 verdi, 0 gialle, 15 rosse.
+Caselle dei periodi: rendimento annuo / calo massimo.   Capitale: quante volte il capitale iniziale, su tutto il periodo.
+Investito: per quanta parte del tempo la strategia e' dentro il mercato.
+A caso: il capitale di chi tiene sempre investita quella stessa quota, senza scegliere il momento.
+        E' il confronto onesto: stare fuori meta' del tempo riduce i cali comunque, anche senza alcuna abilita'.
+🟢 batte sia il tenere tutto fermo sia l'investimento "a caso"   🟡 batte solo "a caso" (sceglie bene i momenti)
+🔴 non batte nemmeno "a caso": nessuna capacita' di scegliere il momento
+Se verde e giallo coprono una zona ampia di varianti vicine, il risultato e' solido. Se e' una riga sola, e' un caso.
+
