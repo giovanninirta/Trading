@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-portafoglio_rottura_rev1.py
+misuratore_trendline_rev1.py
