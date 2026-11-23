@@ -1,80 +1,51 @@
-### python misuratore_accumulo_btc_rev3.py
-30 monete caricate. Tutto in BTC: x1,00 = come tenere BTC fermo.
+### python misuratore_anticipo_rev1.py
 
-Legenda: Prova/Verifica = BTC guadagnati o persi nel periodo / calo massimo in BTC.
-Anni = BTC guadagnati o persi in quell'anno. Scambi = operazioni all'anno.
-🟢 = ha guadagnato BTC sia in prova sia in verifica.
+CANDELE DA 1 ORA: 30 monete, 4.5 anni. Verifica dal 2025-02-03
+   Strategia                 Uscita    Verso   N/anno Vinte  R prova R verif.   2022   2023   2024   2025   2026
+🔴 Compressione              2R        long       487   33%    -0.19    -0.13  -0.23  -0.21  -0.20  +0.02  -0.31
+🔴 Compressione              2R        short      749   40%    -0.08    +0.10  +0.11  -0.15  -0.07  -0.00  +0.17
+🔴 Compressione              TREND     long       487   21%    -0.18    -0.11  -0.38  -0.48  +0.01  -0.05  -0.08
+🟡 Compressione              TREND     short      749   25%    +0.14    +0.14  +0.35  +0.08  +0.12  +0.16  +0.09
+🔴 Caccia agli stop          2R        long      2008   33%    -0.15    -0.21  -0.13  -0.03  -0.24  -0.17  -0.26
+🔴 Caccia agli stop          2R        short     1840   37%    -0.10    -0.04  -0.02  -0.04  -0.17  -0.07  -0.02
+🔴 Caccia agli stop          TREND     long      2008   22%    +0.07    -0.16  +0.06  +0.24  -0.05  -0.19  -0.11
+🔴 Caccia agli stop          TREND     short     1840   24%    -0.06    +0.05  +0.22  -0.10  -0.16  +0.06  +0.08
+🟢 BTC guida: ritardatarie   4 candele long       364   50%    +0.92    +0.13  +2.05  +0.99  +0.27  -0.01  +0.28
+🟢 BTC guida: ritardatarie   4 candele short      226   51%    +0.95    +0.22  +1.74  +0.89  +0.34  +0.56  -0.01
+🟢 BTC guida: gia' partite   4 candele long      1492   47%    +0.24    +0.18  +0.34  +0.25  +0.24  +0.25  +0.05
+🟡 BTC guida: gia' partite   4 candele short     1841   40%    +0.01    +0.03  +0.36  -0.21  -0.02  +0.23  -0.16
+   Ingresso a caso           2R        long     16010   34%    -0.10    -0.13  -0.15  -0.08  -0.10  -0.11  -0.15
+   Ingresso a caso           2R        short    19077   37%    -0.02    -0.02  -0.01  -0.11  +0.04  -0.04  +0.02
+   Ingresso a caso           TREND     long     16010   22%    +0.05    -0.06  -0.15  +0.14  +0.05  -0.10  -0.03
+   Ingresso a caso           TREND     short    19077   24%    +0.08    -0.05  +0.21  +0.01  +0.04  -0.06  +0.01
+   Ingresso a caso           4 candele long     15586   42%    -0.03    -0.09  -0.01  -0.01  -0.05  -0.09  -0.09
+   Ingresso a caso           4 candele short    18272   42%    -0.02    -0.05  +0.06  -0.05  -0.04  -0.05  -0.05
 
-=== CANDELE 1H  (2022-05-25 -> 2026-11-22) ===
-   Bot                             Prova     Verifica  Finale  a 0,80%  Scambi   2022   2023   2024   2025   2026
-   Tenere BTC                    +0%/+0%      +0%/+0%   x1,00                     +0%    +0%    +0%    +0%    +0%
-   Tenere le altre monete      -46%/-67%    -42%/-50%   x0,31                     +6%    -7%   -31%   -52%    -5%
-   A BTC<->euro 20/10         -99%/-100%    -92%/-94%   x0,00    x0,00     409   -43%   -89%   -89%   -88%   -53%
-   B alt contro BTC 20/10    -100%/-100%  -100%/-100%   x0,00    x0,00    7143   -96%   -99%   -97%   -96%   -94%
-   C A+B insieme 20/10       -100%/-100%  -100%/-100%   x0,00    x0,00    9762   -98%  -100%  -100%  -100%   -99%
-   A BTC<->euro 55/20          -92%/-96%    -59%/-73%   x0,03    x0,00     172    +6%   -70%   -71%   -55%   -21%
-   B alt contro BTC 55/20      -99%/-99%    -90%/-91%   x0,00    x0,00    3027   -66%   -81%   -76%   -76%   -64%
-   C A+B insieme 55/20       -100%/-100%    -98%/-99%   x0,00    x0,00    4216   -71%   -95%   -94%   -91%   -85%
-   A BTC<->euro 100/50         -62%/-77%    -25%/-54%   x0,28    x0,07      75   +26%   -49%   -33%   -43%   +14%
-   B alt contro BTC 100/50     -83%/-90%    -82%/-83%   x0,03    x0,00    1366   -41%   -44%   -41%   -67%   -49%
-   C A+B insieme 100/50        -93%/-96%    -92%/-93%   x0,01    x0,00    1854   -32%   -69%   -55%   -83%   -64%
+CANDELE DA 4 ORE: 30 monete, 4.5 anni. Verifica dal 2025-02-03
+   Strategia                 Uscita    Verso   N/anno Vinte  R prova R verif.   2022   2023   2024   2025   2026
+🔴 Compressione              2R        long       115   33%    -0.24    -0.01  -0.89  +0.09  -0.24  +0.03  -0.14
+🔴 Compressione              2R        short      290   38%    +0.19    -0.17  +0.47  +0.28  -0.22  -0.12  -0.08
+🔴 Compressione              TREND     long       115   21%    -0.35    +0.12  -0.96  -0.06  -0.33  +0.02  +0.10
+🔴 Compressione              TREND     short      290   24%    +0.42    -0.03  +0.64  +0.73  -0.01  -0.47  +0.63
+🔴 Caccia agli stop          2R        long       545   29%    -0.19    -0.26  -0.00  -0.11  -0.34  -0.24  -0.25
+🔴 Caccia agli stop          2R        short      472   34%    -0.12    -0.02  +0.09  -0.19  -0.10  +0.06  -0.10
+🔴 Caccia agli stop          TREND     long       545   18%    +0.03    -0.15  +0.49  -0.04  -0.04  -0.14  -0.13
+🔴 Caccia agli stop          TREND     short      472   21%    -0.13    +0.04  +0.36  -0.29  -0.12  +0.23  -0.15
+🔴 BTC guida: ritardatarie   4 candele long        89   45%    +0.12    -0.10  +1.08  +0.10  -0.16  -0.28  +0.12
+🔴 BTC guida: ritardatarie   4 candele short       39   30%    -0.36    -0.08  +1.14  -0.09  -0.56  -0.03  -0.02
+🟢 BTC guida: gia' partite   4 candele long       312   50%    +0.20    +0.22  +0.57  +0.15  +0.22  +0.19  +0.17
+🔴 BTC guida: gia' partite   4 candele short      391   43%    -0.05    -0.11  +1.02  -0.17  -0.10  -0.04  -0.25
+   Ingresso a caso           2R        long      3575   32%    -0.10    -0.12  -0.32  -0.00  -0.13  -0.17  -0.11
+   Ingresso a caso           2R        short     5031   37%    +0.02    +0.05  +0.08  -0.01  -0.02  -0.00  +0.14
+   Ingresso a caso           TREND     long      3575   22%    +0.32    -0.07  -0.64  +0.35  +0.49  -0.09  -0.10
+   Ingresso a caso           TREND     short     5031   28%    -0.02    +0.10  +0.02  +0.07  -0.13  -0.17  +0.43
+   Ingresso a caso           4 candele long      3546   43%    -0.03    -0.07  -0.13  +0.00  -0.05  -0.05  -0.09
+   Ingresso a caso           4 candele short     4771   46%    +0.01    -0.00  +0.06  -0.03  +0.00  +0.01  +0.00
 
-=== CANDELE 2H  (2022-05-25 -> 2026-11-22) ===
-   Bot                             Prova     Verifica  Finale  a 0,80%  Scambi   2022   2023   2024   2025   2026
-   Tenere BTC                    +0%/+0%      +0%/+0%   x1,00                     +0%    +0%    +0%    +0%    +0%
-   Tenere le altre monete      -50%/-68%    -43%/-51%   x0,29                     +4%    -9%   -32%   -53%    -6%
-   A BTC<->euro 20/10          -94%/-97%    -60%/-74%   x0,02    x0,00     203    +7%   -78%   -73%   -57%   -20%
-   B alt contro BTC 20/10      -99%/-99%    -95%/-95%   x0,00    x0,00    3476   -74%   -81%   -84%   -83%   -75%
-   C A+B insieme 20/10       -100%/-100%    -99%/-99%   x0,00    x0,00    4746   -79%   -96%   -95%   -95%   -90%
-   A BTC<->euro 55/20          -77%/-85%    -36%/-58%   x0,15    x0,03      84   +18%   -54%   -52%   -48%    +6%
-   B alt contro BTC 55/20      -81%/-89%    -79%/-80%   x0,04    x0,00    1471   -37%   -49%   -39%   -67%   -40%
-   C A+B insieme 55/20         -96%/-97%    -92%/-93%   x0,00    x0,00    2041   -37%   -77%   -63%   -84%   -57%
-   A BTC<->euro 100/50         -60%/-76%    +34%/-33%   x0,54    x0,27      39   +14%   -39%   -35%    -7%   +30%
-   B alt contro BTC 100/50     -55%/-73%    -65%/-65%   x0,16    x0,05     656   -13%    -6%   -35%   -58%   -27%
-   C A+B insieme 100/50        -78%/-89%    -71%/-74%   x0,06    x0,01     891    -8%   -41%   -48%   -64%   -37%
-
-=== CANDELE 4H  (2022-05-25 -> 2026-11-22) ===
-   Bot                             Prova     Verifica  Finale  a 0,80%  Scambi   2022   2023   2024   2025   2026
-   Tenere BTC                    +0%/+0%      +0%/+0%   x1,00                     +0%    +0%    +0%    +0%    +0%
-   Tenere le altre monete      -53%/-69%    -43%/-52%   x0,27                     +2%   -10%   -33%   -53%    -6%
-   A BTC<->euro 20/10          -70%/-82%    -39%/-59%   x0,18    x0,03      98   +39%   -58%   -43%   -42%    -5%
-   B alt contro BTC 20/10      -85%/-89%    -84%/-85%   x0,02    x0,00    1675   -38%   -44%   -53%   -71%   -48%
-   C A+B insieme 20/10         -96%/-97%    -94%/-95%   x0,00    x0,00    2301   -36%   -73%   -71%   -85%   -68%
-   A BTC<->euro 55/20          -57%/-75%    +21%/-39%   x0,51    x0,25      41   +21%   -46%   -28%    -5%   +14%
-   B alt contro BTC 55/20      -46%/-72%    -71%/-71%   x0,16    x0,05     719    -5%    -9%   -30%   -62%   -30%
-   C A+B insieme 55/20         -76%/-89%    -79%/-81%   x0,05    x0,00     988    +6%   -50%   -44%   -69%   -45%
-   A BTC<->euro 100/50         -52%/-72%    +59%/-37%   x0,77    x0,54      20    +6%   -21%   -27%   -19%   +56%
-   B alt contro BTC 100/50     -35%/-60%    -56%/-57%   x0,28    x0,16     329   +14%   +12%   -43%   -46%   -28%
-   C A+B insieme 100/50        -43%/-69%    -61%/-66%   x0,22    x0,08     440   +40%    -5%   -46%   -60%   -22%
-
-=== CANDELE 12H  (2022-05-25 -> 2026-11-22) ===
-   Bot                             Prova     Verifica  Finale  a 0,80%  Scambi   2022   2023   2024   2025   2026
-   Tenere BTC                    +0%/+0%      +0%/+0%   x1,00                     +0%    +0%    +0%    +0%    +0%
-   Tenere le altre monete      -57%/-70%    -42%/-52%   x0,25                     -1%   -12%   -33%   -54%    -7%
-   A BTC<->euro 20/10          -73%/-83%    +34%/-37%   x0,36    x0,19      35    +1%   -48%   -41%    -5%   +23%
-   B alt contro BTC 20/10      -59%/-71%    -64%/-64%   x0,15    x0,06     543    -4%   -14%   -40%   -60%   -26%
-   C A+B insieme 20/10         -80%/-88%    -70%/-72%   x0,06    x0,01     738   +20%   -47%   -59%   -65%   -36%
-   A BTC<->euro 55/20          -34%/-63%    +58%/-32%   x1,04    x0,82      13   +51%   -30%   -30%    +4%   +35%
-   B alt contro BTC 55/20      -24%/-66%    -28%/-37%   x0,54    x0,36     228    +4%   -12%   -11%   -24%   -12%
-   C A+B insieme 55/20         -33%/-76%    -14%/-46%   x0,58    x0,27     310   +49%   -35%   -20%   -35%   +14%
-   A BTC<->euro 100/50         -40%/-61%    +30%/-40%   x0,77    x0,67       8   +30%   -31%   -22%   -20%   +37%
-   B alt contro BTC 100/50     -13%/-52%    -40%/-48%   x0,52    x0,44     102   -10%   +25%   -22%   -33%   -12%
-   C A+B insieme 100/50        -32%/-66%    -34%/-58%   x0,45    x0,31     139   +14%    -9%   -27%   -45%    +6%
-
-=== CANDELE 1 GIORNO  (2022-05-25 -> 2026-11-22) ===
-   Bot                             Prova     Verifica  Finale  a 0,80%  Scambi   2022   2023   2024   2025   2026
-   Tenere BTC                    +0%/+0%      +0%/+0%   x1,00                     +0%    +0%    +0%    +0%    +0%
-   Tenere le altre monete      -55%/-70%    -45%/-52%   x0,25                     -2%   -12%   -33%   -54%    -7%
-   A BTC<->euro 20/10          -51%/-68%    +79%/-33%   x0,87    x0,66      16   +14%   -30%   -31%   +15%   +37%
-   B alt contro BTC 20/10      -23%/-55%    -42%/-45%   x0,45    x0,28     269   +20%    +7%   -34%   -43%    -8%
-   C A+B insieme 20/10         -41%/-70%    -33%/-52%   x0,39    x0,17     361   +40%   -17%   -39%   -49%    +9%
-   A BTC<->euro 55/20          -26%/-56%    +30%/-43%   x0,96    x0,83       8   +52%   -33%   -21%    -9%   +32%
-   B alt contro BTC 55/20       -3%/-50%    -47%/-48%   x0,51    x0,42     109    -9%   +24%   -11%   -37%   -19%
-   C A+B insieme 55/20         -13%/-61%    -38%/-60%   x0,54    x0,37     149   +26%    -7%   -17%   -44%    -2%
-   A BTC<->euro 100/50         -44%/-71%    +27%/-41%   x0,72    x0,67       4   +76%   -56%   -27%    -7%   +37%
-   B alt contro BTC 100/50      -7%/-43%    -31%/-34%   x0,64    x0,59      45    -6%   +28%   -22%   -27%    -7%
-   C A+B insieme 100/50        -27%/-64%    -19%/-48%   x0,59    x0,50      61   +48%   -29%   -30%   -30%   +14%
-
-Come leggere: il bot serve se la riga e' verde E i numeri restano positivi anche a 0,80 %
-e su piu' canali vicini. Un solo verde isolato e' quasi sempre fortuna.
+N/anno: operazioni all'anno su tutte le monete.  R: risultato medio per operazione in multipli del rischio,
+costi e funding inclusi (+0,10 R con rischio 1 % = +0,1 % del capitale per operazione).
+Colonne anni: R medio delle operazioni aperte in quell'anno.
+🟢 positivo in prova e in verifica (> +0,05 R), abbastanza casi e troppo netto per essere fortuna
+🟡 positivo in entrambi ma non dimostrato   🔴 negativo in almeno un periodo
+Per valere qualcosa una strategia deve battere l'"Ingresso a caso" con la stessa uscita.
 
