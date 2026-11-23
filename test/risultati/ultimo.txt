@@ -1,44 +1,34 @@
-### python misuratore_etf_rev1.py
-SPY: 8512 giorni da Yahoo
-QQQ: 6970 giorni da Yahoo
-IWM: 6662 giorni da Yahoo
-VGK: 5461 giorni da Yahoo
-EWJ: 7721 giorni da Yahoo
-EEM: 5941 giorni da Yahoo
-TLT: 6119 giorni da Yahoo
-IEF: 6119 giorni da Yahoo
-LQD: 6119 giorni da Yahoo
-TIP: 5777 giorni da Yahoo
-GLD: 5537 giorni da Yahoo
-SLV: 5175 giorni da Yahoo
-DBC: 5232 giorni da Yahoo
-USO: 5188 giorni da Yahoo
-VNQ: 5573 giorni da Yahoo
-UUP: 4965 giorni da Yahoo
+### python verifica_fortuna_rev1.py
 
-16 ETF, dal 1994-01-25 al 2026-11-20 (33 anni). Prova fino al 2013-10-02, poi verifica.
+30 monete, 1642 giorni (4.5 anni), 371 operazioni del bot vero
 
-                                           Prova         Verifica  Capitale   A caso  Investito  Oper./anno
-   Tenere tutti gli ETF           +4,2 % / -35 %   +6,5 % / -24 %    x 5,14               100 %           -
-   Tenere solo azioni USA (SPY)   +8,7 % / -55 %  +13,2 % / -34 %   x 26,05               100 %           -
-🔴 Canale 20/10                    +1,6 % / -7 %    +1,6 % / -9 %    x 1,68   x 1,74       32 %          68
-🟢 Canale 55/20                    +1,6 % / -8 %    +2,7 % / -6 %    x 1,93   x 1,68       30 %          31
-🟢 Canale 100/50                   +2,5 % / -8 %    +3,1 % / -7 %    x 2,41   x 1,85       35 %          14
-🟢 Canale 150/75                   +2,2 % / -9 %    +4,2 % / -8 %    x 2,62   x 1,87       36 %           9
-🟢 Canale 200/100                  +2,5 % / -8 %    +4,3 % / -8 %    x 2,79   x 1,89       37 %           7
-🟢 Media 200 giorni               +2,3 % / -10 %    +3,5 % / -9 %    x 2,43   x 2,23       47 %          49
+1) BOT VERO CONTRO 1.000 BOT A CASO (stesse operazioni, stesse durate, date a caso)
+   Periodo     Bot vero  Bot a caso: mediana  peggiore 5 %  migliore 5 %   Battuti
+🟢 Tutto         x 1,86               x 1,07        x 0,84        x 1,36      100%
+🟢 Prova         x 2,23               x 1,18        x 0,98        x 1,43      100%
+🔴 Verifica      x 0,83               x 0,91        x 0,79        x 1,04       15%
 
-ANNI DIFFICILI (rendimento dell'anno)
-                                   2008    2011    2015    2018    2020    2022
-   Tenere tutti gli ETF            -19%     +4%     -6%     -6%    +10%    -10%
-   Tenere solo azioni USA (SPY)    -37%     +2%     +1%     -5%    +18%    -18%
-   Canale 55/20                     +4%     -2%     -3%     -0%    +11%     -1%
-   Canale 100/50                    +3%     +2%     -2%     -0%     +6%     +2%
-   Media 200 giorni                 -2%     +1%     -5%     -2%    +10%     -5%
+2) QUANTO DIPENDE DALLE OPERAZIONI MIGLIORI (capitale finale togliendo le migliori)
+   Senza nessuna esclusione    x 1,86
+   Senza le 1 migliori         x 1,77
+   Senza le 3 migliori         x 1,61
+   Senza le 5 migliori         x 1,48
+   Senza le 10 migliori        x 1,25
+   Senza le 20 migliori        x 0,99
+   Le 5 migliori: INJ 2023-10 +310 %; XLM 2024-11 +298 %; SOL 2023-10 +253 %; AVAX 2023-10 +238 %; XRP 2024-11 +215 %
 
-Prova / Verifica: rendimento annuo / calo massimo dal picco.   Capitale: quante volte il capitale iniziale.
-A caso: chi tiene sempre investita la stessa quota media, senza scegliere il momento.
-🟢 batte "a caso" e ha cali piu' piccoli di "Tenere tutti gli ETF" in entrambi i periodi
-🟡 batte solo "a caso"   🔴 non batte nemmeno "a caso"
-La liquidita' ferma qui non rende: nella realta' renderebbe il tasso dei titoli a breve, a favore della strategia.
+3) ANNO PER ANNO
+   Anno         Bot   Tenere
+▼  2022        -10%     -34%
+▲  2023        +68%    +124%
+▲  2024        +51%     +50%
+▼  2025        -20%     -54%
+▲  2026         +1%     -37%
+
+MONETE: 25 su 30 in guadagno. Migliori: INJ +9.8 %, AVAX +8.2 %, SOL +7.7 %, XLM +7.7 %, NEAR +6.7 %. Peggiori: FIL -0.1 %, MANA -0.6 %, APE -0.8 %, ETC -0.8 %, LTC -1.0 %
+
+Battuti: quota dei 1.000 bot a caso che il bot vero supera.
+🟢 batte almeno il 95 %: sceglie davvero bene i momenti   🟡 tra 80 % e 95 %: indizio, non prova
+🔴 sotto l'80 %: il risultato e' compatibile con la fortuna
+Contributo delle monete: in % del capitale totale (ogni moneta ha 1/30 del capitale).
 
