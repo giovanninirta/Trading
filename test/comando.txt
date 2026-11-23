@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-misuratore_grid_media_rev1.py
+misuratore_combo_rev1.py
