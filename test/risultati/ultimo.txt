@@ -1,38 +1,39 @@
-### python misuratore_combo_rev1.py
+### python misuratore_ritest_rev1.py
 
-30 monete, candele da 4 ore, dal 2022-06-27 al 2026-11-22. Prova fino al 2025-02-17.
+CANDELE DA 4 ORE: 30 monete, 4.5 anni
+   Ingresso                Uscita  Verso       N  Vinte  R prova  R verifica  Annuo con 1 %
+🔴 Rottura + ritest        2R      long     1253    32%    -0.17       +0.01         -33.9%
+🔴 Rottura + ritest        2R      short    1378    37%    -0.00       +0.02          +1.4%
+🔴 Rottura senza ritest    2R      long     2172    35%    -0.09       +0.07         -22.0%
+🟡 Rottura senza ritest    2R      short    2424    39%    +0.09       +0.04         +43.1%
+   Ingresso a caso         2R      long    16758    32%    -0.10       -0.12        -401.0%
+   Ingresso a caso         2R      short   23342    37%    +0.01       +0.06        +153.1%
+🔴 Rottura + ritest        TREND   long     1253    20%    +0.30       -0.05         +55.5%
+🔴 Rottura + ritest        TREND   short    1378    24%    -0.00       -0.07          -6.6%
+🟢 Rottura senza ritest    TREND   long     2172    21%    +0.56       +0.28        +233.2%
+🔴 Rottura senza ritest    TREND   short    2424    24%    -0.02       -0.03         -14.7%
+   Ingresso a caso         TREND   long    16758    22%    +0.27       -0.06        +551.7%
+   Ingresso a caso         TREND   short   23342    28%    -0.03       +0.11        +161.3%
 
-1) ROBUSTEZZA DELLE BANDE (rendimento annuo / calo massimo)
-   Finestra / soglia        --------- senza filtro di trend ---------      ---------- con filtro di trend ----------
-                                   Prova       Verifica   Capitale                Prova       Verifica   Capitale
-   10 candele, 2,0 dev       🔴     -1%/-40%      -20%/-40%      x0,65       🔴     +4%/-15%       -8%/-17%      x0,95
-   10 candele, 2,5 dev       🔴     -0%/-26%       -6%/-19%      x0,89       🔴      +2%/-7%        -2%/-5%      x1,03
-   10 candele, 3,0 dev       🔴       +0%/0%         +0%/0%      x1,00       🔴       +0%/0%         +0%/0%      x1,00
-   20 candele, 2,0 dev       🔴     -7%/-48%       -0%/-28%      x0,82       🟢     +5%/-23%        +2%/-7%      x1,16
-   20 candele, 2,5 dev       🟢     +1%/-25%       +6%/-21%      x1,14       🟢     +5%/-17%        +1%/-4%      x1,16
-   20 candele, 3,0 dev       🟢     +2%/-22%       +5%/-15%      x1,13       🟢      +2%/-9%        +0%/-3%      x1,05
-   40 candele, 2,0 dev       🔴    -15%/-52%       -3%/-37%      x0,61       🟢     +3%/-16%        +4%/-6%      x1,15
-   40 candele, 2,5 dev       🔴    -10%/-45%       +3%/-28%      x0,80       🟢      +1%/-9%        +1%/-3%      x1,05
-   40 candele, 3,0 dev       🔴     -6%/-35%       -0%/-25%      x0,84       🟢      +0%/-6%        +0%/-2%      x1,01
-   Varianti in guadagno in entrambi i periodi: 8 su 18
+CANDELE GIORNALIERE: 30 monete, 4.5 anni
+   Ingresso                Uscita  Verso       N  Vinte  R prova  R verifica  Annuo con 1 %
+🔴 Rottura + ritest        2R      long      162    31%    +0.01       -0.33          -4.8%
+🟡 Rottura + ritest        2R      short     198    46%    +0.28       +0.32         +13.1%
+🔴 Rottura senza ritest    2R      long      279    32%    -0.10       -0.06          -5.4%
+🟡 Rottura senza ritest    2R      short     294    43%    +0.19       +0.20         +12.5%
+   Ingresso a caso         2R      long     1279    35%    +0.11       -0.20          -0.9%
+   Ingresso a caso         2R      short    2189    33%    -0.05       -0.12         -41.1%
+🔴 Rottura + ritest        TREND   long      162    22%    +1.22       -0.34         +19.9%
+🔴 Rottura + ritest        TREND   short     198    30%    -0.37       +0.45          -0.1%
+🔴 Rottura senza ritest    TREND   long      279    21%    +2.00       -0.46         +69.9%
+🔴 Rottura senza ritest    TREND   short     294    24%    -0.41       +0.03         -15.1%
+   Ingresso a caso         TREND   long     1279    25%    +0.67       -0.41         +77.7%
+   Ingresso a caso         TREND   short    2189    27%    -0.37       +0.00         -93.1%
 
-2) PORTAFOGLIO COMBINATO
-                                   Prova       Verifica   Capitale
-   Tenere le monete            +32%/-60%      -44%/-71%      x0,75
-   Trend 55/13                 +16%/-24%       -5%/-30%      x1,36
-   Bande 20 / 2,5               +1%/-25%       +6%/-21%      x1,14
-   COMBINATO 50 / 50           +10%/-19%       +2%/-17%      x1,33
-
-   Legame tra i mesi del trend e delle bande: +0.22   (+1 vanno insieme, 0 indipendenti, -1 opposti)
-
-ANNO PER ANNO
-                              2022     2023     2024     2025     2026
-   Tenere le monete          ▼-25%   ▲+128%    ▲+49%    ▼-55%    ▼-35%
-   Trend 55/13               ▼-17%    ▲+25%    ▲+49%    ▼-16%     ▲+4%
-   Bande 20 / 2,5            ▼-12%    ▲+17%     ▲+2%    ▲+12%     ▼-4%
-   COMBINATO 50 / 50         ▼-14%    ▲+23%    ▲+26%     ▼-1%     ▲+1%
-
-Caselle: rendimento annuo / calo massimo dal picco.   Capitale: quante volte il capitale iniziale.
-🟢 guadagna sia in prova sia in verifica   🔴 perde in almeno un periodo.   Il primo e l'ultimo anno sono parziali.
-Le bande sono robuste se il verde copre la maggior parte delle varianti vicine, non una sola.
+N: operazioni.   R: risultato medio per operazione in multipli del rischio, costi e funding inclusi.
+Annuo con 1 %: rendimento annuo approssimato rischiando l'1 % del capitale a operazione su 30 monete
+(somma dei risultati, senza contare le operazioni sovrapposte: e' un ordine di grandezza).
+🟢 positivo in prova e in verifica, abbastanza casi e troppo netto per essere fortuna
+🟡 positivo in entrambi ma non dimostrato   🔴 negativo in almeno un periodo
+Il confronto che conta: "Rottura + ritest" deve battere "Rottura senza ritest" e "Ingresso a caso".
 
