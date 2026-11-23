@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-misuratore_accumulo_btc_rev3.py
+misuratore_anticipo_rev1.py
