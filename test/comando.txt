@@ -1,3 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-misuratore_funding_rev1.py
-# rilancio sull anno di funding disponibile
+misuratore_accumulo_btc_rev3.py
