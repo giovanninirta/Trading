@@ -1,0 +1,19 @@
+### python portafoglio_rottura_rev1.py
+
+30 monete, candele da 4 ore, 2210 segnali di ingresso.
+
+GUADAGNO ANNO PER ANNO
+                                          2022     2023     2024     2025     2026   Capitale  Calo max  Operaz.  Vinte
+   Tenere le monete                      ▼-32%   ▲+124%    ▲+51%    ▼-55%    ▼-35%      x0,68      -81%
+   Rischio 0,5 %, esposizione max 1x     ▼-13%    ▲+75%    ▲+16%    ▼-27%     ▲+9%      x1,41      -45%     1023    21%
+   Rischio 1,0 %, esposizione max 1x     ▼-39%    ▲+90%     ▲+4%    ▼-23%     ▲+5%      x0,97      -58%      695    21%
+   Rischio 1,0 %, esposizione max 2x     ▼-34%   ▲+144%    ▲+33%    ▼-51%    ▲+12%      x1,16      -73%     1101    20%
+   Rischio 2,0 %, esposizione max 1x     ▼-39%    ▲+81%    ▲+14%    ▼-36%    ▲+10%      x0,89      -66%      480    21%
+   Rischio 2,0 %, esposizione max 2x     ▼-65%   ▲+153%    ▲+12%    ▼-49%     ▲+3%      x0,52      -83%      759    22%
+
+Il primo anno (2022) parte a meta' anno e l'ultimo (2026) e' in corso.
+Capitale: quante volte il capitale iniziale.   Calo max: discesa piu' ampia dal picco del conto.
+Rischio: quanto si perde, in % del conto, se un'operazione tocca lo stop.
+Esposizione max: valore totale delle posizioni aperte rispetto al conto (2x = leva fino a 2).
+Costi, funding e aperture oltre lo stop inclusi. Dati passati: non e' una previsione.
+

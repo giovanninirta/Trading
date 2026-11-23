@@ -1,39 +1,19 @@
-### python misuratore_ritest_rev1.py
+### python portafoglio_rottura_rev1.py
 
-CANDELE DA 4 ORE: 30 monete, 4.5 anni
-   Ingresso                Uscita  Verso       N  Vinte  R prova  R verifica  Annuo con 1 %
-🔴 Rottura + ritest        2R      long     1253    32%    -0.17       +0.01         -33.9%
-🔴 Rottura + ritest        2R      short    1378    37%    -0.00       +0.02          +1.4%
-🔴 Rottura senza ritest    2R      long     2172    35%    -0.09       +0.07         -22.0%
-🟡 Rottura senza ritest    2R      short    2424    39%    +0.09       +0.04         +43.1%
-   Ingresso a caso         2R      long    16758    32%    -0.10       -0.12        -401.0%
-   Ingresso a caso         2R      short   23342    37%    +0.01       +0.06        +153.1%
-🔴 Rottura + ritest        TREND   long     1253    20%    +0.30       -0.05         +55.5%
-🔴 Rottura + ritest        TREND   short    1378    24%    -0.00       -0.07          -6.6%
-🟢 Rottura senza ritest    TREND   long     2172    21%    +0.56       +0.28        +233.2%
-🔴 Rottura senza ritest    TREND   short    2424    24%    -0.02       -0.03         -14.7%
-   Ingresso a caso         TREND   long    16758    22%    +0.27       -0.06        +551.7%
-   Ingresso a caso         TREND   short   23342    28%    -0.03       +0.11        +161.3%
+30 monete, candele da 4 ore, 2210 segnali di ingresso.
 
-CANDELE GIORNALIERE: 30 monete, 4.5 anni
-   Ingresso                Uscita  Verso       N  Vinte  R prova  R verifica  Annuo con 1 %
-🔴 Rottura + ritest        2R      long      162    31%    +0.01       -0.33          -4.8%
-🟡 Rottura + ritest        2R      short     198    46%    +0.28       +0.32         +13.1%
-🔴 Rottura senza ritest    2R      long      279    32%    -0.10       -0.06          -5.4%
-🟡 Rottura senza ritest    2R      short     294    43%    +0.19       +0.20         +12.5%
-   Ingresso a caso         2R      long     1279    35%    +0.11       -0.20          -0.9%
-   Ingresso a caso         2R      short    2189    33%    -0.05       -0.12         -41.1%
-🔴 Rottura + ritest        TREND   long      162    22%    +1.22       -0.34         +19.9%
-🔴 Rottura + ritest        TREND   short     198    30%    -0.37       +0.45          -0.1%
-🔴 Rottura senza ritest    TREND   long      279    21%    +2.00       -0.46         +69.9%
-🔴 Rottura senza ritest    TREND   short     294    24%    -0.41       +0.03         -15.1%
-   Ingresso a caso         TREND   long     1279    25%    +0.67       -0.41         +77.7%
-   Ingresso a caso         TREND   short    2189    27%    -0.37       +0.00         -93.1%
+GUADAGNO ANNO PER ANNO
+                                          2022     2023     2024     2025     2026   Capitale  Calo max  Operaz.  Vinte
+   Tenere le monete                      ▼-32%   ▲+124%    ▲+51%    ▼-55%    ▼-35%      x0,68      -81%
+   Rischio 0,5 %, esposizione max 1x     ▼-13%    ▲+75%    ▲+16%    ▼-27%     ▲+9%      x1,41      -45%     1023    21%
+   Rischio 1,0 %, esposizione max 1x     ▼-39%    ▲+90%     ▲+4%    ▼-23%     ▲+5%      x0,97      -58%      695    21%
+   Rischio 1,0 %, esposizione max 2x     ▼-34%   ▲+144%    ▲+33%    ▼-51%    ▲+12%      x1,16      -73%     1101    20%
+   Rischio 2,0 %, esposizione max 1x     ▼-39%    ▲+81%    ▲+14%    ▼-36%    ▲+10%      x0,89      -66%      480    21%
+   Rischio 2,0 %, esposizione max 2x     ▼-65%   ▲+153%    ▲+12%    ▼-49%     ▲+3%      x0,52      -83%      759    22%
 
-N: operazioni.   R: risultato medio per operazione in multipli del rischio, costi e funding inclusi.
-Annuo con 1 %: rendimento annuo approssimato rischiando l'1 % del capitale a operazione su 30 monete
-(somma dei risultati, senza contare le operazioni sovrapposte: e' un ordine di grandezza).
-🟢 positivo in prova e in verifica, abbastanza casi e troppo netto per essere fortuna
-🟡 positivo in entrambi ma non dimostrato   🔴 negativo in almeno un periodo
-Il confronto che conta: "Rottura + ritest" deve battere "Rottura senza ritest" e "Ingresso a caso".
+Il primo anno (2022) parte a meta' anno e l'ultimo (2026) e' in corso.
+Capitale: quante volte il capitale iniziale.   Calo max: discesa piu' ampia dal picco del conto.
+Rischio: quanto si perde, in % del conto, se un'operazione tocca lo stop.
+Esposizione max: valore totale delle posizioni aperte rispetto al conto (2x = leva fino a 2).
+Costi, funding e aperture oltre lo stop inclusi. Dati passati: non e' una previsione.
 
