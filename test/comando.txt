@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-genetico_btc_guida_rev1.py
+verifica_minuti_genetico_rev1.py
