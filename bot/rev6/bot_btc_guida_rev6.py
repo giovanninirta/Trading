@@ -191,7 +191,7 @@ def spiegazione(s):
                   f"l'oscillazione media di BTC nelle ultime 14 candele da 4 ore: la soglia si adatta da sola, piu' alta "
                   f"quando il mercato e' agitato, piu' bassa quando e' calmo.{oggi}")
     else:
-        scatto = f"BTC chiude la candela da 4 ore **in salita di oltre il {num(soglia, 2)} %** rispetto alla chiusura precedente."
+        scatto = f"BTC chiude la candela da 4 ore **in salita di oltre l'{num(soglia, 2)} %** rispetto alla chiusura precedente."
     return f"""## Come agisce
 
 **In una frase:** quando Bitcoin fa uno scatto forte verso l'alto, il bot compra per qualche ora le monete che lo hanno seguito con piu' forza, e le rivende quando lo slancio finisce.

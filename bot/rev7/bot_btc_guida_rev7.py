@@ -191,7 +191,7 @@ def spiegazione(s):
                   f"l'oscillazione media di BTC nelle ultime 14 candele da 4 ore: la soglia si adatta da sola, piu' alta "
                   f"quando il mercato e' agitato, piu' bassa quando e' calmo.{oggi}")
     else:
-        scatto = f"BTC chiude la candela da 4 ore **in salita di oltre il {num(soglia, 2)} %** rispetto alla chiusura precedente."
+        scatto = f"BTC chiude la candela da 4 ore **in salita di oltre l'{num(soglia, 2)} %** rispetto alla chiusura precedente."
     return f"""## Come agisce
 
 **In una frase:** quando Bitcoin fa uno scatto forte verso l'alto, il bot compra per qualche ora le monete che lo hanno seguito con piu' forza, e le rivende quando lo slancio finisce.
@@ -297,7 +297,7 @@ def main():
     cerca_segnale(s, ora, prezzi)
     dopo = json.dumps(s, sort_keys=True)
     vecchio = open(CRUSCOTTO).read() if os.path.exists(CRUSCOTTO) else ""
-    if dopo != prima or SOTTOTITOLO not in vecchio:
+    if dopo != prima or SOTTOTITOLO not in vecchio or "oltre il 1,25" in vecchio:
         with open(STATO, "w") as f: json.dump(s, f, indent=1)
         cruscotto(s, ora, prezzi)
         print("aggiornato")
