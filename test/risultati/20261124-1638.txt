@@ -1,0 +1,80 @@
+### python genetico_btc_guida_rev2.py
+
+30 monete, dal 2022-05-25 al 2026-11-22. L'algoritmo vede solo la prova (fino al 2025-02-03).
+Monete liquide: AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP
+
+   seme 1  generazione  1: miglior voto in prova +1.94   (combinazioni provate finora 100)
+   seme 1  generazione 11: miglior voto in prova +5.56   (combinazioni provate finora 1026)
+   seme 1  generazione 21: miglior voto in prova +15.84   (combinazioni provate finora 1899)
+   seme 1  generazione 31: miglior voto in prova +16.30   (combinazioni provate finora 2659)
+   seme 1  generazione 40: miglior voto in prova +16.44   (combinazioni provate finora 3217)
+   seme 2  generazione  1: miglior voto in prova +2.44   (combinazioni provate finora 3365)
+   seme 2  generazione 11: miglior voto in prova +13.15   (combinazioni provate finora 4300)
+   seme 2  generazione 21: miglior voto in prova +16.12   (combinazioni provate finora 5084)
+   seme 2  generazione 31: miglior voto in prova +16.44   (combinazioni provate finora 5763)
+   seme 2  generazione 40: miglior voto in prova +16.44   (combinazioni provate finora 6231)
+   seme 3  generazione  1: miglior voto in prova +2.66   (combinazioni provate finora 6384)
+   seme 3  generazione 11: miglior voto in prova +7.64   (combinazioni provate finora 7317)
+   seme 3  generazione 21: miglior voto in prova +14.50   (combinazioni provate finora 8212)
+   seme 3  generazione 31: miglior voto in prova +16.44   (combinazioni provate finora 8906)
+   seme 3  generazione 40: miglior voto in prova +16.44   (combinazioni provate finora 9286)
+
+   combinazioni provate in tutto: 9348
+
+MIGLIORE DI OGNI CORSA (semi diversi: se si somigliano, la regola e' piu' credibile)
+   seme 1:  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR | uscita trailing 0,50 ATR, max 16 candele
+   seme 2:  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR + pareggio | uscita trailing 0,50 ATR, max 16 candele
+   seme 3:  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR + pareggio | uscita trailing 0,50 ATR, max 16 candele
+
+LE 12 MIGLIORI COMBINAZIONI (scelte guardando solo la prova)
+Annuo, calo e anni: rischio 0,5 % per operazione, massimo 5 posizioni, leva max 3, interesse composto.
+
+   Voto prova verif. R prova R verifScatti/a   Annuo    Calo   2022   2023   2024   2025   2026
+ 1.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR | uscita trailing 0,50 ATR, max 16 candele
+🟡  +16.4   +4.2   +0.15   +0.03    1831   +543%    -38% +2283% +1813%  +356%  +151%   -17%
+ 2.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR + pareggio | uscita trailing 0,50 ATR, max 16 candele
+🟡  +16.4   +4.2   +0.15   +0.03    1831   +543%    -38% +2283% +1813%  +356%  +151%   -17%
+ 3.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 3,75 ATR + pareggio | uscita trailing 0,50 ATR, max 16 candele
+🟡  +16.4   +4.1   +0.16   +0.03    1831   +627%    -41% +2973% +2232%  +393%  +166%   -20%
+ 4.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 3,75 ATR | uscita trailing 0,50 ATR, max 16 candele
+🟡  +16.4   +4.1   +0.16   +0.03    1831   +627%    -41% +2973% +2232%  +393%  +166%   -20%
+ 5.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR + pareggio | uscita trailing 0,50 ATR, max 24 candele
+🟡  +16.3   +4.3   +0.16   +0.03    1830   +581%    -38% +2582% +1955%  +359%  +166%   -16%
+ 6.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR | uscita trailing 0,50 ATR, max 24 candele
+🟡  +16.3   +4.3   +0.16   +0.03    1830   +581%    -38% +2582% +1955%  +359%  +166%   -16%
+ 7.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 3,50 ATR + pareggio | uscita trailing 0,50 ATR, max 16 candele
+🟡  +16.3   +4.0   +0.17   +0.03    1833   +703%    -44% +3415% +2828%  +426%  +181%   -23%
+ 8.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 3,75 ATR + pareggio | uscita trailing 0,50 ATR, max 24 candele
+🟡  +16.2   +4.2   +0.17   +0.03    1830   +664%    -41% +3252% +2388%  +397%  +182%   -20%
+ 9.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR | uscita trailing 0,50 ATR, max 20 candele
+🟡  +16.2   +4.3   +0.16   +0.03    1830   +568%    -38% +2415% +1945%  +358%  +162%   -17%
+10.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 4,00 ATR + pareggio | uscita trailing 0,50 ATR, max 20 candele
+🟡  +16.2   +4.3   +0.16   +0.03    1830   +568%    -38% +2415% +1945%  +358%  +162%   -17%
+11.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 3,75 ATR | uscita trailing 0,50 ATR, max 20 candele
+🟡  +16.2   +4.2   +0.17   +0.03    1830   +656%    -41% +3158% +2403%  +396%  +178%   -20%
+12.  1h entrambi | BTC > 0,50 ATR | moneta <= -0,25 ATR | tutte | filtro nessuno | stop 3,50 ATR | uscita trailing 0,50 ATR, max 20 candele
+🟡  +16.1   +4.1   +0.18   +0.03    1832   +743%    -44% +3670% +3127%  +429%  +196%   -23%
+
+PARAMETRI VICINI ALLA MIGLIORE (ogni gene un passo in piu' e in meno)
+   Cambio                         Voto prova Voto verif.  R verif
+   ore = 2                             +11.3        +1.9    +0.02
+   verso = short                       +12.2        +4.2    +0.04
+   btc = 0.75                          +13.9        +5.9    +0.06
+   tipo = partite                       -4.4       -13.7    -0.05
+   tipo = tutte                         -4.4       -13.7    -0.05
+   soglia = -0.5                       +15.8        +5.7    +0.05
+   soglia = 0.0                        +14.3        +0.9    +0.00
+   universo = liquide                   +9.4       -10.7    -0.07
+   filtro = sopra                      +10.7        +1.5    +0.01
+   stop = 3.75                         +16.4        +4.1    +0.03
+   pareggio = True                     +16.4        +4.2    +0.03
+   uscita = tempo                       -1.3        -6.6    -0.12
+   uscita = obiettivo                   -9.0        -7.1    -0.07
+   k = 0.75                            +13.3        +1.3    +0.01
+   tenuta = 12                         +15.8        +4.1    +0.03
+   tenuta = 20                         +16.2        +4.3    +0.03
+
+Voto: costanza del risultato per scatto di BTC (sopra +2 = netto, sotto +1 = probabilmente fortuna).
+R: risultato medio per scatto in multipli del rischio, costi e spread inclusi.   Scatti/a: scatti di BTC all'anno.
+🟢 voto netto in prova E in verifica   🟡 positivo in entrambi ma non netto   🔴 negativo in verifica
+
