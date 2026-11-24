@@ -1,3 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-misuratore_anticipo_rev3.py
-# costi spot
+studio_btc_indicatori_rev1.py
