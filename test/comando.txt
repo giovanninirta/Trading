@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-trailing_btc_guida_rev4.py
+trailing_btc_guida_rev5.py
