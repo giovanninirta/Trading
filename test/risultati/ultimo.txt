@@ -1,60 +1,55 @@
-### python misuratore_anticipo_rev3.py
+### python studio_btc_indicatori_rev1.py
 
-CANDELE DA 1 ORA: 6800 segnali, da scaricare 6800 finestre da 1 minuto...
-   finestre senza dati da 1 minuto: 0.  Scarto medio chiusura 1h vs 1 minuto: 0.000 %
-   --- costi PERPETUI ---
-   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
-🟢 alla chiusura esatta        6712   47%    +0.24    +0.18    +0.22  +0.34  +0.25  +0.24  +0.25  +0.05
-🟢 1 minuto dopo               6712   46%    +0.20    +0.14    +0.18  +0.32  +0.19  +0.20  +0.19  +0.01
-🟢 2 minuti dopo               6712   45%    +0.18    +0.13    +0.16  +0.31  +0.15  +0.19  +0.19  -0.00
-🟢 5 minuti dopo               6712   45%    +0.14    +0.14    +0.14  +0.30  +0.10  +0.16  +0.19  +0.01
-🟢 15 minuti dopo              6712   45%    +0.14    +0.10    +0.12  +0.30  +0.09  +0.16  +0.14  -0.00
-🟢 30 minuti dopo              6711   45%    +0.15    +0.06    +0.12  +0.20  +0.19  +0.12  +0.09  -0.02
-   --- costi SPOT LIMITE ---
-   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
-🔴 alla chiusura esatta        6712   32%    -0.39    -0.30    -0.36  -0.26  -0.50  -0.31  -0.23  -0.43
-🔴 1 minuto dopo               6712   31%    -0.44    -0.35    -0.40  -0.28  -0.55  -0.35  -0.28  -0.47
-🔴 2 minuti dopo               6712   30%    -0.46    -0.36    -0.42  -0.29  -0.59  -0.36  -0.29  -0.48
-🔴 5 minuti dopo               6712   30%    -0.49    -0.34    -0.44  -0.30  -0.64  -0.39  -0.28  -0.47
-🔴 15 minuti dopo              6712   29%    -0.49    -0.39    -0.45  -0.30  -0.65  -0.39  -0.34  -0.48
-🔴 30 minuti dopo              6711   29%    -0.48    -0.43    -0.46  -0.40  -0.55  -0.43  -0.39  -0.50
-   --- costi SPOT MERCATO ---
-   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
-🔴 alla chiusura esatta        6712   25%    -0.78    -0.60    -0.71  -0.62  -0.95  -0.64  -0.52  -0.72
-🔴 1 minuto dopo               6712   24%    -0.82    -0.65    -0.76  -0.64  -1.01  -0.68  -0.57  -0.76
-🔴 2 minuti dopo               6712   24%    -0.84    -0.66    -0.77  -0.65  -1.04  -0.69  -0.58  -0.78
-🔴 5 minuti dopo               6712   23%    -0.88    -0.64    -0.79  -0.67  -1.10  -0.72  -0.58  -0.76
-🔴 15 minuti dopo              6712   22%    -0.88    -0.69    -0.81  -0.66  -1.10  -0.72  -0.63  -0.78
-🔴 30 minuti dopo              6711   21%    -0.87    -0.73    -0.82  -0.77  -1.01  -0.76  -0.68  -0.80
+BTC 1 ora dal 2022-11-23 al 2026-11-21 (34987 ore con esito noto). Prova fino al 2025-04-16, verifica dopo.
 
-CANDELE DA 4 ORE: 1403 segnali, da scaricare 1403 finestre da 1 minuto...
-   finestre senza dati da 1 minuto: 0.  Scarto medio chiusura 1h vs 1 minuto: 0.000 %
-   --- costi PERPETUI ---
-   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
-🟢 alla chiusura esatta        1402   50%    +0.20    +0.22    +0.21  +0.57  +0.15  +0.22  +0.19  +0.17
-🟢 1 minuto dopo               1402   48%    +0.18    +0.18    +0.18  +0.57  +0.13  +0.20  +0.16  +0.11
-🟢 2 minuti dopo               1402   48%    +0.17    +0.17    +0.17  +0.56  +0.11  +0.19  +0.15  +0.10
-🟢 5 minuti dopo               1402   49%    +0.17    +0.18    +0.18  +0.63  +0.09  +0.22  +0.14  +0.14
-🟢 15 minuti dopo              1403   48%    +0.17    +0.16    +0.16  +0.64  +0.08  +0.21  +0.13  +0.10
-🟢 30 minuti dopo              1403   48%    +0.15    +0.18    +0.16  +0.68  +0.03  +0.23  +0.16  +0.10
-   --- costi SPOT LIMITE ---
-   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
-🔴 alla chiusura esatta        1402   43%    -0.08    +0.00    -0.05  +0.24  -0.16  -0.03  -0.01  -0.08
-🔴 1 minuto dopo               1402   42%    -0.10    -0.04    -0.08  +0.24  -0.18  -0.04  -0.03  -0.14
-🔴 2 minuti dopo               1402   41%    -0.11    -0.05    -0.09  +0.23  -0.20  -0.05  -0.05  -0.15
-🔴 5 minuti dopo               1402   42%    -0.11    -0.04    -0.09  +0.30  -0.22  -0.03  -0.06  -0.11
-🔴 15 minuti dopo              1403   41%    -0.12    -0.06    -0.10  +0.31  -0.23  -0.03  -0.07  -0.15
-🔴 30 minuti dopo              1403   41%    -0.13    -0.04    -0.10  +0.35  -0.28  -0.01  -0.04  -0.15
-   --- costi SPOT MERCATO ---
-   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
-🔴 alla chiusura esatta        1402   39%    -0.26    -0.14    -0.21  +0.04  -0.35  -0.18  -0.13  -0.24
-🔴 1 minuto dopo               1402   38%    -0.28    -0.18    -0.24  +0.04  -0.37  -0.19  -0.16  -0.29
-🔴 2 minuti dopo               1402   38%    -0.29    -0.19    -0.25  +0.02  -0.39  -0.20  -0.17  -0.31
-🔴 5 minuti dopo               1402   38%    -0.29    -0.18    -0.25  +0.09  -0.41  -0.18  -0.18  -0.27
-🔴 15 minuti dopo              1403   37%    -0.29    -0.20    -0.26  +0.11  -0.42  -0.18  -0.19  -0.31
-🔴 30 minuti dopo              1403   38%    -0.31    -0.18    -0.26  +0.14  -0.47  -0.16  -0.16  -0.31
+1) COSA SUCCEDE DOPO UN'ORA QUALSIASI
+   Prova     prima +10 %:   56 % delle ore (in mediana dopo 12 giorni)   prima -10 %:   44 % (dopo 13 giorni)
+             partenze pulite long: 28.7 % delle ore (69 episodi)   short: 20.1 % (57 episodi)
+   Verifica  prima +10 %:   51 % delle ore (in mediana dopo 22 giorni)   prima -10 %:   49 % (dopo 19 giorni)
+             partenze pulite long: 23.0 % delle ore (39 episodi)   short: 22.6 % (32 episodi)
 
-R: risultato medio per operazione in multipli del rischio (stop 1,5 ATR), costi e funding inclusi.
-Un bot su GitHub parte con qualche minuto di ritardo; un bot su un server sempre acceso entra in 1-2 minuti.
-🟢 positivo in prova e verifica e troppo netto per essere fortuna   🟡 positivo ma non dimostrato   🔴 no
+2) VALORE TIPICO (mediana) DEGLI INDICATORI INTORNO ALLE PARTENZE PULITE
+   --- partenze LONG (poi +10 % senza toccare -3 %) ---
+   Indicatore     Ora qualsiasi  |    -48h    -24h     -6h   ora 0     +6h    +24h
+   RSI                       51  |      51      51      51      51      54      56
+   MACD %                 -0,00  |   -0,00   -0,00   +0,00   -0,00   +0,02   +0,02
+   Bollinger               0,52  |    0,53    0,54    0,54    0,53    0,63    0,67
+   ADX                       25  |      26      26      26      26      26      25
+   Volatilita'             0,99  |    0,97    0,97    0,99    0,99    0,99    0,99
+   Media 200 %            +0,13  |   +0,27   +0,37   +0,39   +0,39   +0,70   +1,39
+   Ultime 24h %           +0,06  |   +0,08   +0,08   +0,11   +0,10   +0,30   +1,00
+   --- partenze SHORT (poi -10 % senza toccare +3 %) ---
+   Indicatore     Ora qualsiasi  |    -48h    -24h     -6h   ora 0     +6h    +24h
+   RSI                       51  |      50      50      50      50      47      44
+   MACD %                 -0,00  |   +0,00   +0,00   +0,00   +0,00   -0,02   -0,02
+   Bollinger               0,52  |    0,50    0,49    0,51    0,50    0,40    0,34
+   ADX                       25  |      26      26      26      26      26      27
+   Volatilita'             0,99  |    0,97    0,98    0,99    0,99    1,00    1,00
+   Media 200 %            +0,13  |   -0,24   -0,29   -0,38   -0,45   -0,68   -1,46
+   Ultime 24h %           +0,06  |   +0,00   -0,00   +0,00   +0,00   -0,21   -1,05
+
+3) GLI INDICATORI ANTICIPANO LE PARTENZE?  % di ore che diventano partenza pulita, per fascia
+   Fasce = quinti dei valori nel periodo di prova (F1 = valori piu' bassi, F5 = piu' alti).
+   Media di tutte le ore: long 28.7 % prova / 23.0 % verifica, short 20.1 % / 22.6 %
+   Indicatore    Verso     F1 prova/verif.   F2 prova/verif.   F3 prova/verif.   F4 prova/verif.   F5 prova/verif.   Segnale
+   RSI           long            26.4/22.8         27.5/24.2         27.8/22.4         29.6/22.3         32.1/23.1   🔴
+   RSI           short           21.6/26.9         21.3/21.6         19.8/22.4         18.5/19.4         19.2/21.7   🔴
+   MACD %        long            27.7/21.3         29.1/23.0         29.0/25.2         29.1/24.5         28.6/20.4   🔴
+   MACD %        short           19.2/24.8         18.8/20.5         21.4/23.0         21.2/20.9         19.8/24.5   🔴
+   Bollinger     long            27.5/23.2         27.5/23.2         28.6/22.4         29.9/23.5         29.9/22.7   🔴
+   Bollinger     short           20.5/25.2         20.4/22.6         21.1/23.3         19.1/21.4         19.4/20.3   🔴
+   ADX           long            26.1/22.1         27.0/23.4         29.7/22.8         31.0/21.9         29.6/24.7   🔴
+   ADX           short           23.9/18.0         18.0/17.7         20.2/21.7         19.0/22.8         19.4/33.6   🔴
+   Volatilita'   long            21.7/32.1         26.1/29.3         27.2/23.4         31.1/14.4         37.3/11.7   🔴
+   Volatilita'   short           25.6/14.8         22.7/15.5         20.1/22.6         19.0/32.1         13.0/31.0   🔴
+   Media 200 %   long            27.6/18.9         27.5/20.0         26.1/32.3         29.3/22.0         33.0/21.3   🔴
+   Media 200 %   short           20.3/36.0         24.6/20.9         20.5/15.1         18.7/15.7         16.3/26.1   🔴
+   Ultime 24h %  long            27.1/20.0         26.9/26.2         28.6/24.5         31.4/21.6         29.4/23.0   🔴
+   Ultime 24h %  short           19.2/26.8         21.0/21.5         21.1/21.9         19.9/20.7         19.2/22.1   🔴
+
+Come leggere la tabella 3: se in una fascia la % di partenze pulite e' almeno 1,5 volte la media
+sia in prova sia in verifica (🟢), quell'indicatore in quella fascia anticipa davvero i movimenti.
+Se le percentuali sono simili in tutte le fasce, l'indicatore non dice nulla sul movimento futuro.
+Attenzione: le ore consecutive di una stessa partenza contano tutte; gli "episodi" in alto dicono
+quanti movimenti diversi ci sono davvero.
 
