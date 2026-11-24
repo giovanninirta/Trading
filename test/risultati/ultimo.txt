@@ -1,57 +1,16 @@
-### python genetico_btc_guida_rev1.py
+### python verifica_minuti_genetico_rev1.py
 
-30 monete, dal 2022-05-25 al 2026-11-22. L'algoritmo vede solo la prova (fino al 2025-02-03).
+635 operazioni candidate. Verifica dal 2025-02-03.
+Finestre senza dati da 1 minuto: 0.  Recupero medio nei primi 5 minuti: +0.35 R
 
-   seme 1  generazione  1: miglior voto in prova +1.99
-   seme 1  generazione 11: miglior voto in prova +4.30
-   seme 1  generazione 21: miglior voto in prova +4.96
-   seme 1  generazione 30: miglior voto in prova +5.15
-   seme 2  generazione  1: miglior voto in prova +1.80
-   seme 2  generazione 11: miglior voto in prova +4.64
-   seme 2  generazione 21: miglior voto in prova +5.15
-   seme 2  generazione 30: miglior voto in prova +5.15
-   combinazioni provate: 2059
+   Ingresso                   N Vinte  R prova R verif.   2022   2023   2024   2025   2026
+🟢 alla chiusura esatta     635   49%    +1.38    +0.70  +1.39  +1.60  +1.15  +0.52  +0.73
+🟢 1 minuto dopo            635   47%    +1.30    +0.55  +1.35  +1.47  +1.10  +0.51  +0.46
+🟢 2 minuti dopo            635   46%    +1.28    +0.53  +1.32  +1.45  +1.09  +0.52  +0.40
+🟢 5 minuti dopo            635   44%    +1.10    +0.49  +1.23  +1.21  +0.94  +0.52  +0.32
+🟢 15 minuti dopo           635   39%    +0.81    +0.30  +1.01  +0.98  +0.43  +0.40  +0.05
 
-LE 10 MIGLIORI COMBINAZIONI (scelte guardando solo la prova)
-Annuo, calo e anni: portafoglio con rischio 0,5 % per operazione, massimo 5 posizioni, interesse composto.
-
-   Voto prova verif. R prova R verifScatti/a   Annuo    Calo   2022   2023   2024   2025   2026
- 1.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
-🟢   +5.2   +2.3   +1.01   +0.54      86    +51%    -11%   +50%   +90%   +60%   +11%   +28%
- 2.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  2 candele | stop 0,75 ATR | senza obiettivo | sempre
-🟢   +5.1   +2.5   +0.81   +0.49      88    +46%    -10%   +50%   +78%   +41%   +24%   +17%
- 3.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 1,00 ATR | senza obiettivo | sempre
-🟢   +5.0   +2.2   +0.80   +0.38      96    +48%    -11%   +48%  +123%   +37%   +12%   +15%
- 4.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  4 candele | stop 0,75 ATR | senza obiettivo | sempre
-🟢   +4.9   +2.4   +1.04   +0.61      86    +55%    -12%   +54%   +95%   +55%   +23%   +26%
- 5.  1h | BTC > 1,00 ATR | moneta <= -0,75 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
-🟢   +4.8   +2.5   +0.76   +0.46     115    +58%    -11%   +49%  +105%   +56%   +23%   +35%
- 6.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  5 candele | stop 0,75 ATR | senza obiettivo | sempre
-🟢   +4.7   +1.7   +1.07   +0.43      86    +52%    -13%   +56%   +95%   +55%   +25%   +11%
- 7.  1h | BTC > 1,25 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
-🟢   +4.5   +1.7   +1.11   +0.56      49    +27%     -8%   +20%   +66%   +31%    +2%   +11%
- 8.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | solo BTC sopra media 200
-🟢   +4.4   +2.1   +1.05   +0.57      60    +34%    -10%   +30%   +62%   +28%   +18%   +17%
- 9.  2h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
-🟢   +4.4   +2.0   +1.60   +0.38      39    +29%     -7%   +29%   +68%   +34%    +1%    +6%
-10.  1h | BTC > 1,25 ATR | moneta <= -1,00 ATR |  3 candele | stop 1,00 ATR | senza obiettivo | sempre
-🟡   +4.4   +1.4   +0.96   +0.31      56    +26%     -8%   +22%   +92%   +13%    +0%    +5%
-
-PARAMETRI VICINI ALLA MIGLIORE (ogni gene un passo in piu' e in meno)
-   Cambio                       Voto prova Voto verif.  R verif
-   ore = 2                            +4.4        +2.0    +0.38
-   btc = 1.25                         +4.5        +1.7    +0.56
-   tipo = partite                     -5.2        -7.9    -0.40
-   soglia = -0.75                     +4.8        +2.5    +0.46
-   tenuta = 2                         +5.1        +2.5    +0.49
-   tenuta = 4                         +4.9        +2.4    +0.61
-   stop = 1.0                         +5.0        +2.2    +0.38
-   obiettivo = 1.0                    -4.4        -2.9    -0.23
-   filtro = True                      +4.4        +2.1    +0.57
-
-Voto: costanza del risultato per scatto di BTC (sopra +2 = netto, sotto +1 = probabilmente fortuna).
-R: risultato medio per scatto, in multipli del rischio, costi inclusi.   Scatti/a: scatti di BTC all'anno.
-🟢 voto netto in prova E in verifica   🟡 positivo in entrambi ma non netto   🔴 negativo in verifica
-Se le prime 10 sono tutte simili tra loro e i parametri vicini restano positivi, la regola e' robusta.
-Se sono tutte diverse e i vicini crollano, l'algoritmo ha trovato solo coincidenze del passato.
+R: risultato medio per operazione in multipli del rischio, costi inclusi.
+Recupero nei primi 5 minuti: quanto il prezzo e' gia' risalito 5 minuti dopo la chiusura, in R.
+Se il vantaggio crolla gia' a 1-2 minuti, era un prezzo strano che si ricompone subito: non tradabile da un bot normale.
 

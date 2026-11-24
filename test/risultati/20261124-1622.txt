@@ -1,0 +1,16 @@
+### python verifica_minuti_genetico_rev1.py
+
+635 operazioni candidate. Verifica dal 2025-02-03.
+Finestre senza dati da 1 minuto: 0.  Recupero medio nei primi 5 minuti: +0.35 R
+
+   Ingresso                   N Vinte  R prova R verif.   2022   2023   2024   2025   2026
+🟢 alla chiusura esatta     635   49%    +1.38    +0.70  +1.39  +1.60  +1.15  +0.52  +0.73
+🟢 1 minuto dopo            635   47%    +1.30    +0.55  +1.35  +1.47  +1.10  +0.51  +0.46
+🟢 2 minuti dopo            635   46%    +1.28    +0.53  +1.32  +1.45  +1.09  +0.52  +0.40
+🟢 5 minuti dopo            635   44%    +1.10    +0.49  +1.23  +1.21  +0.94  +0.52  +0.32
+🟢 15 minuti dopo           635   39%    +0.81    +0.30  +1.01  +0.98  +0.43  +0.40  +0.05
+
+R: risultato medio per operazione in multipli del rischio, costi inclusi.
+Recupero nei primi 5 minuti: quanto il prezzo e' gia' risalito 5 minuti dopo la chiusura, in R.
+Se il vantaggio crolla gia' a 1-2 minuti, era un prezzo strano che si ricompone subito: non tradabile da un bot normale.
+
