@@ -4,7 +4,12 @@ MISURATORE ANTICIPO - Rev 3: "BTC guida, gia' partite" con candele da 1 minuto
 Segnale (come Rev 2): BTC chiude una candela al rialzo di oltre 2 ATR; si comprano le monete che nella
 stessa candela sono salite di oltre 1,5 ATR (candela con scambi veri: massimo diverso dal minimo).
 Uscita: alla chiusura della 4a candela dopo il segnale. Stop: 1,5 ATR sotto il prezzo d'ingresso,
-controllato minuto per minuto. Costi 0,07 % per ordine + funding.
+controllato minuto per minuto. Solo long: si puo' fare sullo SPOT di Kraken.
+Costi per operazione (andata + ritorno), mostrati in tre colonne:
+  perpetui         0,07 % + 0,07 % + funding (riferimento)
+  spot limite      0,40 % + 0,40 %  (ordini limite; ingresso non garantito, qui si suppone eseguito)
+  spot mercato     0,80 % + 0,40 %  (ingresso immediato a mercato, uscita con ordine limite)
+I prezzi sono quelli dei perpetui (lo spot di Kraken non da' lo storico da 1 minuto): sono quasi identici.
 
 Novita': per ogni segnale si scaricano le candele da 1 minuto e si entra con ritardo di
 0 (chiusura esatta), 1, 2, 5, 15, 30 minuti dopo la chiusura della candela del segnale.
@@ -21,6 +26,7 @@ from misuratore_ritest_rev1 import carica, atr, MONETE, COSTO, FUNDING_ORA, MIN_
 
 API = "https://futures.kraken.com/api/charts/v1/trade/PF_{m}USD/1m?from={a}&to={b}"
 RITARDI = [0, 1, 2, 5, 15, 30]
+COSTI = [("perpetui", 2 * COSTO), ("spot limite", 0.008), ("spot mercato", 0.012)]
 CACHE = "MINUTI_{ore}h.json"
 
 def scarica_minuti(m, a, b):
@@ -97,22 +103,24 @@ def main():
                 for x in dopo:
                     if x[3] <= stop: r = -1.0; break
                 if r is None: r = (minuti[-1][4] - e) / rischio
-                r -= (2 * COSTO + FUNDING_ORA * ore * 4) / pct
-                ris[rit].append((anno, ver, r))
+                for nome_c, costo in COSTI:
+                    ris[(rit, nome_c)].append((anno, ver, r - (costo if nome_c != "perpetui" else costo + FUNDING_ORA * ore * 4) / pct))
         anni = sorted({a for v in ris.values() for a, _, _ in v})
         print(f"   finestre senza dati da 1 minuto: {scarti}.  Scarto medio chiusura 1h vs 1 minuto: "
               f"{media(differenza) * 100:.3f} %")
-        print(f"{'':3}{'Ingresso':26}{'N':>6}{'Vinte':>6}{'R prova':>9}{'R verif.':>9}{'R tutti':>9}" + "".join(f"{a:>7}" for a in anni))
-        for rit in RITARDI:
-            g = ris.get(rit, [])
-            if not g: continue
-            pr = [r for _, v, r in g if not v]; ve = [r for _, v, r in g if v]; tot = [r for *_, r in g]
-            mt = media(tot); sd = math.sqrt(media([(x - mt) ** 2 for x in tot])); ts = mt / (sd / math.sqrt(len(tot))) if sd else 0
-            s = "🟢" if len(ve) >= 30 and media(pr) > 0.05 and media(ve) > 0.05 and ts >= 3 else ("🟡" if media(pr) > 0 and media(ve) > 0 else "🔴")
-            nome = "alla chiusura esatta" if rit == 0 else f"{rit} minut{'o' if rit == 1 else 'i'} dopo"
-            celle = "".join(f"{media([r for a2, _, r in g if a2 == a]):>+7.2f}" if any(a2 == a for a2, _, _ in g) else f"{'':>7}" for a in anni)
-            print(f"{s} {nome:26}{len(g):>6}{sum(1 for r in tot if r > 0) / len(tot) * 100:>5.0f}%"
-                  f"{media(pr):>+9.2f}{media(ve):>+9.2f}{mt:>+9.2f}{celle}")
+        for nome_c, _ in COSTI:
+            print(f"   --- costi {nome_c.upper()} ---")
+            print(f"{'':3}{'Ingresso':26}{'N':>6}{'Vinte':>6}{'R prova':>9}{'R verif.':>9}{'R tutti':>9}" + "".join(f"{a:>7}" for a in anni))
+            for rit in RITARDI:
+                g = ris.get((rit, nome_c), [])
+                if not g: continue
+                pr = [r for _, v, r in g if not v]; ve = [r for _, v, r in g if v]; tot = [r for *_, r in g]
+                mt = media(tot); sd = math.sqrt(media([(x - mt) ** 2 for x in tot])); ts = mt / (sd / math.sqrt(len(tot))) if sd else 0
+                s = "🟢" if len(ve) >= 30 and media(pr) > 0.05 and media(ve) > 0.05 and ts >= 3 else ("🟡" if media(pr) > 0 and media(ve) > 0 else "🔴")
+                nome = "alla chiusura esatta" if rit == 0 else f"{rit} minut{'o' if rit == 1 else 'i'} dopo"
+                celle = "".join(f"{media([r for a2, _, r in g if a2 == a]):>+7.2f}" if any(a2 == a for a2, _, _ in g) else f"{'':>7}" for a in anni)
+                print(f"{s} {nome:26}{len(g):>6}{sum(1 for r in tot if r > 0) / len(tot) * 100:>5.0f}%"
+                      f"{media(pr):>+9.2f}{media(ve):>+9.2f}{mt:>+9.2f}{celle}")
         print()
     print("""R: risultato medio per operazione in multipli del rischio (stop 1,5 ATR), costi e funding inclusi.
 Un bot su GitHub parte con qualche minuto di ritardo; un bot su un server sempre acceso entra in 1-2 minuti.
