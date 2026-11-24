@@ -1,0 +1,32 @@
+### python trailing_btc_guida_rev3.py
+
+Monete: XBT AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP. Verifica dal 2025-02-03.
+Portafoglio: rischio 0,75 % per operazione, massimo 5 posizioni, leva max 3, interesse composto.
+
+   Candele Durata max Gestione          Oper./a Vinte  R prova R verif.  Annuo   Calo   2022   2023   2024   2025   2026
+🟡 1h      4 candele  fisso                 403   42%    +0.00    +0.10    -8%   -56%    -7%   -29%    -8%   +14%    -1%
+🔴 1h      4 candele  trailing 0,75/2       403   34%    -0.01    +0.12    -6%   -52%    -4%   -23%   -13%   +23%    -3%
+🟡 1h      4 candele  trailing 1/2          403   38%    +0.01    +0.11    -4%   -47%    -7%   -18%    -9%   +30%    -6%
+🟡 1h      4 candele  trailing 1/1,5        403   41%    +0.01    +0.09    -4%   -51%    -4%   -17%   -14%   +33%    -6%
+🟡 1h      16 ore     fisso                 403   36%    +0.10    +0.16    -7%   -67%   +10%   -18%    +5%    -3%   -20%
+🟡 1h      16 ore     trailing 0,75/2       403   29%    +0.09    +0.10    -2%   -39%    +9%    -6%    -3%    +9%   -14%
+🟡 1h      16 ore     trailing 1/2          403   33%    +0.11    +0.09    +0%   -39%    +6%    +3%    +0%   +14%   -19%
+🟡 1h      16 ore     trailing 1/1,5        403   41%    +0.10    +0.05    -0%   -43%   +12%    -5%    -8%   +19%   -15%
+
+🔴 2h      4 candele  fisso                 197   45%    +0.07    -0.01    +6%   -31%    +9%    +2%   +22%    -1%    -5%
+🔴 2h      4 candele  trailing 0,75/2       197   35%    +0.09    -0.05    +4%   -29%   +16%   +11%    +5%    -2%    -8%
+🔴 2h      4 candele  trailing 1/2          197   40%    +0.09    -0.06    +4%   -27%   +15%   +16%    +4%    -2%   -12%
+🔴 2h      4 candele  trailing 1/1,5        197   42%    +0.09    -0.08    +4%   -28%   +18%   +17%    +4%    -2%   -15%
+🟡 2h      16 ore     fisso                 197   41%    +0.06    +0.08    +8%   -32%   +10%    +6%   +19%    -6%    +9%
+🟡 2h      16 ore     trailing 0,75/2       197   31%    +0.10    +0.03    +9%   -28%   +16%   +14%   +10%    -4%    +2%
+🟡 2h      16 ore     trailing 1/2          197   36%    +0.10    +0.04   +11%   -26%   +16%   +21%   +10%    -2%    +5%
+🟡 2h      16 ore     trailing 1/1,5        197   40%    +0.10    +0.01    +9%   -27%   +17%   +24%    +6%    -6%    +0%
+
+🟢 4h      4 candele  fisso                  90   48%    +0.16    +0.22   +11%   -19%   +13%    +7%   +12%    +4%   +14%
+🟢 4h      4 candele  trailing 0,75/2        90   37%    +0.10    +0.17    +8%   -14%    +7%   +10%    +7%    +9%    +5%
+🟢 4h      4 candele  trailing 1/2           90   44%    +0.15    +0.19   +10%   -16%    +7%   +13%   +10%    +5%   +11%
+🟢 4h      4 candele  trailing 1/1,5         90   48%    +0.14    +0.20   +10%   -15%    +8%   +12%    +8%    +5%   +12%
+
+Gestione "trailing P/S": pareggio dopo +P ATR, poi stop a S ATR dal massimo.
+🟢 positiva in prova e verifica e calo entro il -20 %   🟡 positiva ma debole o calo oltre il -20 %   🔴 negativa in un periodo
+
