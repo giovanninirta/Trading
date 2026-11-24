@@ -1,0 +1,30 @@
+### python verifica_minuti_genetico_rev2.py
+
+635 operazioni candidate. Verifica dal 2025-02-03.
+Finestre senza dati da 1 minuto: 0.  Recupero medio nei primi 5 minuti: +0.35 R
+
+   Ingresso                   N Vinte  R prova R verif.   2022   2023   2024   2025   2026
+🟢 alla chiusura esatta     635   49%    +1.38    +0.70  +1.39  +1.60  +1.15  +0.52  +0.73
+🟢 1 minuto dopo            635   47%    +1.30    +0.55  +1.35  +1.47  +1.10  +0.51  +0.46
+🟢 2 minuti dopo            635   46%    +1.28    +0.53  +1.32  +1.45  +1.09  +0.52  +0.40
+🟢 5 minuti dopo            635   44%    +1.10    +0.49  +1.23  +1.21  +0.94  +0.52  +0.32
+🟢 15 minuti dopo           635   39%    +0.81    +0.30  +1.01  +0.98  +0.43  +0.40  +0.05
+
+CONCENTRAZIONE (ingresso 5 minuti dopo): mediana -0.41 R, media +0.92 R
+   senza le  5 operazioni migliori: media +0.70 R
+   senza le 10 operazioni migliori: media +0.60 R
+   senza le 20 operazioni migliori: media +0.45 R
+   senza le 50 operazioni migliori: media +0.12 R
+   per moneta (operazioni, R medio):
+    COMP  82 +0.64    SAND  52 +0.90     AXS  45 +0.92    MANA  43 +1.24     XTZ  42 +0.95
+     TRX  40 +0.13     ETC  38 +1.23    ALGO  36 +0.53      OP  33 +0.24    AAVE  26 +1.71
+     APE  23 +0.76    NEAR  20 +1.03     XLM  20 +4.56     INJ  19 +0.86     UNI  18 +0.35
+     FIL  16 +1.40     ARB  13 +1.77    ATOM  12 -0.16     BCH  11 +1.34     CRV  10 +2.05
+    DOGE   7 +0.56     DOT   7 -0.49     LTC   6 +0.35     ADA   5 +0.44    LINK   3 +0.24
+     SOL   3 -1.11     XRP   3 -0.64     ETH   1 -1.18    AVAX   1 -1.32
+   monete con R medio positivo: 23 su 29
+
+R: risultato medio per operazione in multipli del rischio, costi inclusi.
+Recupero nei primi 5 minuti: quanto il prezzo e' gia' risalito 5 minuti dopo la chiusura, in R.
+Se il vantaggio crolla gia' a 1-2 minuti, era un prezzo strano che si ricompone subito: non tradabile da un bot normale.
+
