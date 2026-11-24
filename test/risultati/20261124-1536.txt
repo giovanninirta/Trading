@@ -1,0 +1,42 @@
+### python portafoglio_combinato_rev1.py
+
+Dal 2022-12-12 al 2026-11-22. Prova fino al 2025-04-25, poi verifica.
+Operazioni BTC guida possibili: 1402.
+
+    Quota trend Rischio guida   Annuo  Calo max   Prova  Verifica   2022   2023   2024   2025   2026
+🟡        100%             -    +23%      -38%   +150%       -9%    -0%   +66%   +53%   -13%    +3%   prese 0
+
+🟡         80%             -    +19%      -31%   +113%       -7%    -0%   +51%   +43%   -10%    +3%   prese 0
+🟡         80%         0.50%    +24%      -35%   +135%       -1%    +2%   +74%   +43%   -14%    +6%   prese 287
+🟡         80%         0.75%    +19%      -38%   +108%       -3%    +2%   +62%   +39%   -16%    +4%   prese 204
+🟡         80%         1.00%    +20%      -39%   +121%       -8%    +0%   +62%   +49%   -17%    +2%   prese 154
+
+🟡         70%             -    +17%      -28%    +95%       -6%    -0%   +44%   +37%    -9%    +3%   prese 0
+🟡         70%         0.50%    +26%      -29%   +138%       +6%    +5%   +69%   +45%    -8%    +7%   prese 385
+🟡         70%         0.75%    +24%      -35%   +125%       +3%    +3%   +77%   +38%   -15%    +8%   prese 287
+🟡         70%         1.00%    +20%      -35%    +90%       +7%    +6%   +48%   +41%   -15%    +8%   prese 228
+
+🟡         60%             -    +14%      -24%    +79%       -5%    -0%   +37%   +32%    -8%    +2%   prese 0
+🟡         60%         0.50%    +27%      -26%   +131%      +10%    +8%   +62%   +44%    -5%    +7%   prese 427
+🟡         60%         0.75%    +24%      -31%   +118%       +7%    +7%   +66%   +37%   -11%    +7%   prese 350
+🟡         60%         1.00%    +23%      -35%   +115%       +7%    +5%   +80%   +32%   -16%    +9%   prese 287
+
+🟡         50%             -    +12%      -20%    +64%       -4%    -0%   +30%   +27%    -6%    +2%   prese 0
+🟡         50%         0.50%    +24%      -22%   +110%      +12%    +8%   +51%   +39%    -4%    +7%   prese 447
+🟡         50%         0.75%    +27%      -27%   +121%      +16%    +9%   +62%   +40%    -4%    +8%   prese 403
+🟡         50%         1.00%    +26%      -32%   +124%      +11%    +6%   +82%   +35%   -12%   +10%   prese 341
+
+🟢         40%             -    +10%      -17%    +49%       -3%    -0%   +24%   +21%    -5%    +2%   prese 0
+🟢         40%         0.50%    +20%      -20%    +85%      +13%    +6%   +41%   +33%    -2%    +7%   prese 453
+🟡         40%         0.75%    +27%      -25%   +115%      +19%   +12%   +57%   +38%    -2%    +8%   prese 427
+🟡         40%         1.00%    +27%      -28%   +115%      +20%   +10%   +67%   +33%    -4%   +10%   prese 385
+
+🟢          0%         0.50%     +9%      -14%    +22%      +16%    +7%   +11%   +10%    +3%    +5%   prese 458
+🟡          0%         0.75%    +14%      -21%    +34%      +24%   +11%   +18%   +15%    +4%    +8%   prese 456
+🟡          0%         1.00%    +21%      -26%    +59%      +32%   +17%   +31%   +20%    +4%   +10%   prese 447
+
+Quota trend: parte del capitale nel bot giornaliero (il resto sta fermo come margine per BTC guida).
+Rischio guida: % del capitale totale persa se scatta lo stop di un'operazione BTC guida ("-" = bot spento).
+Annuo: rendimento medio composto.   Calo max: peggior discesa dal massimo, misurata a fine giornata.
+🟢 guadagna e resta entro il -20 %   🟡 guadagna ma supera il -20 %   🔴 perde
+
