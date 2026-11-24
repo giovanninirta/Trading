@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-BOT "BTC GUIDA" - Rev 5 (versione B) - MODALITA' SIMULATA (nessun ordine, nessuna chiave API)
+BOT "CECCHINO" (BTC guida, versione A) - Rev 6 - MODALITA' SIMULATA (nessun ordine, nessuna chiave API)
+Rev 6: nome identificativo e spiegazione completa nel cruscotto (regola identica alla Rev 4).
 
 Regola (perpetui Kraken, solo long, candele da 4 ore):
-  SEGNALE    una candela da 4 ore di BTC chiude in salita di oltre l'1,25 %
+  SEGNALE    una candela da 4 ore di BTC chiude in salita di oltre 2 ATR (ATR 14 candele)
   COSA COMPRA le monete liquide salite di oltre 1,7 ATR nella stessa candela (al massimo 5, le piu' forti),
              subito dopo la chiusura della candela (se il controllo arriva oltre 45 minuti dopo, il segnale si salta)
   STOP       1,0 ATR sotto l'ingresso; a pareggio quando il prezzo sale di 1 ATR; poi segue il massimo a 1,5 ATR
@@ -21,9 +22,12 @@ import csv, json, os, time, urllib.request
 from datetime import datetime, timezone
 
 # ------------------------- IMPOSTAZIONI -------------------------
-NOME = "Rev 5 · versione B (scatto BTC oltre +1,25 %)"
+NOME = "🎯 Cecchino"
+SOTTOTITOLO = "BTC guida · versione A · Rev 6"
+CARATTERE = "pochi colpi, mirati: entra solo sugli scatti di BTC piu' forti"
+ATTESE = ("circa 2 scatti di BTC al mese", "circa 80 operazioni all'anno", "+26 % all'anno", "-13 %")
 CAPITALE = 2000.0
-INGRESSO_BTC = ("pct", 1.25)        # ("atr", soglia in ATR) oppure ("pct", soglia in %)
+INGRESSO_BTC = ("atr", 2.0)        # ("atr", soglia in ATR) oppure ("pct", soglia in %)
 MONETA_ATR = 1.7
 STOP_ATR, PAREGGIO_ATR, TRAIL_ATR = 1.0, 1.0, 1.5
 FASE1_ORE, SOGLIA_FASE2, ALLARGAMENTO = 16, 3.0, 0.10
@@ -135,7 +139,7 @@ def cerca_segnale(s, ora, prezzi):
     T = [b[0] for b in btc]; H = [b[2] for b in btc]; L = [b[3] for b in btc]; C = [b[4] for b in btc]
     A = atr(H, L, C); i = len(C) - 1
     z_btc, p_btc = (C[i] - C[i - 1]) / A[i - 1], C[i] / C[i - 1] - 1
-    s["btc_ultima"] = {"t": T[i], "z": z_btc, "pct": p_btc}
+    s["btc_ultima"] = {"t": T[i], "z": z_btc, "pct": p_btc, "atr": A[i], "prezzo": C[i]}
     if T[i] <= s["ultima_candela"]: return
     s["ultima_candela"] = T[i]
     tipo, soglia = INGRESSO_BTC
@@ -175,6 +179,64 @@ def cerca_segnale(s, ora, prezzi):
                   f"BTC {z_btc:+.1f} ATR, moneta {z:+.1f} ATR, posizione {nozionale:.0f} $"])
 
 # ------------------------- CRUSCOTTO -------------------------
+def spiegazione(s):
+    tipo, soglia = INGRESSO_BTC
+    b = s.get("btc_ultima") or {}
+    rischio_usd = CAPITALE * RISCHIO
+    if tipo == "atr":
+        oggi = (f" Con i prezzi di oggi (ATR di BTC circa {num(b['atr'], 0)} $) vuol dire una salita di almeno "
+                f"**{num(soglia * b['atr'], 0)} $**, cioe' circa **{num(soglia * b['atr'] / b['prezzo'] * 100, 1)} %** in 4 ore."
+                if b.get("atr") else "")
+        scatto = (f"BTC chiude la candela da 4 ore **in salita di oltre {num(soglia, 1)} volte il suo ATR**. L'ATR e' "
+                  f"l'oscillazione media di BTC nelle ultime 14 candele da 4 ore: la soglia si adatta da sola, piu' alta "
+                  f"quando il mercato e' agitato, piu' bassa quando e' calmo.{oggi}")
+    else:
+        scatto = f"BTC chiude la candela da 4 ore **in salita di oltre il {num(soglia, 2)} %** rispetto alla chiusura precedente."
+    return f"""## Come agisce
+
+**In una frase:** quando Bitcoin fa uno scatto forte verso l'alto, il bot compra per qualche ora le monete che lo hanno seguito con piu' forza, e le rivende quando lo slancio finisce.
+
+**Carattere:** {CARATTERE}.
+
+### 1 · Aspetta lo scatto di BTC
+Ogni 4 ore, alla chiusura della candela (01, 05, 09, 13, 17, 21 ora italiana d'inverno; un'ora dopo d'estate), il bot guarda quanto e' salita BTC.
+C'e' uno **scatto** quando {scatto}
+Le candele rosse non contano: il bot compra soltanto (solo long).
+
+### 2 · Sceglie le monete
+Guarda 12 monete molto scambiate (spread basso): {", ".join(MONETE)}.
+Compra quelle che **nella stessa candela sono salite di oltre {num(MONETA_ATR, 1)} volte il loro ATR**, cioe' che hanno seguito BTC con forza.
+Se sono di piu', prende le **{MAX_POS} piu' forti**. Non compra due volte la stessa moneta, non tiene mai piu' di {MAX_POS} posizioni insieme,
+e la somma delle posizioni non supera {num(LEVA_MAX, 0)} volte il capitale.
+Entra al primo controllo dopo la chiusura (entro 15-20 minuti). Se il controllo arriva oltre {MAX_RITARDO_MIN} minuti dopo, il segnale si salta: entrare tardi non conviene.
+
+### 3 · Quanto compra
+Ogni operazione rischia lo **{num(RISCHIO * 100, 2)} % del capitale** ({num(rischio_usd, 0)} $ su {num(CAPITALE, 0)} $): e' quanto si perde se il prezzo tocca lo stop iniziale.
+La quantita' si calcola cosi': rischio diviso la distanza dello stop. *Esempio:* ETH a 3.000 $ con ATR di 60 $ → stop {num(STOP_ATR, 1)} ATR sotto = 2.940 $;
+{num(rischio_usd, 0)} $ / 60 $ = {num(rischio_usd / 60, 2)} ETH, cioe' una posizione da circa {num(rischio_usd / 60 * 3000, 0)} $.
+Il rischio si ricalcola sul capitale del momento (interesse composto).
+
+### 4 · Come esce
+| Situazione | Cosa fa lo stop |
+|---|---|
+| Subito dopo l'ingresso | **{num(STOP_ATR, 1)} ATR sotto** il prezzo d'ingresso (se lo tocca: −1 R = −{num(RISCHIO * 100, 2)} % del capitale) |
+| Il prezzo sale di {num(PAREGGIO_ATR, 1)} ATR | lo stop va al **pareggio** (prezzo d'ingresso): da qui l'operazione non puo' piu' perdere, a parte i costi |
+| Il prezzo continua a salire | lo stop **segue il massimo** raggiunto a {num(TRAIL_ATR, 1)} ATR di distanza, e puo' solo salire |
+| Passano {FASE1_ORE} ore senza superare +{num(SOGLIA_FASE2, 0)} ATR | **chiude** al prezzo del momento: lo slancio dello scatto e' finito |
+| Supera +{num(SOGLIA_FASE2, 0)} ATR (**fase 2**) | niente piu' limite di tempo; la distanza dello stop si allarga di {num(ALLARGAMENTO, 2)} ATR per ogni ATR oltre {num(SOGLIA_FASE2, 0)} (es. a +5 ATR: {num(TRAIL_ATR + ALLARGAMENTO * 2, 1)} ATR) per lasciarla correre |
+
+Lo stop si controlla ogni 15 minuti sulle candele da 15 minuti.
+
+### 5 · Costi simulati
+Compra al prezzo di vendita del mercato (*ask*) e vende a quello di acquisto (*bid*): lo spread vero e' pagato.
+In piu' {num(COMMISSIONE * 100, 2)} % di commissione per ordine e il funding dei perpetui ({num(FUNDING_8H * 100, 2)} % ogni 8 ore).
+
+### Cosa aspettarsi (test sul 2022-2026)
+{ATTESE[0]}, {ATTESE[1]}, rendimento **{ATTESE[2]}**, calo massimo **{ATTESE[3]}**.
+Questi numeri vengono da un'ottimizzazione sugli stessi dati del passato: **dal vivo e' normale che siano piu' bassi**. Questo bot serve a scoprirlo senza rischiare soldi.
+I mesi senza scatti di BTC sono normali: il bot resta fermo.
+"""
+
 def num(x, d=2): return f"{x:,.{d}f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 def cruscotto(s, ora, prezzi):
@@ -198,7 +260,7 @@ def cruscotto(s, ora, prezzi):
         else: vicino = f"{btc['pct'] * 100:+.2f} % (serve oltre {soglia:.2f} %)"
         btc_txt = f"ultima candela 4h chiusa alle {ora_txt(btc['t'] + H4)}: **{vicino}**".replace(".", ",")
     else: btc_txt = "in attesa del primo controllo"
-    L = [f"# Bot BTC guida · {NOME} · SIMULATO", "",
+    L = [f"# {NOME}", f"**{SOTTOTITOLO} · SIMULATO** (nessun ordine reale)", "",
          f"## {freccia} {num(totale)} $   ({'+' if resa >= 0 else ''}{num(resa * 100)} %)", "",
          f"Capitale di partenza {num(CAPITALE, 0)} $ simulati · attivo da {giorni:.0f} giorni · ultimo controllo {ora_txt(ora)} UTC", "",
          "| Posizioni aperte | Operazioni chiuse | Vinte | Risultato medio | Scatti di BTC |",
@@ -220,10 +282,10 @@ def cruscotto(s, ora, prezzi):
             L.append(f"| {'✅' if u['usd'] > 0 else '❌'} | {u['moneta']} | {ora_txt(u['entrata'])} | {ora_txt(u['uscita'])} | "
                      f"{u['usd']:+.2f} $ | {u['r']:+.2f} | {u['nota']} |".replace(".", ","))
         L.append("")
-    L += ["<details><summary>Come funziona e come leggere</summary>", "",
-          __doc__.strip().replace("\n", "  \n"), "",
-          "**R** = risultato diviso il rischio: −1 R = stop iniziale pieno (−0,75 % del capitale); +2 R = guadagno doppio del rischio.  ",
-          "Ogni operazione è anche nel file [registro.csv](registro.csv).", "</details>", ""]
+    L += ["---", "", spiegazione(s), "",
+          "**Come leggere il cruscotto:** R = risultato diviso il rischio (−1 R = stop iniziale pieno; +2 R = guadagno doppio del rischio). "
+          "Fase 1 = normale; fase 2 = l'operazione corre oltre +3 ATR. Ogni operazione e' nel file [registro.csv](registro.csv).", "",
+          "<details><summary>Note tecniche</summary>", "", __doc__.strip().replace("\n", "  \n"), "</details>", ""]
     with open(CRUSCOTTO, "w") as f: f.write("\n".join(L))
 
 # ------------------------- AVVIO -------------------------
@@ -234,7 +296,8 @@ def main():
     aggiorna_posizioni(s, ora, prezzi)
     cerca_segnale(s, ora, prezzi)
     dopo = json.dumps(s, sort_keys=True)
-    if dopo != prima or not os.path.exists(CRUSCOTTO):
+    vecchio = open(CRUSCOTTO).read() if os.path.exists(CRUSCOTTO) else ""
+    if dopo != prima or SOTTOTITOLO not in vecchio:
         with open(STATO, "w") as f: json.dump(s, f, indent=1)
         cruscotto(s, ora, prezzi)
         print("aggiornato")

@@ -2,8 +2,8 @@
 
 ## Bot simulati "BTC guida" (perpetui, candele 4h, controllo ogni 15 minuti)
 
-- **[Rev 4 · versione A: scatto di BTC oltre 2 ATR](bot/rev4/README.md)**
-- **[Rev 5 · versione B: scatto di BTC oltre +1,25 %](bot/rev5/README.md)**
+- **[🎯 Cecchino](bot/rev6/README.md)** · Rev 6 · versione A: scatto di BTC oltre 2 ATR, pochi colpi mirati
+- **[🐕 Segugio](bot/rev7/README.md)** · Rev 7 · versione B: scatto di BTC oltre +1,25 %, circa il doppio delle operazioni
 
 Quando una candela da 4 ore di BTC scatta in salita, comprano le monete liquide che l'hanno seguita
 (stop 1 ATR, pareggio, trailing, 16 ore o fase 2). 2.000 $ simulati ciascuno, rischio 0,75 % per operazione.
@@ -22,7 +22,7 @@ Stessa regola (Canale 55/20, 30 monete in EUR, 2.000 EUR simulati): girano in pa
 
 | Cartella | Contenuto |
 |---|---|
-| `bot/rev4`, `bot/rev5` | Bot simulati BTC guida: nessun ordine reale, nessuna chiave API |
+| `bot/rev6`, `bot/rev7` | Bot simulati BTC guida (Cecchino, Segugio): nessun ordine reale, nessuna chiave API |
 | `bot/rev2`, `bot/rev3` | Bot simulati trend giornaliero: nessun ordine reale, nessuna chiave API |
 | `bot/archivio_rev1` | Prima versione (10 monete in USDT), non piu' attiva |
 | `test/` | Script di verifica delle strategie sui dati storici |
