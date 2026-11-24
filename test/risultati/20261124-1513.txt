@@ -1,0 +1,30 @@
+### python portafoglio_btc_guida_rev1.py
+
+1402 operazioni possibili dal 2022-09-09 al 2026-11-05 (0 senza dati da 1 minuto).
+Scatti di BTC: 107, in media 13.1 monete per scatto.
+
+    Rischio Max pos.  Prese   Annuo  Calo max  Peggior scatto   Prova  Verifica   2022   2023   2024   2025   2026
+🟢    0.25%        3    288     +3%       -7%           -0.9%     +9%       +4%    +3%    +7%    +1%    -0%    +2%
+🟢    0.50%        3    288     +6%      -13%           -1.8%    +18%       +7%    +5%   +13%    +2%    -1%    +5%
+🟢    0.75%        3    288     +9%      -20%           -2.7%    +28%      +10%    +8%   +19%    +4%    -1%    +7%
+🟡    1.00%        3    287    +12%      -24%           -3.3%    +40%      +13%   +11%   +28%    +5%    -2%    +9%
+🟡    1.50%        3    282    +19%      -32%           -4.9%    +74%      +19%   +18%   +51%    +7%    -4%   +13%
+
+🟢    0.25%        5    458     +5%       -8%           -1.3%    +12%       +7%    +4%    +6%    +5%    +2%    +3%
+🟢    0.50%        5    458     +9%      -15%           -2.7%    +24%      +14%    +7%   +11%   +10%    +3%    +5%
+🟡    0.75%        5    456    +13%      -21%           -4.0%    +38%      +21%   +11%   +18%   +15%    +4%    +8%
+🟡    1.00%        5    447    +20%      -26%           -5.4%    +64%      +28%   +17%   +31%   +20%    +4%   +10%
+🟡    1.50%        5    403    +23%      -39%           -7.9%    +80%      +32%   +18%   +50%   +21%    +1%   +10%
+
+🟢    0.25%       10    816     +7%      -14%           -2.7%    +15%      +14%    +7%    +4%   +10%    +4%    +4%
+🟡    0.50%       10    802    +13%      -23%           -5.4%    +32%      +27%   +12%    +9%   +20%    +7%    +7%
+🟡    0.75%       10    723    +19%      -32%           -7.9%    +52%      +36%   +10%   +27%   +29%   +10%    +5%
+🟡    1.00%       10    624    +19%      -39%          -10.4%    +62%      +27%   +15%   +37%   +27%    +0%    +2%
+🟡    1.50%       10    460    +14%      -53%          -14.8%    +47%      +16%   +18%   +50%   +15%   -24%    +9%
+
+Rischio: % del capitale persa se scatta lo stop di un'operazione.  Max pos.: posizioni aperte insieme.
+Annuo: rendimento medio composto.  Calo max: peggior discesa dal massimo (sulle chiusure).
+Peggior scatto: risultato peggiore di tutte le monete comprate sullo stesso scatto di BTC.
+🟢 guadagna e resta entro il -20 %   🟡 guadagna ma supera il -20 %   🔴 perde
+Attenzione: il calo e' misurato sulle chiusure; durante le 16 ore il calo puo' essere un po' piu' profondo.
+
