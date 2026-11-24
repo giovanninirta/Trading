@@ -1,0 +1,43 @@
+name: Bot BTC guida (simulato)
+
+on:
+  schedule:
+    - cron: "3,18,33,48 * * * *"   # ogni 15 minuti
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["bot/rev4/*.py", "bot/rev5/*.py", ".github/workflows/bot_btc_guida.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrittura-repository
+  cancel-in-progress: false
+
+jobs:
+  esegui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bot Rev 4 (versione A, BTC oltre 2 ATR)
+        working-directory: bot/rev4
+        run: python bot_btc_guida_rev4.py
+      - name: Bot Rev 5 (versione B, BTC oltre +1,25 %)
+        if: always()
+        working-directory: bot/rev5
+        run: python bot_btc_guida_rev5.py
+      - name: Salva i risultati
+        if: always()
+        run: |
+          git config user.name "bot-btc-guida"
+          git config user.email "bot-btc-guida@users.noreply.github.com"
+          git add bot/rev4 bot/rev5
+          git diff --cached --quiet && exit 0
+          git commit -m "Bot BTC guida: aggiornamento $(date -u +%Y-%m-%d_%H:%M)"
+          git pull --rebase
+          git push

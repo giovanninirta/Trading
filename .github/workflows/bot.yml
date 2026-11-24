@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:                        # riparte anche quando il bot viene aggiornato
     branches: [main]
-    paths: ["bot/rev*/*.py", ".github/workflows/bot.yml"]
+    paths: ["bot/rev2/*.py", "bot/rev3/*.py", ".github/workflows/bot.yml"]
 
 permissions:
   contents: write
