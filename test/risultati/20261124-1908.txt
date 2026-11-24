@@ -1,0 +1,31 @@
+### python trailing_btc_guida_rev2.py
+
+592 segnali sulle monete liquide. Verifica dal 2025-02-03.
+Portafoglio: rischio 0,75 % per operazione, massimo 5 posizioni, leva max 3, interesse composto.
+
+   Variante                           Vinte  Durata  R prova R verif.  Annuo   Calo   2022   2023   2024   2025   2026
+   Attuale: stop fisso, 16 ore          48%   13.7h    +0.18    +0.20   +12%   -19%   +12%    +6%   +14%    +3%   +14%
+
+🟡 Pareggio 0,75 ATR, trailing 1,0 ATR   50%    9.5h    +0.15    +0.15   +10%   -15%   +14%   +10%    +7%    +1%   +11%
+🟡 Pareggio 0,75 ATR, trailing 1,5 ATR   44%   10.4h    +0.14    +0.20   +11%   -14%   +12%   +10%    +6%    +6%   +12%
+🟡 Pareggio 0,75 ATR, trailing 2,0 ATR   40%   11.0h    +0.15    +0.21   +12%   -15%   +10%   +12%   +10%    +6%   +12%
+🟡 Pareggio 0,75 ATR, trailing 3,0 ATR   38%   11.5h    +0.16    +0.22   +11%   -15%   +10%    +4%   +12%    +6%   +13%
+
+🟡 Pareggio 1,0 ATR, trailing 1,0 ATR   55%   10.4h    +0.15    +0.14   +10%   -16%   +15%    +8%    +8%    -0%   +11%
+🟡 Pareggio 1,0 ATR, trailing 1,5 ATR   48%   11.3h    +0.15    +0.20   +11%   -15%   +13%    +9%    +7%    +5%   +12%
+🟡 Pareggio 1,0 ATR, trailing 2,0 ATR   45%   11.9h    +0.16    +0.21   +12%   -16%   +10%   +10%   +10%    +6%   +12%
+🟡 Pareggio 1,0 ATR, trailing 3,0 ATR   42%   12.4h    +0.16    +0.21   +10%   -18%   +11%    +2%   +13%    +5%   +13%
+
+🟡 Pareggio 1,5 ATR, trailing 1,0 ATR   53%   11.1h    +0.16    +0.16   +10%   -18%   +13%    +8%    +9%    -1%   +13%
+🟡 Pareggio 1,5 ATR, trailing 1,5 ATR   51%   11.8h    +0.14    +0.19   +10%   -18%   +12%    +8%    +8%    +3%   +13%
+🟡 Pareggio 1,5 ATR, trailing 2,0 ATR   48%   12.4h    +0.15    +0.20   +11%   -18%    +9%    +9%   +11%    +4%   +12%
+🟡 Pareggio 1,5 ATR, trailing 3,0 ATR   46%   12.9h    +0.15    +0.21   +10%   -19%   +10%    +2%   +13%    +4%   +13%
+
+🟡 Pareggio 2,0 ATR, trailing 1,0 ATR   50%   11.6h    +0.16    +0.17   +10%   -19%   +12%   +10%    +7%    -0%   +13%
+🟡 Pareggio 2,0 ATR, trailing 1,5 ATR   50%   12.1h    +0.16    +0.19   +11%   -19%   +11%   +13%    +7%    +4%   +12%
+🟡 Pareggio 2,0 ATR, trailing 2,0 ATR   50%   12.6h    +0.17    +0.19   +12%   -20%   +10%   +14%   +11%    +4%   +11%
+🟡 Pareggio 2,0 ATR, trailing 3,0 ATR   47%   13.1h    +0.17    +0.19   +10%   -19%   +10%    +6%   +13%    +3%   +12%
+
+🟢 migliore della regola attuale sia in prova sia in verifica   🟡 positiva ma non migliore   🔴 peggiore e debole
+R: risultato per operazione in multipli del rischio iniziale (1,5 ATR), costi e spread inclusi.  Durata: ore medie in posizione.
+
