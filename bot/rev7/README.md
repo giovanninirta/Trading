@@ -3,7 +3,7 @@
 
 ## ➡️ 2.000,00 $   (+0,00 %)
 
-Capitale di partenza 2.000 $ simulati · attivo da 0 giorni · ultimo controllo 2026-11-24 23:09 UTC
+Capitale di partenza 2.000 $ simulati · attivo da 0 giorni · ultimo controllo 2026-11-24 23:10 UTC
 
 | Posizioni aperte | Operazioni chiuse | Vinte | Risultato medio | Scatti di BTC |
 |:-:|:-:|:-:|:-:|:-:|
@@ -21,7 +21,7 @@ Capitale di partenza 2.000 $ simulati · attivo da 0 giorni · ultimo controllo 
 
 ### 1 · Aspetta lo scatto di BTC
 Ogni 4 ore, alla chiusura della candela (01, 05, 09, 13, 17, 21 ora italiana d'inverno; un'ora dopo d'estate), il bot guarda quanto e' salita BTC.
-C'e' uno **scatto** quando BTC chiude la candela da 4 ore **in salita di oltre il 1,25 %** rispetto alla chiusura precedente.
+C'e' uno **scatto** quando BTC chiude la candela da 4 ore **in salita di oltre l'1,25 %** rispetto alla chiusura precedente.
 Le candele rosse non contano: il bot compra soltanto (solo long).
 
 ### 2 · Sceglie le monete
