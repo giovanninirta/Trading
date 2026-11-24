@@ -1,30 +1,38 @@
-### python portafoglio_btc_guida_rev1.py
+### python portafoglio_combinato_rev1.py
 
-1402 operazioni possibili dal 2022-09-09 al 2026-11-05 (0 senza dati da 1 minuto).
-Scatti di BTC: 107, in media 13.1 monete per scatto.
+Dal 2022-12-12 al 2026-11-22. Prova fino al 2025-04-25, poi verifica.
+Operazioni BTC guida possibili: 1402.
 
-    Rischio Max pos.  Prese   Annuo  Calo max  Peggior scatto   Prova  Verifica   2022   2023   2024   2025   2026
-🟢    0.25%        3    288     +3%       -7%           -0.9%     +9%       +4%    +3%    +7%    +1%    -0%    +2%
-🟢    0.50%        3    288     +6%      -13%           -1.8%    +18%       +7%    +5%   +13%    +2%    -1%    +5%
-🟢    0.75%        3    288     +9%      -20%           -2.7%    +28%      +10%    +8%   +19%    +4%    -1%    +7%
-🟡    1.00%        3    287    +12%      -24%           -3.3%    +40%      +13%   +11%   +28%    +5%    -2%    +9%
-🟡    1.50%        3    282    +19%      -32%           -4.9%    +74%      +19%   +18%   +51%    +7%    -4%   +13%
+    Quota trend Rischio guida   Annuo  Calo max   Prova  Verifica   2022   2023   2024   2025   2026
+🟡        100%             -    +23%      -38%   +150%       -9%    -0%   +66%   +53%   -13%    +3%
 
-🟢    0.25%        5    458     +5%       -8%           -1.3%    +12%       +7%    +4%    +6%    +5%    +2%    +3%
-🟢    0.50%        5    458     +9%      -15%           -2.7%    +24%      +14%    +7%   +11%   +10%    +3%    +5%
-🟡    0.75%        5    456    +13%      -21%           -4.0%    +38%      +21%   +11%   +18%   +15%    +4%    +8%
-🟡    1.00%        5    447    +20%      -26%           -5.4%    +64%      +28%   +17%   +31%   +20%    +4%   +10%
-🟡    1.50%        5    403    +23%      -39%           -7.9%    +80%      +32%   +18%   +50%   +21%    +1%   +10%
+🟡         80%             -    +19%      -31%   +113%       -7%    -0%   +51%   +43%   -10%    +3%
+🟡         80%         0.50%    +24%      -35%   +135%       -1%    +2%   +74%   +43%   -14%    +6%
+🟡         80%         0.75%    +19%      -38%   +108%       -3%    +2%   +62%   +39%   -16%    +4%
+🟡         80%         1.00%    +20%      -39%   +121%       -8%    +0%   +62%   +49%   -17%    +2%
 
-🟢    0.25%       10    816     +7%      -14%           -2.7%    +15%      +14%    +7%    +4%   +10%    +4%    +4%
-🟡    0.50%       10    802    +13%      -23%           -5.4%    +32%      +27%   +12%    +9%   +20%    +7%    +7%
-🟡    0.75%       10    723    +19%      -32%           -7.9%    +52%      +36%   +10%   +27%   +29%   +10%    +5%
-🟡    1.00%       10    624    +19%      -39%          -10.4%    +62%      +27%   +15%   +37%   +27%    +0%    +2%
-🟡    1.50%       10    460    +14%      -53%          -14.8%    +47%      +16%   +18%   +50%   +15%   -24%    +9%
+🟡         70%             -    +17%      -28%    +95%       -6%    -0%   +44%   +37%    -9%    +3%
+🟡         70%         0.50%    +26%      -29%   +138%       +6%    +5%   +69%   +45%    -8%    +7%
+🟡         70%         0.75%    +24%      -35%   +125%       +3%    +3%   +77%   +38%   -15%    +8%
+🟡         70%         1.00%    +20%      -35%    +90%       +7%    +6%   +48%   +41%   -15%    +8%
 
-Rischio: % del capitale persa se scatta lo stop di un'operazione.  Max pos.: posizioni aperte insieme.
-Annuo: rendimento medio composto.  Calo max: peggior discesa dal massimo (sulle chiusure).
-Peggior scatto: risultato peggiore di tutte le monete comprate sullo stesso scatto di BTC.
+🟡         60%             -    +14%      -24%    +79%       -5%    -0%   +37%   +32%    -8%    +2%
+🟡         60%         0.50%    +27%      -26%   +131%      +10%    +8%   +62%   +44%    -5%    +7%
+🟡         60%         0.75%    +24%      -31%   +118%       +7%    +7%   +66%   +37%   -11%    +7%
+🟡         60%         1.00%    +23%      -35%   +115%       +7%    +5%   +80%   +32%   -16%    +9%
+
+🟡         50%             -    +12%      -20%    +64%       -4%    -0%   +30%   +27%    -6%    +2%
+🟡         50%         0.50%    +24%      -22%   +110%      +12%    +8%   +51%   +39%    -4%    +7%
+🟡         50%         0.75%    +27%      -27%   +121%      +16%    +9%   +62%   +40%    -4%    +8%
+🟡         50%         1.00%    +26%      -32%   +124%      +11%    +6%   +82%   +35%   -12%   +10%
+
+🟢         40%             -    +10%      -17%    +49%       -3%    -0%   +24%   +21%    -5%    +2%
+🟢         40%         0.50%    +20%      -20%    +85%      +13%    +6%   +41%   +33%    -2%    +7%
+🟡         40%         0.75%    +27%      -25%   +115%      +19%   +12%   +57%   +38%    -2%    +8%
+🟡         40%         1.00%    +27%      -28%   +115%      +20%   +10%   +67%   +33%    -4%   +10%
+
+Quota trend: parte del capitale nel bot giornaliero (il resto sta fermo come margine per BTC guida).
+Rischio guida: % del capitale totale persa se scatta lo stop di un'operazione BTC guida ("-" = bot spento).
+Annuo: rendimento medio composto.   Calo max: peggior discesa dal massimo, misurata a fine giornata.
 🟢 guadagna e resta entro il -20 %   🟡 guadagna ma supera il -20 %   🔴 perde
-Attenzione: il calo e' misurato sulle chiusure; durante le 16 ore il calo puo' essere un po' piu' profondo.
 
