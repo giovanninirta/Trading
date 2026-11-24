@@ -1,70 +1,25 @@
-### python genetico_trend_rev1.py
+### python portafoglio_btc_guida_rev2.py
 
-Monete: XBT AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP. Dal 2022-05-25 al 2026-11-22; l'algoritmo vede solo la prova (fino al 2025-02-03).
+Monete liquide: AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP
+Spread di oggi (%): AAVE 0.064  ADA 0.028  DOGE 0.018  DOT 0.046  ETH 0.012  LINK 0.046  LTC 0.025  NEAR 0.039  SOL 0.029  TRX 0.062  UNI 0.021  XRP 0.022
 
-   seme 1  generazione  1: miglior voto in prova +1.71   (combinazioni provate 80)
-   seme 1  generazione 11: miglior voto in prova +3.24   (combinazioni provate 812)
-   seme 1  generazione 21: miglior voto in prova +3.41   (combinazioni provate 1501)
-   seme 1  generazione 30: miglior voto in prova +3.85   (combinazioni provate 2017)
-   seme 2  generazione  1: miglior voto in prova +2.82   (combinazioni provate 2164)
-   seme 2  generazione 11: miglior voto in prova +3.30   (combinazioni provate 2895)
-   seme 2  generazione 21: miglior voto in prova +3.83   (combinazioni provate 3607)
-   seme 2  generazione 30: miglior voto in prova +3.83   (combinazioni provate 4240)
+R PER OPERAZIONE (media, costi inclusi)
+   Caso                                     N  Vinte  R prova R verif.   2022   2023   2024   2025   2026
+🟢 Tutte le 30, senza spread (Rev 1)     1402    49%    +0.14    +0.24  +0.63  +0.09  +0.22  +0.14  +0.14
+🟢 Tutte le 30, con spread               1402    47%    +0.10    +0.20  +0.58  +0.04  +0.18  +0.11  +0.11
+🟢 Solo 12 liquide, con spread            592    48%    +0.13    +0.21  +0.58  +0.05  +0.21  +0.08  +0.20
 
-   combinazioni provate in tutto: 4305
+PORTAFOGLIO (interesse composto, leva max 3)
+   Caso                                 Rischio Pos.  Annuo   Calo   2022   2023   2024   2025   2026
+🟢 Tutte le 30, con spread                0.50%    3    +4%   -16%    +5%   +10%    +1%    -2%    +4%
+🟡 Tutte le 30, con spread                0.50%    5    +6%   -20%    +6%    +7%    +7%    +1%    +4%
+🟡 Tutte le 30, con spread                0.75%    5    +9%   -28%    +9%   +10%   +11%    +1%    +6%
+🟡 Tutte le 30, con spread                1.00%    5   +14%   -31%   +15%   +22%   +14%    +0%    +8%
 
-MIGLIORE DI OGNI CORSA
-   seme 1: 24h long | rottura 55 candele +0,00 ATR | filtro forza | volatilita' qualsiasi | stop 5,0 ATR | uscita obiettivo 1,5 R, max 24 candele
-   seme 2: 12h long | rottura 20 candele +1,00 ATR | filtro nessuno | volatilita' qualsiasi | stop 2,0 ATR | uscita obiettivo 5,0 R, max 200 candele
+🟢 Solo 12 liquide, con spread            0.50%    3    +7%    -9%    +5%    +6%    +7%    +2%    +7%
+🟢 Solo 12 liquide, con spread            0.50%    5    +8%   -13%    +8%    +4%    +9%    +2%    +9%
+🟢 Solo 12 liquide, con spread            0.75%    5   +11%   -19%   +12%    +5%   +14%    +2%   +14%
+🟡 Solo 12 liquide, con spread            1.00%    5   +16%   -24%   +16%    +9%   +19%    +2%   +18%
 
-LE 10 MIGLIORI (scelte guardando solo la prova) + il bot giornaliero attuale come confronto
-Annuo, calo e anni: rischio 0,5 % per operazione, massimo 5 posizioni, leva max 3, interesse composto.
-
-   Voto prova verif. R prova R verif Oper./a   Annuo    Calo   2022   2023   2024   2025   2026
- 1. 24h long | rottura 55 candele +0,00 ATR | filtro forza | volatilita' qualsiasi | stop 5,0 ATR | uscita obiettivo 1,5 R, max 24 candele
-🔴   +3.9   -0.7   +0.46   -0.08      20     +2%     -4%    +0%    +7%    +4%    -1%    +0%
- 2. 12h long | rottura 20 candele +1,00 ATR | filtro nessuno | volatilita' qualsiasi | stop 2,0 ATR | uscita obiettivo 5,0 R, max 200 candele
-🔴   +3.8   -0.5   +0.95   -0.12      55    +15%    -21%    -2%   +48%   +32%    +0%    -1%
- 3. 12h long | rottura 20 candele +0,50 ATR | filtro forza | volatilita' alta | stop 5,0 ATR | uscita obiettivo 4,0 R, max 200 candele
-🟡   +3.8   +0.3   +1.31   +0.14      15     +5%     -4%    -1%   +11%   +15%    -3%    +1%
- 4. 24h long | rottura 80 candele +0,00 ATR | filtro nessuno | volatilita' qualsiasi | stop 5,0 ATR | uscita obiettivo 1,5 R, max 24 candele
-🔴   +3.8   -0.4   +0.44   -0.06      20     +3%     -2%    +0%    +4%    +8%    -1%    +1%
- 5. 24h long | rottura 80 candele +0,00 ATR | filtro nessuno | volatilita' qualsiasi | stop 5,0 ATR | uscita obiettivo 1,5 R, max 24 candele
-🔴   +3.8   -0.4   +0.44   -0.06      20     +3%     -2%    +0%    +4%    +8%    -1%    +1%
- 6. 24h long | rottura 80 candele +0,00 ATR | filtro nessuno | volatilita' qualsiasi | stop 5,0 ATR | uscita obiettivo 1,5 R, max 24 candele
-🔴   +3.8   -0.4   +0.44   -0.06      20     +3%     -2%    +0%    +4%    +8%    -1%    +1%
- 7. 24h long | rottura 80 candele +0,25 ATR | filtro nessuno | volatilita' qualsiasi | stop 5,0 ATR | uscita obiettivo 1,5 R, max 24 candele
-🔴   +3.8   -0.8   +0.46   -0.11      19     +2%     -2%    +0%    +3%    +7%    -1%    +0%
- 8. 24h long | rottura 20 candele +1,00 ATR | filtro nessuno | volatilita' qualsiasi | stop 4,0 ATR | uscita obiettivo 3,0 R, max 200 candele
-🟡   +3.7   +0.1   +1.11   +0.04      17     +6%     -5%    +0%   +13%   +13%    -0%    +1%
- 9.  6h long | rottura 15 candele +0,50 ATR | filtro entrambi | volatilita' alta | stop 5,0 ATR | uscita obiettivo 1,0 R, max 48 candele
-🔴   +3.7   -0.4   +0.24   -0.04      61     +8%     -6%    +1%   +17%   +12%    -0%    +4%
-10. 12h long | rottura 20 candele +0,50 ATR | filtro nessuno | volatilita' alta | stop 4,0 ATR | uscita obiettivo 5,0 R, max 200 candele
-🟡   +3.6   +0.6   +1.41   +0.32      17     +7%     -5%    -0%   +14%   +21%    -2%    +2%
-11. 24h long | rottura 55 candele +0,00 ATR | filtro nessuno | volatilita' qualsiasi | stop 6,0 ATR | uscita canale 20 candele, max 500 candele   <- BOT ATTUALE (canale 55/20)
-🔴   -9.0   -1.1   +0.00   -0.16      12     +1%     -2%    +0%    +1%    +2%    +2%    -0%
-
-PARAMETRI VICINI ALLA MIGLIORE
-   Cambio                     Voto prova Voto verif.  R verif
-   ore = 12                         +2.2        +0.2    +0.02
-   verso = short                    -9.0        +0.7    +0.11
-   N = 40                           +2.9        -0.3    -0.04
-   N = 80                           -9.0        -0.0    -0.01
-   margine = 0.25                   +4.0        -0.9    -0.11
-   filtro = btc                     +2.5        -0.5    -0.09
-   filtro = entrambi                +3.4        -0.9    -0.14
-   volat = bassa                    -9.0        -0.2    -0.04
-   stop = 4.0                       +2.0        -0.2    -0.02
-   stop = 6.0                       -9.0        -0.8    -0.11
-   uscita = trailing                +1.8        -0.2    -0.01
-   uscita = tempo                   +3.1        -0.4    -0.06
-   X = 10                           +3.9        -0.7    -0.08
-   k = 1.0                          +3.2        +0.3    +0.04
-   k = 2.0                          +3.5        -0.7    -0.08
-   tenuta = 12                      +2.6        -0.6    -0.05
-   tenuta = 48                      -9.0        -1.7    -0.27
-
-Voto: costanza del risultato giorno per giorno (sopra +2 = netto, sotto +1 = probabilmente fortuna).
-R: risultato medio in multipli del rischio, costi e spread inclusi.   Oper./a: operazioni prese all'anno.
-🟢 netto in prova E in verifica   🟡 positivo in entrambi ma non netto   🔴 negativo in verifica
+🟢 guadagna entro il -20 % di calo   🟡 guadagna ma supera il -20 %   🔴 perde
 

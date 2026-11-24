@@ -1,0 +1,25 @@
+### python portafoglio_btc_guida_rev2.py
+
+Monete liquide: AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP
+Spread di oggi (%): AAVE 0.064  ADA 0.028  DOGE 0.018  DOT 0.046  ETH 0.012  LINK 0.046  LTC 0.025  NEAR 0.039  SOL 0.029  TRX 0.062  UNI 0.021  XRP 0.022
+
+R PER OPERAZIONE (media, costi inclusi)
+   Caso                                     N  Vinte  R prova R verif.   2022   2023   2024   2025   2026
+🟢 Tutte le 30, senza spread (Rev 1)     1402    49%    +0.14    +0.24  +0.63  +0.09  +0.22  +0.14  +0.14
+🟢 Tutte le 30, con spread               1402    47%    +0.10    +0.20  +0.58  +0.04  +0.18  +0.11  +0.11
+🟢 Solo 12 liquide, con spread            592    48%    +0.13    +0.21  +0.58  +0.05  +0.21  +0.08  +0.20
+
+PORTAFOGLIO (interesse composto, leva max 3)
+   Caso                                 Rischio Pos.  Annuo   Calo   2022   2023   2024   2025   2026
+🟢 Tutte le 30, con spread                0.50%    3    +4%   -16%    +5%   +10%    +1%    -2%    +4%
+🟡 Tutte le 30, con spread                0.50%    5    +6%   -20%    +6%    +7%    +7%    +1%    +4%
+🟡 Tutte le 30, con spread                0.75%    5    +9%   -28%    +9%   +10%   +11%    +1%    +6%
+🟡 Tutte le 30, con spread                1.00%    5   +14%   -31%   +15%   +22%   +14%    +0%    +8%
+
+🟢 Solo 12 liquide, con spread            0.50%    3    +7%    -9%    +5%    +6%    +7%    +2%    +7%
+🟢 Solo 12 liquide, con spread            0.50%    5    +8%   -13%    +8%    +4%    +9%    +2%    +9%
+🟢 Solo 12 liquide, con spread            0.75%    5   +11%   -19%   +12%    +5%   +14%    +2%   +14%
+🟡 Solo 12 liquide, con spread            1.00%    5   +16%   -24%   +16%    +9%   +19%    +2%   +18%
+
+🟢 guadagna entro il -20 % di calo   🟡 guadagna ma supera il -20 %   🔴 perde
+
