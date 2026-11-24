@@ -1,3 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-studio_btc_indicatori_rev2.py --candele 1 --obiettivo 3 --stop 1
-studio_btc_indicatori_rev2.py --candele 24 --obiettivo 10 --stop 3
+portafoglio_btc_guida_rev1.py
