@@ -1,0 +1,25 @@
+### python trailing_btc_guida_rev1.py
+
+Monete: XBT AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP
+Candele da 15 minuti: XBT 157672  AAVE 154488  ADA 157672  DOGE 155161  DOT 157672  ETH 157672  LINK 157672  LTC 157672  NEAR 155838  SOL 157672  TRX 155160  UNI 157672  XRP 157672
+Verifica dal 2025-02-03.
+
+RISULTATO PER OPERAZIONE (costi e spread inclusi)
+   Versione                               Oper./a  Vinte Stop medio  Durata  R prova R verif.   2022   2023   2024   2025   2026
+🟢 A) 4h, stop fisso 1,5 ATR (attuale)         89    48%      3.00%   13.7h    +0.18    +0.20  +0.53  +0.08  +0.25  +0.07  +0.27
+🟡 B) 4h, nuovo stop + trailing                81    30%      5.86%    6.3h    +0.04    +0.00  +0.22  +0.07  -0.08  -0.06  +0.07
+🔴 C) 15 min, stop fisso 1,5 ATR             1390    36%      0.70%    0.8h    -0.18    -0.23  -0.03  -0.28  -0.19  -0.10  -0.33
+🔴 D) 15 min, nuovo stop + trailing          1402    29%      1.92%    2.4h    -0.06    -0.15  +0.06  -0.09  -0.16  -0.08  -0.18
+
+PORTAFOGLIO (rischio 0,75 % per operazione, massimo 5 posizioni, leva max 3, interesse composto)
+   Versione                                Annuo   Calo   2022   2023   2024   2025   2026
+🟢 A) 4h, stop fisso 1,5 ATR (attuale)      +11%   -19%   +12%    +6%   +14%    +3%   +14%
+🟢 B) 4h, nuovo stop + trailing              +2%   -12%    +6%    +6%    -5%    -3%    +3%
+🔴 C) 15 min, stop fisso 1,5 ATR            -73%  -100%   -50%   -85%   -65%   -47%   -80%
+🔴 D) 15 min, nuovo stop + trailing         -51%   -97%   -12%   -34%   -65%   -39%   -67%
+
+Stop medio: distanza media dello stop iniziale dal prezzo d'ingresso.  Durata: ore medie in posizione.
+R: risultato in multipli del rischio (R = -1 stop iniziale pieno).
+🟢 positivo in prova e in verifica (oltre +0,05 R)   🟡 positivo ma debole   🔴 negativo in almeno un periodo
+Nel portafoglio: 🟢 guadagna entro il -20 % di calo   🟡 guadagna ma supera il -20 %   🔴 perde
+
