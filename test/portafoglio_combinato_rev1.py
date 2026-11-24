@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import misuratore_trend_rev5 as tr
 import portafoglio_btc_guida_rev1 as pg
 
-QUOTE_TREND = [1.0, 0.8, 0.7, 0.6, 0.5, 0.4]
+QUOTE_TREND = [1.0, 0.8, 0.7, 0.6, 0.5, 0.4, 0.0]
 RISCHI_GUIDA = [0.0, 0.5, 0.75, 1.0]
 MAX_POS, LEVA, LIMITE = 5, 3.0, -0.20
 
@@ -45,6 +45,8 @@ def main():
     for q in QUOTE_TREND:
         for rg in RISCHI_GUIDA:
             if q == 1.0 and rg > 0: continue
+            if q == 0.0 and rg == 0: continue
+            prese = 0
             E = [1.0] * T; aperte = []; k = 0
             for t in range(i0 + 1, T):
                 e = E[t - 1] * (1 + q * r_trend[t])
@@ -56,7 +58,7 @@ def main():
                     for chiusura, fine, m, z, pct, r in sorted(per_ingresso[ti], key=lambda o: -o[3]):
                         importo = e * rg / 100; noz = importo / pct
                         if len(aperte) >= MAX_POS or sum(p[2] for p in aperte) + noz > LEVA * (1 - q) * e: continue
-                        aperte.append((fine, importo, noz, r))
+                        aperte.append((fine, importo, noz, r)); prese += 1
                     k += 1
                 for p in [p for p in aperte if p[0] <= giorni[t]]: e += p[1] * p[3]
                 aperte = [p for p in aperte if p[0] > giorni[t]]
@@ -73,7 +75,7 @@ def main():
             s = "🟢" if cm >= LIMITE and annuo > 0 else ("🟡" if annuo > 0 else "🔴")
             nome_r = "-" if rg == 0 else f"{rg:.2f}%"
             print(f"{s} {q * 100:>10.0f}%{nome_r:>14}{annuo * 100:>+7.0f}%{cm * 100:>+9.0f}%"
-                  f"{(E[taglio] - 1) * 100:>+7.0f}%{(E[-1] / E[taglio] - 1) * 100:>+9.0f}%{celle}")
+                  f"{(E[taglio] - 1) * 100:>+7.0f}%{(E[-1] / E[taglio] - 1) * 100:>+9.0f}%{celle}   prese {prese}")
         print()
     print("""Quota trend: parte del capitale nel bot giornaliero (il resto sta fermo come margine per BTC guida).
 Rischio guida: % del capitale totale persa se scatta lo stop di un'operazione BTC guida ("-" = bot spento).
