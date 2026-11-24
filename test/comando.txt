@@ -1,3 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-portafoglio_combinato_rev1.py
-# controllo
+genetico_btc_guida_rev1.py
