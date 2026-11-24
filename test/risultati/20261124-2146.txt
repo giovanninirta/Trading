@@ -1,0 +1,36 @@
+### python trailing_btc_guida_rev6.py
+
+592 segnali. Verifica dal 2025-02-03.
+Portafoglio: rischio 0,75 % per operazione, massimo 5 posizioni, leva max 3, interesse composto.
+
+   Durata max Trailing                   Prese Vinte  Durata R medio senza 5 senza 10  R max  R prova R verif.  Annuo   Calo   2022   2023   2024   2025   2026
+   16 ore     riferimento: fisso 16 ore    381   48%     14h   +0.18   +0.13    +0.08   +4.5    +0.17    +0.21   +12%   -19%   +13%    +7%   +12%    +4%   +14%
+🟢 16 ore     S0 1,5 + 0 x guadagno        388   47%     11h   +0.16   +0.11    +0.07   +4.8    +0.13    +0.20   +11%   -15%    +8%   +12%    +8%    +5%   +12%
+
+🟢 1 giorno   S0 1,5 + 0,0 x guadagno      387   44%     14h   +0.14   +0.07    +0.03   +6.1    +0.13    +0.14    +9%   -16%    +4%   +20%    +3%    +7%    +3%
+🟡 1 giorno   S0 1,5 + 0,5 x guadagno      374   35%     17h   +0.15   +0.05    -0.03  +10.2    +0.10    +0.21    +8%   -21%   +10%    +5%    +5%   +11%    +4%
+🔴 1 giorno   S0 2,0 + 0,3 x guadagno      378   35%     16h   +0.11   +0.03    -0.03   +6.6    +0.10    +0.14    +6%   -21%    +9%    +6%    +4%   +11%    -3%
+🔴 1 giorno   S0 2,0 + 0,4 x guadagno      375   34%     17h   +0.14   +0.05    -0.03  +10.2    +0.10    +0.21    +8%   -21%    +9%    +5%    +5%   +11%    +4%
+🔴 1 giorno   S0 2,0 + 0,5 x guadagno      374   34%     17h   +0.16   +0.07    -0.01  +10.2    +0.13    +0.21   +10%   -21%   +12%    +7%    +5%   +11%    +4%
+🔴 1 giorno   S0 2,0 + 0,6 x guadagno      374   34%     17h   +0.16   +0.06    -0.01  +10.2    +0.12    +0.21    +9%   -22%   +12%    +6%    +5%   +11%    +4%
+
+🔴 2 giorni   S0 1,5 + 0,0 x guadagno      387   44%     17h   +0.15   +0.08    +0.04   +6.3    +0.16    +0.12    +9%   -17%    +5%   +22%    +6%    +8%    -0%
+🟡 2 giorni   S0 1,5 + 0,5 x guadagno      373   29%     24h   +0.22   +0.06    -0.03  +17.8    +0.16    +0.32   +12%   -19%   +15%    +3%   +10%   +13%   +11%
+🔴 2 giorni   S0 2,0 + 0,3 x guadagno      377   31%     23h   +0.17   +0.04    -0.04  +15.7    +0.16    +0.19   +10%   -19%   +14%    +7%    +8%   +14%    -1%
+🔴 2 giorni   S0 2,0 + 0,4 x guadagno      374   29%     24h   +0.22   +0.06    -0.04  +17.8    +0.15    +0.32   +12%   -19%   +14%    +3%   +10%   +13%   +11%
+🔴 2 giorni   S0 2,0 + 0,5 x guadagno      373   28%     25h   +0.25   +0.09    -0.00  +17.8    +0.20    +0.33   +15%   -19%   +17%    +8%   +11%   +13%   +11%
+🔴 2 giorni   S0 2,0 + 0,6 x guadagno      373   27%     25h   +0.25   +0.09    -0.00  +17.8    +0.20    +0.33   +15%   -19%   +17%    +6%   +13%   +13%   +11%
+
+🔴 3 giorni   S0 1,5 + 0,0 x guadagno      387   43%     17h   +0.13   +0.07    +0.02   +6.3    +0.14    +0.11    +8%   -18%    +5%   +21%    +3%    +6%    -0%
+🟡 3 giorni   S0 1,5 + 0,5 x guadagno      370   25%     28h   +0.24   +0.03    -0.08  +22.9    +0.20    +0.31   +13%   -23%   +15%   +15%    +5%   +10%    +9%
+🔴 3 giorni   S0 2,0 + 0,3 x guadagno      374   26%     27h   +0.21   +0.04    -0.07  +15.7    +0.18    +0.25   +11%   -22%   +10%   +17%    +5%   +12%    +2%
+🔴 3 giorni   S0 2,0 + 0,4 x guadagno      371   24%     28h   +0.21   +0.03    -0.08  +18.0    +0.14    +0.32   +11%   -23%    +7%   +13%    +5%   +10%   +10%
+🔴 3 giorni   S0 2,0 + 0,5 x guadagno      369   21%     30h   +0.29   +0.08    -0.04  +22.9    +0.26    +0.35   +16%   -23%   +17%   +18%    +9%   +13%   +10%
+🔴 3 giorni   S0 2,0 + 0,6 x guadagno      369   20%     30h   +0.30   +0.08    -0.05  +22.9    +0.26    +0.36   +16%   -24%   +16%   +18%   +10%   +12%   +11%
+
+Trailing "S0 a + g x guadagno": distanza dello stop dal massimo = a ATR + g ATR per ogni ATR di guadagno.
+Prese: operazioni fatte dal portafoglio (con durate lunghe i posti restano occupati e si saltano segnali).
+R max: miglior operazione.   Durata: ore medie in posizione.
+senza 5 / senza 10: R medio togliendo le 5 o 10 operazioni migliori.
+🟢 oltre +0,05 R anche senza le 10 migliori, positiva in verifica, calo entro il -20 %   🟡 appena positiva   🔴 dipende dai colpi migliori
+
