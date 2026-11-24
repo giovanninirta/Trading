@@ -1,4 +1,4 @@
-### python verifica_minuti_genetico_rev2.py
+### python verifica_minuti_genetico_rev3.py
 
 635 operazioni candidate. Verifica dal 2025-02-03.
 Finestre senza dati da 1 minuto: 0.  Recupero medio nei primi 5 minuti: +0.35 R
@@ -22,6 +22,10 @@ CONCENTRAZIONE (ingresso 5 minuti dopo): mediana -0.41 R, media +0.92 R
      FIL  16 +1.40     ARB  13 +1.77    ATOM  12 -0.16     BCH  11 +1.34     CRV  10 +2.05
     DOGE   7 +0.56     DOT   7 -0.49     LTC   6 +0.35     ADA   5 +0.44    LINK   3 +0.24
      SOL   3 -1.11     XRP   3 -0.64     ETH   1 -1.18    AVAX   1 -1.32
+
+SPREAD DI OGGI (ask - bid, in %) e risultato pagando lo spread intero a ogni operazione (5 minuti dopo):
+   COMP 0.169   SAND 0.188   AXS 0.129   MANA 0.163   XTZ 0.287   TRX 0.081   ETC 0.087   ALGO 0.089   OP 0.116   AAVE 0.064   APE 0.429   NEAR 0.088   XLM 0.056   INJ 0.084   UNI 0.085   FIL 0.075   ARB 0.099   ATOM 0.159   BCH 0.076   CRV 0.114   DOGE 0.036   DOT 0.061   LTC 0.050   ADA 0.056   LINK 0.057   SOL 0.029   XRP 0.022   ETH 0.006   AVAX 0.061
+   R prova +0.77   R verifica +0.17   2022 +0.90  2023 +0.89  2024 +0.59  2025 +0.20  2026 +0.02
    monete con R medio positivo: 23 su 29
 
 R: risultato medio per operazione in multipli del rischio, costi inclusi.
