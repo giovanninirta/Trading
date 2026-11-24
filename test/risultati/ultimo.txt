@@ -1,42 +1,57 @@
-### python portafoglio_combinato_rev1.py
+### python genetico_btc_guida_rev1.py
 
-Dal 2022-12-12 al 2026-11-22. Prova fino al 2025-04-25, poi verifica.
-Operazioni BTC guida possibili: 1402.
+30 monete, dal 2022-05-25 al 2026-11-22. L'algoritmo vede solo la prova (fino al 2025-02-03).
 
-    Quota trend Rischio guida   Annuo  Calo max   Prova  Verifica   2022   2023   2024   2025   2026
-🟡        100%             -    +23%      -38%   +150%       -9%    -0%   +66%   +53%   -13%    +3%   prese 0
+   seme 1  generazione  1: miglior voto in prova +1.99
+   seme 1  generazione 11: miglior voto in prova +4.30
+   seme 1  generazione 21: miglior voto in prova +4.96
+   seme 1  generazione 30: miglior voto in prova +5.15
+   seme 2  generazione  1: miglior voto in prova +1.80
+   seme 2  generazione 11: miglior voto in prova +4.64
+   seme 2  generazione 21: miglior voto in prova +5.15
+   seme 2  generazione 30: miglior voto in prova +5.15
+   combinazioni provate: 2059
 
-🟡         80%             -    +19%      -31%   +113%       -7%    -0%   +51%   +43%   -10%    +3%   prese 0
-🟡         80%         0.50%    +24%      -35%   +135%       -1%    +2%   +74%   +43%   -14%    +6%   prese 287
-🟡         80%         0.75%    +19%      -38%   +108%       -3%    +2%   +62%   +39%   -16%    +4%   prese 204
-🟡         80%         1.00%    +20%      -39%   +121%       -8%    +0%   +62%   +49%   -17%    +2%   prese 154
+LE 10 MIGLIORI COMBINAZIONI (scelte guardando solo la prova)
+Annuo, calo e anni: portafoglio con rischio 0,5 % per operazione, massimo 5 posizioni, interesse composto.
 
-🟡         70%             -    +17%      -28%    +95%       -6%    -0%   +44%   +37%    -9%    +3%   prese 0
-🟡         70%         0.50%    +26%      -29%   +138%       +6%    +5%   +69%   +45%    -8%    +7%   prese 385
-🟡         70%         0.75%    +24%      -35%   +125%       +3%    +3%   +77%   +38%   -15%    +8%   prese 287
-🟡         70%         1.00%    +20%      -35%    +90%       +7%    +6%   +48%   +41%   -15%    +8%   prese 228
+   Voto prova verif. R prova R verifScatti/a   Annuo    Calo   2022   2023   2024   2025   2026
+ 1.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
+🟢   +5.2   +2.3   +1.01   +0.54      86    +51%    -11%   +50%   +90%   +60%   +11%   +28%
+ 2.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  2 candele | stop 0,75 ATR | senza obiettivo | sempre
+🟢   +5.1   +2.5   +0.81   +0.49      88    +46%    -10%   +50%   +78%   +41%   +24%   +17%
+ 3.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 1,00 ATR | senza obiettivo | sempre
+🟢   +5.0   +2.2   +0.80   +0.38      96    +48%    -11%   +48%  +123%   +37%   +12%   +15%
+ 4.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  4 candele | stop 0,75 ATR | senza obiettivo | sempre
+🟢   +4.9   +2.4   +1.04   +0.61      86    +55%    -12%   +54%   +95%   +55%   +23%   +26%
+ 5.  1h | BTC > 1,00 ATR | moneta <= -0,75 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
+🟢   +4.8   +2.5   +0.76   +0.46     115    +58%    -11%   +49%  +105%   +56%   +23%   +35%
+ 6.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  5 candele | stop 0,75 ATR | senza obiettivo | sempre
+🟢   +4.7   +1.7   +1.07   +0.43      86    +52%    -13%   +56%   +95%   +55%   +25%   +11%
+ 7.  1h | BTC > 1,25 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
+🟢   +4.5   +1.7   +1.11   +0.56      49    +27%     -8%   +20%   +66%   +31%    +2%   +11%
+ 8.  1h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | solo BTC sopra media 200
+🟢   +4.4   +2.1   +1.05   +0.57      60    +34%    -10%   +30%   +62%   +28%   +18%   +17%
+ 9.  2h | BTC > 1,00 ATR | moneta <= -1,00 ATR |  3 candele | stop 0,75 ATR | senza obiettivo | sempre
+🟢   +4.4   +2.0   +1.60   +0.38      39    +29%     -7%   +29%   +68%   +34%    +1%    +6%
+10.  1h | BTC > 1,25 ATR | moneta <= -1,00 ATR |  3 candele | stop 1,00 ATR | senza obiettivo | sempre
+🟡   +4.4   +1.4   +0.96   +0.31      56    +26%     -8%   +22%   +92%   +13%    +0%    +5%
 
-🟡         60%             -    +14%      -24%    +79%       -5%    -0%   +37%   +32%    -8%    +2%   prese 0
-🟡         60%         0.50%    +27%      -26%   +131%      +10%    +8%   +62%   +44%    -5%    +7%   prese 427
-🟡         60%         0.75%    +24%      -31%   +118%       +7%    +7%   +66%   +37%   -11%    +7%   prese 350
-🟡         60%         1.00%    +23%      -35%   +115%       +7%    +5%   +80%   +32%   -16%    +9%   prese 287
+PARAMETRI VICINI ALLA MIGLIORE (ogni gene un passo in piu' e in meno)
+   Cambio                       Voto prova Voto verif.  R verif
+   ore = 2                            +4.4        +2.0    +0.38
+   btc = 1.25                         +4.5        +1.7    +0.56
+   tipo = partite                     -5.2        -7.9    -0.40
+   soglia = -0.75                     +4.8        +2.5    +0.46
+   tenuta = 2                         +5.1        +2.5    +0.49
+   tenuta = 4                         +4.9        +2.4    +0.61
+   stop = 1.0                         +5.0        +2.2    +0.38
+   obiettivo = 1.0                    -4.4        -2.9    -0.23
+   filtro = True                      +4.4        +2.1    +0.57
 
-🟡         50%             -    +12%      -20%    +64%       -4%    -0%   +30%   +27%    -6%    +2%   prese 0
-🟡         50%         0.50%    +24%      -22%   +110%      +12%    +8%   +51%   +39%    -4%    +7%   prese 447
-🟡         50%         0.75%    +27%      -27%   +121%      +16%    +9%   +62%   +40%    -4%    +8%   prese 403
-🟡         50%         1.00%    +26%      -32%   +124%      +11%    +6%   +82%   +35%   -12%   +10%   prese 341
-
-🟢         40%             -    +10%      -17%    +49%       -3%    -0%   +24%   +21%    -5%    +2%   prese 0
-🟢         40%         0.50%    +20%      -20%    +85%      +13%    +6%   +41%   +33%    -2%    +7%   prese 453
-🟡         40%         0.75%    +27%      -25%   +115%      +19%   +12%   +57%   +38%    -2%    +8%   prese 427
-🟡         40%         1.00%    +27%      -28%   +115%      +20%   +10%   +67%   +33%    -4%   +10%   prese 385
-
-🟢          0%         0.50%     +9%      -14%    +22%      +16%    +7%   +11%   +10%    +3%    +5%   prese 458
-🟡          0%         0.75%    +14%      -21%    +34%      +24%   +11%   +18%   +15%    +4%    +8%   prese 456
-🟡          0%         1.00%    +21%      -26%    +59%      +32%   +17%   +31%   +20%    +4%   +10%   prese 447
-
-Quota trend: parte del capitale nel bot giornaliero (il resto sta fermo come margine per BTC guida).
-Rischio guida: % del capitale totale persa se scatta lo stop di un'operazione BTC guida ("-" = bot spento).
-Annuo: rendimento medio composto.   Calo max: peggior discesa dal massimo, misurata a fine giornata.
-🟢 guadagna e resta entro il -20 %   🟡 guadagna ma supera il -20 %   🔴 perde
+Voto: costanza del risultato per scatto di BTC (sopra +2 = netto, sotto +1 = probabilmente fortuna).
+R: risultato medio per scatto, in multipli del rischio, costi inclusi.   Scatti/a: scatti di BTC all'anno.
+🟢 voto netto in prova E in verifica   🟡 positivo in entrambi ma non netto   🔴 negativo in verifica
+Se le prime 10 sono tutte simili tra loro e i parametri vicini restano positivi, la regola e' robusta.
+Se sono tutte diverse e i vicini crollano, l'algoritmo ha trovato solo coincidenze del passato.
 
