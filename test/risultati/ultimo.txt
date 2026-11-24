@@ -1,36 +1,60 @@
-### python misuratore_anticipo_rev2.py
+### python misuratore_anticipo_rev3.py
 
-CANDELE DA 1 ORA: 30 monete. Verifica dal 2025-02-03
-   Gruppo        Verso  Ingresso             N/anno Vinte  R prova R verif.   2022   2023   2024   2025   2026
-🟢 ritardatarie  long   alla chiusura           280   45%    +0.25    +0.06  +0.87  +0.37  +0.03  -0.16  +0.25
-🟢 ritardatarie  long   all'apertura dopo       280   45%    +0.25    +0.06  +0.87  +0.37  +0.03  -0.16  +0.25
-🔴 ritardatarie  long   una candela dopo        280   41%    +0.02    -0.10  +0.68  +0.14  -0.17  -0.39  +0.10
-🟢 ritardatarie  short  alla chiusura           173   48%    +0.45    +0.07  +0.51  +0.69  +0.16  +0.29  -0.07
-🟢 ritardatarie  short  all'apertura dopo       173   48%    +0.45    +0.07  +0.51  +0.69  +0.16  +0.29  -0.07
-🔴 ritardatarie  short  una candela dopo        174   40%    +0.05    -0.14  +0.05  -0.19  +0.22  +0.17  -0.41
+CANDELE DA 1 ORA: 6800 segnali, da scaricare 6800 finestre da 1 minuto...
+   finestre senza dati da 1 minuto: 0.  Scarto medio chiusura 1h vs 1 minuto: 0.000 %
+   --- costi PERPETUI ---
+   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
+🟢 alla chiusura esatta        6712   47%    +0.24    +0.18    +0.22  +0.34  +0.25  +0.24  +0.25  +0.05
+🟢 1 minuto dopo               6712   46%    +0.20    +0.14    +0.18  +0.32  +0.19  +0.20  +0.19  +0.01
+🟢 2 minuti dopo               6712   45%    +0.18    +0.13    +0.16  +0.31  +0.15  +0.19  +0.19  -0.00
+🟢 5 minuti dopo               6712   45%    +0.14    +0.14    +0.14  +0.30  +0.10  +0.16  +0.19  +0.01
+🟢 15 minuti dopo              6712   45%    +0.14    +0.10    +0.12  +0.30  +0.09  +0.16  +0.14  -0.00
+🟢 30 minuti dopo              6711   45%    +0.15    +0.06    +0.12  +0.20  +0.19  +0.12  +0.09  -0.02
+   --- costi SPOT LIMITE ---
+   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
+🔴 alla chiusura esatta        6712   32%    -0.39    -0.30    -0.36  -0.26  -0.50  -0.31  -0.23  -0.43
+🔴 1 minuto dopo               6712   31%    -0.44    -0.35    -0.40  -0.28  -0.55  -0.35  -0.28  -0.47
+🔴 2 minuti dopo               6712   30%    -0.46    -0.36    -0.42  -0.29  -0.59  -0.36  -0.29  -0.48
+🔴 5 minuti dopo               6712   30%    -0.49    -0.34    -0.44  -0.30  -0.64  -0.39  -0.28  -0.47
+🔴 15 minuti dopo              6712   29%    -0.49    -0.39    -0.45  -0.30  -0.65  -0.39  -0.34  -0.48
+🔴 30 minuti dopo              6711   29%    -0.48    -0.43    -0.46  -0.40  -0.55  -0.43  -0.39  -0.50
+   --- costi SPOT MERCATO ---
+   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
+🔴 alla chiusura esatta        6712   25%    -0.78    -0.60    -0.71  -0.62  -0.95  -0.64  -0.52  -0.72
+🔴 1 minuto dopo               6712   24%    -0.82    -0.65    -0.76  -0.64  -1.01  -0.68  -0.57  -0.76
+🔴 2 minuti dopo               6712   24%    -0.84    -0.66    -0.77  -0.65  -1.04  -0.69  -0.58  -0.78
+🔴 5 minuti dopo               6712   23%    -0.88    -0.64    -0.79  -0.67  -1.10  -0.72  -0.58  -0.76
+🔴 15 minuti dopo              6712   22%    -0.88    -0.69    -0.81  -0.66  -1.10  -0.72  -0.63  -0.78
+🔴 30 minuti dopo              6711   21%    -0.87    -0.73    -0.82  -0.77  -1.01  -0.76  -0.68  -0.80
 
-🟢 gia' partite  long   alla chiusura          1492   47%    +0.24    +0.18  +0.34  +0.25  +0.24  +0.25  +0.05
-🟢 gia' partite  long   all'apertura dopo      1492   47%    +0.24    +0.18  +0.34  +0.25  +0.24  +0.25  +0.05
-🔴 gia' partite  long   una candela dopo       1492   45%    +0.21    -0.01  +0.26  +0.32  +0.05  +0.07  -0.11
-🟡 gia' partite  short  alla chiusura          1841   40%    +0.01    +0.03  +0.36  -0.21  -0.02  +0.23  -0.16
-🟡 gia' partite  short  all'apertura dopo      1841   40%    +0.01    +0.03  +0.36  -0.21  -0.02  +0.23  -0.16
-🔴 gia' partite  short  una candela dopo       1841   40%    -0.09    -0.03  +0.13  -0.21  -0.12  +0.17  -0.26
+CANDELE DA 4 ORE: 1403 segnali, da scaricare 1403 finestre da 1 minuto...
+   finestre senza dati da 1 minuto: 0.  Scarto medio chiusura 1h vs 1 minuto: 0.000 %
+   --- costi PERPETUI ---
+   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
+🟢 alla chiusura esatta        1402   50%    +0.20    +0.22    +0.21  +0.57  +0.15  +0.22  +0.19  +0.17
+🟢 1 minuto dopo               1402   48%    +0.18    +0.18    +0.18  +0.57  +0.13  +0.20  +0.16  +0.11
+🟢 2 minuti dopo               1402   48%    +0.17    +0.17    +0.17  +0.56  +0.11  +0.19  +0.15  +0.10
+🟢 5 minuti dopo               1402   49%    +0.17    +0.18    +0.18  +0.63  +0.09  +0.22  +0.14  +0.14
+🟢 15 minuti dopo              1403   48%    +0.17    +0.16    +0.16  +0.64  +0.08  +0.21  +0.13  +0.10
+🟢 30 minuti dopo              1403   48%    +0.15    +0.18    +0.16  +0.68  +0.03  +0.23  +0.16  +0.10
+   --- costi SPOT LIMITE ---
+   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
+🔴 alla chiusura esatta        1402   43%    -0.08    +0.00    -0.05  +0.24  -0.16  -0.03  -0.01  -0.08
+🔴 1 minuto dopo               1402   42%    -0.10    -0.04    -0.08  +0.24  -0.18  -0.04  -0.03  -0.14
+🔴 2 minuti dopo               1402   41%    -0.11    -0.05    -0.09  +0.23  -0.20  -0.05  -0.05  -0.15
+🔴 5 minuti dopo               1402   42%    -0.11    -0.04    -0.09  +0.30  -0.22  -0.03  -0.06  -0.11
+🔴 15 minuti dopo              1403   41%    -0.12    -0.06    -0.10  +0.31  -0.23  -0.03  -0.07  -0.15
+🔴 30 minuti dopo              1403   41%    -0.13    -0.04    -0.10  +0.35  -0.28  -0.01  -0.04  -0.15
+   --- costi SPOT MERCATO ---
+   Ingresso                       N Vinte  R prova R verif.  R tutti   2022   2023   2024   2025   2026
+🔴 alla chiusura esatta        1402   39%    -0.26    -0.14    -0.21  +0.04  -0.35  -0.18  -0.13  -0.24
+🔴 1 minuto dopo               1402   38%    -0.28    -0.18    -0.24  +0.04  -0.37  -0.19  -0.16  -0.29
+🔴 2 minuti dopo               1402   38%    -0.29    -0.19    -0.25  +0.02  -0.39  -0.20  -0.17  -0.31
+🔴 5 minuti dopo               1402   38%    -0.29    -0.18    -0.25  +0.09  -0.41  -0.18  -0.18  -0.27
+🔴 15 minuti dopo              1403   37%    -0.29    -0.20    -0.26  +0.11  -0.42  -0.18  -0.19  -0.31
+🔴 30 minuti dopo              1403   38%    -0.31    -0.18    -0.26  +0.14  -0.47  -0.16  -0.16  -0.31
 
-CANDELE DA 4 ORE: 30 monete. Verifica dal 2025-02-03
-   Gruppo        Verso  Ingresso             N/anno Vinte  R prova R verif.   2022   2023   2024   2025   2026
-🔴 ritardatarie  long   alla chiusura            84   42%    -0.04    -0.12  +0.63  -0.02  -0.16  -0.31  +0.12
-🔴 ritardatarie  long   all'apertura dopo        84   42%    -0.04    -0.12  +0.63  -0.02  -0.16  -0.31  +0.12
-🔴 ritardatarie  long   una candela dopo         84   40%    -0.09    -0.03  +0.16  -0.07  -0.13  -0.10  -0.00
-🔴 ritardatarie  short  alla chiusura            39   29%    -0.40    -0.08  +1.14  -0.20  -0.56  -0.03  -0.02
-🔴 ritardatarie  short  all'apertura dopo        39   29%    -0.40    -0.08  +1.14  -0.20  -0.56  -0.03  -0.02
-🔴 ritardatarie  short  una candela dopo         39   25%    -0.57    -0.17  +1.13  -0.60  -0.61  -0.41  +0.25
-
-🟢 gia' partite  long   alla chiusura           312   50%    +0.20    +0.22  +0.57  +0.15  +0.22  +0.19  +0.17
-🟢 gia' partite  long   all'apertura dopo       312   50%    +0.20    +0.22  +0.57  +0.15  +0.22  +0.19  +0.17
-🟡 gia' partite  long   una candela dopo        312   45%    +0.01    +0.10  +0.08  +0.01  +0.06  +0.07  +0.07
-🔴 gia' partite  short  alla chiusura           391   43%    -0.05    -0.11  +1.02  -0.17  -0.10  -0.04  -0.25
-🔴 gia' partite  short  all'apertura dopo       391   43%    -0.05    -0.11  +1.02  -0.17  -0.10  -0.04  -0.25
-🔴 gia' partite  short  una candela dopo        397   39%    -0.06    -0.26  +0.92  -0.25  +0.01  -0.30  -0.22
-
-Se il vantaggio sparisce "all'apertura dopo", era un prezzo vecchio e non un vero ritardo: non e' tradabile.
+R: risultato medio per operazione in multipli del rischio (stop 1,5 ATR), costi e funding inclusi.
+Un bot su GitHub parte con qualche minuto di ritardo; un bot su un server sempre acceso entra in 1-2 minuti.
+🟢 positivo in prova e verifica e troppo netto per essere fortuna   🟡 positivo ma non dimostrato   🔴 no
 
