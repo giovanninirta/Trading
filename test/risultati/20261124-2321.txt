@@ -1,0 +1,19 @@
+### python spot_btc_guida_rev1.py
+
+Tutto in BTC. Verifica dal 2025-02-03. Rischio 0,75 % per operazione, max 5 posizioni, senza leva.
+
+   Regola                             Costo/ordine Oper./a Vinte  R prova  R verif senza 10 BTC/anno   Calo   2022   2023   2024   2025   2026
+🔴 🎯 Cecchino (BTC oltre 2 ATR)              0,10%      43   32%    -0,42    +0,01    -0,45    -8,1%   -35%    -7%   -16%   -10%    -7%    +7%
+🔴 🎯 Cecchino (BTC oltre 2 ATR)              0,25%      43   26%    -0,59    -0,13    -0,61   -12,5%   -45%    -9%   -21%   -14%   -11%    +3%
+🔴 🎯 Cecchino (BTC oltre 2 ATR)              0,40%      43   24%    -0,75    -0,28    -0,77   -16,8%   -55%   -10%   -26%   -19%   -14%    -0%
+🔴 🎯 Cecchino (BTC oltre 2 ATR)              0,80%      43   17%    -1,19    -0,65    -1,18   -27,2%   -74%   -15%   -37%   -29%   -23%    -9%
+
+🔴 🐕 Segugio (BTC oltre +1,25 %)             0,10%     107   35%    -0,17    -0,04    -0,23    -9,7%   -39%   -16%   -15%    +1%   -11%    +3%
+🔴 🐕 Segugio (BTC oltre +1,25 %)             0,25%     107   32%    -0,31    -0,17    -0,37   -19,1%   -60%   -20%   -25%   -11%   -19%    -5%
+🔴 🐕 Segugio (BTC oltre +1,25 %)             0,40%     107   29%    -0,45    -0,30    -0,50   -27,6%   -75%   -24%   -33%   -22%   -26%   -12%
+🔴 🐕 Segugio (BTC oltre +1,25 %)             0,80%     107   22%    -0,82    -0,64    -0,87   -46,1%   -93%   -33%   -51%   -44%   -43%   -30%
+
+BTC/anno: BTC guadagnati (o persi) all'anno rispetto a tenerli fermi.  Calo: peggior discesa misurata in BTC.
+R: risultato per operazione in multipli del rischio, costi inclusi.  senza 10: R togliendo le 10 operazioni migliori.
+🟢 positiva in prova e verifica e anche senza le 10 migliori   🟡 positiva ma fragile   🔴 negativa
+
