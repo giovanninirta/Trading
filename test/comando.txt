@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-ottimizza_btc_guida_rev2.py
+spot_btc_guida_rev1.py
