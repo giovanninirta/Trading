@@ -1,42 +1,20 @@
-### python verifica_monete_nuove_pullback_rev1.py
+### python verifica_monete_nuove_btc_guida_rev1.py
 
-Caricamento (le 17 nuove possono richiedere il download dei 15 min)...
+Dal 2022-07-02 al 2026-11-20; prova fino al 2025-02-17. Rischio 0,75 %, max 5 posizioni, leva 3.
 
-Periodo comune dal 2022-06-27 al 2026-11-22 (prova fino al 2025-02-17).
-Nuove (spread, inizio dati 15 min): AVAX 0,08% 2022-05  BCH 0,09% 2022-05  ATOM 0,16% 2022-05  XLM 0,08% 2022-07  ETC 0,07% 2022-08  FIL 0,09% 2022-05  ALGO 0,11% 2022-07  APE 0,29% 2022-06  SAND 0,19% 2022-07  MANA 0,16% 2022-06  AXS 0,15% 2022-08  CRV 0,17% 2022-06  COMP 0,20% 2022-07  OP 0,12% 2022-06  ARB 0,12% 2023-03  INJ 0,07% 2023-04  XTZ 0,29% 2022-07
-(op/a delle nuove calcolato sull'intero periodo: per le monete con meno storia e' sottostimato)
+=== Cecchino ===
+   universo                    op/a   lordo   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
+   A) 12 liquide (origine)       81  +0,503  +0,363  +0,246  +0,570  +0,164    47%  +22,1%   -16%   +16%   +10%   +17%   +37%   +16%
+   B) 17 NUOVE (mai viste)       83  +0,578  +0,357  +0,356  +0,360  +0,093    44%  +21,9%   -19%   +22%   +48%    +6%   +41%   -11%
+      nuove per moneta (operazioni / R netto medio): ALGO 21/+0,14  APE 13/+0,28  ARB 14/+0,32  ATOM 9/-0,20  AVAX 21/-0,03  AXS 17/+0,51  BCH 25/-0,07  COMP 28/+1,13  CRV 15/+0,50  ETC 38/+0,67  FIL 16/-0,16  INJ 13/-0,21  MANA 25/+0,29  OP 23/+0,62  SAND 37/+0,29  XLM 24/-0,05  XTZ 26/+0,95
 
-=== P 5, supporto 2 tocchi  (REGOLA DA VERIFICARE) ===
-   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
-🟡 13 liquide (origine)            53 +0,382   0,15  +0,081  +0,443  -0,114   37%   47%    9%    30   +8,7%   -11%
-🔴 17 NUOVE (mai viste)            49 +0,048   0,22  +0,014  -0,370  -0,438   29%   56%    6%    19   -6,7%   -28%
+=== Segugio ===
+   universo                    op/a   lordo   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
+   A) 12 liquide (origine)      168  +0,381  +0,250  +0,191  +0,356  +0,150    45%  +33,3%   -16%   +22%   +21%   +27%   +38%   +36%
+   B) 17 NUOVE (mai viste)      229  +0,340  +0,144  +0,150  +0,132  +0,032    41%  +22,0%   -35%   +70%   +41%   -14%   +35%   -15%
+      nuove per moneta (operazioni / R netto medio): ALGO 67/+0,13  APE 32/+0,30  ARB 41/+0,12  ATOM 30/-0,32  AVAX 37/+0,09  AXS 52/+0,20  BCH 70/-0,10  COMP 84/+0,43  CRV 49/+0,05  ETC 92/+0,22  FIL 33/-0,28  INJ 35/-0,14  MANA 74/+0,15  OP 71/+0,17  SAND 100/+0,01  XLM 53/+0,81  XTZ 87/+0,15
 
-   gruppo                   quante   lordo lordo -top10 lordo -top3   netto  mediana
-   13 liquide (origine)        235  +0,382       +0,033      +0,224  +0,229   +0,000
-   17 NUOVE (mai viste)        217  +0,048       -0,214      -0,063  -0,175   -1,000
-
-   portafoglio anno per anno:           2022    2023    2024    2025    2026
-   13 liquide (origine)                +4,8%   +1,6%   +7,8%  +11,7%  +12,7%
-   17 NUOVE (mai viste)                -0,0%  -13,8%  +10,3%   -8,8%  -15,2%
-
-   nuove per moneta (operazioni / lordo medio / netto medio):
-   ALGO 8/+0,47/+0,27  APE 19/+0,43/+0,17  ARB 16/-0,13/-0,30  ATOM 6/-0,56/-0,88  AVAX 23/+1,15/+0,96  AXS 12/-0,18/-0,42  BCH 21/+0,12/-0,07  COMP 12/-0,25/-0,55  CRV 11/-0,64/-0,86  ETC 16/-0,03/-0,22  FIL 7/-0,47/-0,60  INJ 11/-0,41/-0,52  MANA 11/-0,03/-0,20  OP 6/-0,57/-0,79  SAND 11/+0,38/+0,10  XLM 16/+0,06/-0,21  XTZ 11/-0,57/-0,93
-
-=== P 4, supporto 2 tocchi  (solo informativa) ===
-   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
-🟡 13 liquide (origine)            74 +0,316   0,16  +0,015  +0,355  -0,113   36%   48%    7%    26   +7,9%   -19%
-🔴 17 NUOVE (mai viste)            70 +0,050   0,22  -0,020  -0,325  -0,398   28%   58%    6%    18   -9,1%   -37%
-
-   gruppo                   quante   lordo lordo -top10 lordo -top3   netto  mediana
-   13 liquide (origine)        325  +0,316       +0,039      +0,198  +0,160   +0,000
-   17 NUOVE (mai viste)        307  +0,050       -0,179      -0,034  -0,168   -1,000
-
-   portafoglio anno per anno:           2022    2023    2024    2025    2026
-   13 liquide (origine)                +1,8%  +10,1%   -3,7%  +16,9%  +10,9%
-   17 NUOVE (mai viste)                -2,0%  -14,1%  +11,1%  -19,8%  -12,5%
-
-   nuove per moneta (operazioni / lordo medio / netto medio):
-   ALGO 15/+0,00/-0,17  APE 25/+0,26/-0,03  ARB 18/-0,12/-0,27  ATOM 16/-0,18/-0,48  AVAX 37/+0,86/+0,67  AXS 12/-0,18/-0,42  BCH 33/+0,22/+0,04  COMP 13/+0,18/-0,12  CRV 17/-0,62/-0,82  ETC 17/-0,09/-0,29  FIL 13/+0,19/+0,03  INJ 15/-0,27/-0,38  MANA 14/-0,24/-0,42  OP 8/-0,48/-0,69  SAND 15/+0,29/+0,01  XLM 26/-0,07/-0,30  XTZ 13/-0,56/-0,92
-
-=== VERDETTO (P 5, 17 nuove): lordo senza le 10 migliori -0,214 R (serve >= +0,15), netto medio -0,175 R (serve > 0) -> BOCCIATA ===
+=== VERDETTO sulle 17 nuove (serve: netto > +0,05 R, senza le 10 migliori > 0, annuo > 0) ===
+   Cecchino   netto +0,357 R   senza 10 +0,093 R   annuo +21,9 %   -> PROMOSSO
+   Segugio    netto +0,144 R   senza 10 +0,032 R   annuo +22,0 %   -> PROMOSSO
 
