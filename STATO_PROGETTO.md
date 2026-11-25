@@ -18,6 +18,11 @@ File da leggere all'inizio di ogni nuova chat: riassume cosa è stato provato, c
 
 Cecchino e Segugio sono partiti il 24/11/2026; servono 3-4 mesi di dati dal vivo per un giudizio.
 
+**Verifica sulle 17 monete mai usate (25/11/2026, `verifica_monete_nuove_btc_guida_rev1.py`, criterio fissato prima: netto > +0,05 R, senza le 10 migliori > 0, annuo > 0):**
+- 🎯 Cecchino **PROMOSSO in modo netto**: netto +0,36 R (come sulle 12 d'origine), prova +0,36 / verifica +0,36, senza le 10 migliori +0,09 R, +22 %/anno, calo −19 %; 12 monete su 17 positive; anni +22/+48/+6/+41/−11 %.
+- 🐕 Segugio **promosso al limite**: netto +0,14 R, senza le 10 migliori +0,03 R, +22 %/anno ma **calo −35 %** (oltre il limite del −20 %), anni +70/+41/−14/+35/−15 %. Più fragile del Cecchino.
+- Controllo: sulle 12 d'origine lo stesso script riproduce i test (Cecchino +22 %/anno, Segugio +33 %).
+
 ### Regola "BTC guida" (Cecchino / Segugio) — perpetui Kraken, solo long, candele 4h
 - **Segnale:** candela 4h di BTC in salita oltre 2 ATR (Cecchino) o oltre +1,25 % (Segugio). ATR = 14 candele, Wilder.
 - **Monete:** tra le 12 liquide (AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP) quelle salite oltre 1,7 ATR nella stessa candela; max 5, le più forti. Ingresso entro 45 min dalla chiusura, altrimenti si salta.
