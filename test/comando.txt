@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-analisi_ingressi_pullback_rev1.py
+test_pullback_15m_rev1.py
