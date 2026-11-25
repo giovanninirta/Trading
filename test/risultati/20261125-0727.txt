@@ -1,0 +1,77 @@
+### python test_intraday_rev1.py
+
+13 monete liquide (XBT AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP), dal 2022-06-27 al 2026-11-22; prova fino al 2025-02-17.
+op/a = operazioni/anno (tutte le monete), prese = quelle che il portafoglio riesce a prendere;
+R = risultato medio per operazione costi inclusi; -top10 = media senza le 10 migliori;
+costoR = costo medio di un'operazione in R; annuo e calo = portafoglio con rischio 0,75 %.
+
+=== IDEA A: pullback dentro il trend giornaliero ===
+   variante                            op/a prese R prova R verif  -top10  vinte costoR   annuo   calo
+🔴 trend | ritracc 2 ATR | 2R          1438  1036  -0,172  -0,210  -0,187    34%   0,20  -77,5%  -100%
+🔴 trend | ritracc 3 ATR | 2R          1320   965  -0,174  -0,198  -0,186    35%   0,19  -75,5%  -100%
+🔴 trend | ritracc 4 ATR | 2R          1184   879  -0,166  -0,197  -0,180    35%   0,19  -71,6%  -100%
+🔴 trend | ritracc 6 ATR | 2R           839   674  -0,188  -0,176  -0,190    35%   0,18  -63,1%   -99%
+🔴 trend | ritracc 2 ATR | trail       1774  1260  -0,113  -0,178  -0,160    30%   0,20  -83,0%  -100%
+🔴 trend | ritracc 3 ATR | trail       1737  1240  -0,115  -0,172  -0,161    30%   0,20  -82,8%  -100%
+🔴 trend | ritracc 4 ATR | trail       1529  1138  -0,106  -0,168  -0,157    30%   0,20  -76,9%  -100%
+🔴 trend | ritracc 6 ATR | trail       1024   837  -0,105  -0,173  -0,160    31%   0,19  -63,5%   -99%
+🔴 trend | ritracc 2 ATR | 24h         1656  1166  -0,137  -0,214  -0,185    34%   0,19  -82,4%  -100%
+🔴 trend | ritracc 3 ATR | 24h         1547  1106  -0,132  -0,209  -0,181    35%   0,19  -80,9%  -100%
+🔴 trend | ritracc 4 ATR | 24h         1380  1018  -0,119  -0,203  -0,172    36%   0,19  -76,9%  -100%
+🔴 trend | ritracc 6 ATR | 24h          949   766  -0,123  -0,219  -0,184    37%   0,18  -64,6%   -99%
+   -- controllo senza filtro di trend --
+🔴 NO trend | ritracc 3 ATR | 2R       4149  1989  -0,166  -0,215  -0,187    35%   0,21  -96,0%  -100%
+🔴 NO trend | ritracc 4 ATR | 2R       3752  1866  -0,163  -0,199  -0,179    36%   0,21  -94,6%  -100%
+🔴 NO trend | ritracc 3 ATR | trail    5484  2569  -0,089  -0,151  -0,123    30%   0,22  -99,1%  -100%
+🔴 NO trend | ritracc 4 ATR | trail    4856  2412  -0,079  -0,143  -0,115    31%   0,22  -98,0%  -100%
+
+=== IDEA B: momento intraday (chiusura a fine giornata UTC) ===
+   variante                            op/a prese R prova R verif  -top10  vinte costoR   annuo   calo
+🔴 ore  8 UTC | long  | oltre 0,0 ATRg  2406  1347  -0,075  -0,083  -0,094    41%   0,14  -86,1%  -100%
+🔴 ore  8 UTC | long  | oltre 0,3 ATRg   673   521  -0,041  -0,014  -0,072    40%   0,14  -35,4%   -87%
+🟡 ore  8 UTC | long  | oltre 0,5 ATRg   268   231  +0,059  +0,132  -0,015    40%   0,15   +5,4%   -25%
+🔴 ore  8 UTC | long  | oltre 0,8 ATRg    93    83  -0,047  +0,426  -0,093    38%   0,15   -3,5%   -31%
+🔴 ore  8 UTC | short | oltre 0,0 ATRg  2295  1297  -0,109  -0,062  -0,096    43%   0,13  -86,5%  -100%
+🔴 ore  8 UTC | short | oltre 0,3 ATRg   649   437  -0,110  -0,033  -0,093    42%   0,13  -41,8%   -91%
+🔴 ore  8 UTC | short | oltre 0,5 ATRg   265   193  -0,159  -0,087  -0,162    40%   0,13  -20,3%   -66%
+🔴 ore  8 UTC | short | oltre 0,8 ATRg    79    60  -0,240  -0,168  -0,317    34%   0,13   -8,2%   -36%
+🔴 ore  8 UTC | base a caso            4732  1823  -0,086  -0,081  -0,090    43%   0,13 -100,0%  -100%
+🔴 ore 12 UTC | long  | oltre 0,0 ATRg  2398  1343  -0,096  -0,060  -0,093    41%   0,14  -85,3%  -100%
+🔴 ore 12 UTC | long  | oltre 0,3 ATRg   871   651  -0,112  -0,008  -0,092    40%   0,14  -54,2%   -97%
+🔴 ore 12 UTC | long  | oltre 0,5 ATRg   420   353  -0,130  +0,102  -0,090    40%   0,15  -28,4%   -82%
+🔴 ore 12 UTC | long  | oltre 0,8 ATRg   156   143  -0,160  +0,428  -0,093    37%   0,16   -7,4%   -53%
+🔴 ore 12 UTC | short | oltre 0,0 ATRg  2317  1312  -0,070  -0,045  -0,065    44%   0,13  -75,3%  -100%
+🔴 ore 12 UTC | short | oltre 0,3 ATRg   837   563  -0,089  -0,017  -0,071    43%   0,13  -40,7%   -92%
+🔴 ore 12 UTC | short | oltre 0,5 ATRg   387   272  -0,164  +0,020  -0,115    41%   0,13  -28,8%   -79%
+🔴 ore 12 UTC | short | oltre 0,8 ATRg   124    90  -0,209  +0,124  -0,168    40%   0,14   -8,3%   -44%
+🔴 ore 12 UTC | base a caso            4732  1824  -0,076  -0,075  -0,082    42%   0,13  -99,9%  -100%
+🔴 ore 14 UTC | long  | oltre 0,0 ATRg  2316  1313  -0,056  -0,067  -0,075    43%   0,14  -72,0%  -100%
+🔴 ore 14 UTC | long  | oltre 0,3 ATRg   960   702  -0,048  -0,017  -0,063    42%   0,14  -34,6%   -85%
+🔴 ore 14 UTC | long  | oltre 0,5 ATRg   504   410  -0,060  -0,003  -0,085    41%   0,15  -22,1%   -70%
+🔴 ore 14 UTC | long  | oltre 0,8 ATRg   199   178  -0,038  +0,145  -0,084    39%   0,16   -4,6%   -51%
+🔴 ore 14 UTC | short | oltre 0,0 ATRg  2403  1340  -0,077  -0,080  -0,083    42%   0,13  -77,1%  -100%
+🔴 ore 14 UTC | short | oltre 0,3 ATRg   983   646  -0,078  -0,029  -0,067    43%   0,13  -43,7%   -94%
+🔴 ore 14 UTC | short | oltre 0,5 ATRg   489   338  -0,120  +0,018  -0,081    42%   0,13  -27,3%   -79%
+🔴 ore 14 UTC | short | oltre 0,8 ATRg   162   122  -0,138  -0,090  -0,169    38%   0,14  -13,1%   -52%
+🔴 ore 14 UTC | base a caso            4732  1824  -0,094  -0,098  -0,102    42%   0,13  -99,9%  -100%
+🔴 ore 16 UTC | long  | oltre 0,0 ATRg  2310  1298  -0,036  -0,083  -0,066    42%   0,14  -65,5%   -99%
+🔴 ore 16 UTC | long  | oltre 0,3 ATRg  1081   763  -0,007  -0,042  -0,045    42%   0,14  -34,3%   -86%
+🔴 ore 16 UTC | long  | oltre 0,5 ATRg   610   483  -0,008  +0,062  -0,024    44%   0,15   -7,6%   -50%
+🟡 ore 16 UTC | long  | oltre 0,8 ATRg   267   231  +0,045  +0,212  +0,014    45%   0,16   +6,5%   -35%
+🔴 ore 16 UTC | short | oltre 0,0 ATRg  2412  1329  -0,080  -0,093  -0,091    40%   0,13  -72,4%  -100%
+🔴 ore 16 UTC | short | oltre 0,3 ATRg  1140   721  -0,084  -0,101  -0,101    38%   0,13  -51,5%   -96%
+🔴 ore 16 UTC | short | oltre 0,5 ATRg   630   415  -0,124  -0,069  -0,117    37%   0,14  -38,3%   -89%
+🔴 ore 16 UTC | short | oltre 0,8 ATRg   247   179  -0,095  +0,001  -0,086    39%   0,14  -14,4%   -56%
+🔴 ore 16 UTC | base a caso            4734  1825  -0,081  -0,086  -0,089    42%   0,13  -99,2%  -100%
+🔴 ore 20 UTC | long  | oltre 0,0 ATRg  2327  1285  -0,057  -0,095  -0,077    38%   0,14  -57,4%   -98%
+🔴 ore 20 UTC | long  | oltre 0,3 ATRg  1216   829  -0,037  -0,068  -0,058    39%   0,14  -37,0%   -88%
+🔴 ore 20 UTC | long  | oltre 0,5 ATRg   751   565  -0,034  -0,025  -0,045    40%   0,15  -21,1%   -71%
+🔴 ore 20 UTC | long  | oltre 0,8 ATRg   364   306  -0,055  +0,040  -0,047    41%   0,15  -11,4%   -53%
+🔴 ore 20 UTC | short | oltre 0,0 ATRg  2399  1307  -0,094  -0,111  -0,106    35%   0,13  -66,7%   -99%
+🔴 ore 20 UTC | short | oltre 0,3 ATRg  1272   783  -0,112  -0,126  -0,126    34%   0,13  -54,8%   -97%
+🔴 ore 20 UTC | short | oltre 0,5 ATRg   773   506  -0,115  -0,117  -0,129    34%   0,13  -40,6%   -92%
+🔴 ore 20 UTC | short | oltre 0,8 ATRg   333   232  -0,105  -0,102  -0,132    36%   0,14  -21,5%   -73%
+🔴 ore 20 UTC | base a caso            4734  1825  -0,080  -0,091  -0,087    39%   0,13  -89,8%  -100%
+
+Lettura: 🟢 = R medio > +0,10 in prova, > +0,05 in verifica e positivo senza le 10 migliori; 🟡 = positivo in entrambe; 🔴 = no.
+
