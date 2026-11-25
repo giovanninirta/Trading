@@ -13,15 +13,16 @@ File da leggere all'inizio di ogni nuova chat: riassume cosa è stato provato, c
 |---|---|---|---|
 | 🎯 **Cecchino** (Rev 6) | `bot/rev6` | BTC guida, scatto BTC oltre 2 ATR | ogni 15 min (`bot_btc_guida.yml`) |
 | 🐕 **Segugio** (Rev 7) | `bot/rev7` | BTC guida, scatto BTC oltre +1,25 % | ogni 15 min (`bot_btc_guida.yml`) |
+| 🎯 **Cecchino 29** (Rev 8) | `bot/rev8` | regola Cecchino, sceglie tra 29 monete (max 5 posizioni) | ogni 15 min (`bot_btc_guida.yml`) |
 | Trend Rev 2 | `bot/rev2` | Canale 55/20 giornaliero, 30 monete spot EUR | ogni giorno 00:20 UTC (`bot.yml`) |
 | Trend Rev 3 | `bot/rev3` | come Rev 2 + filtro forza vs BTC +10 % | ogni giorno 00:20 UTC (`bot.yml`) |
 
-Cecchino e Segugio sono partiti il 24/11/2026; servono 3-4 mesi di dati dal vivo per un giudizio.
+Cecchino e Segugio sono partiti il 24/11/2026 (Cecchino 29 appena unito a main); servono 3-4 mesi di dati dal vivo per un giudizio.
 
 **Verifica sulle 17 monete mai usate (25/11/2026, `verifica_monete_nuove_btc_guida_rev1.py`, criterio fissato prima: netto > +0,05 R, senza le 10 migliori > 0, annuo > 0):**
 - 🎯 Cecchino **PROMOSSO in modo netto**: netto +0,36 R (come sulle 12 d'origine), prova +0,36 / verifica +0,36, senza le 10 migliori +0,09 R, +22 %/anno, calo −19 %; 12 monete su 17 positive; anni +22/+48/+6/+41/−11 %.
 - 🐕 Segugio **promosso al limite**: netto +0,14 R, senza le 10 migliori +0,03 R, +22 %/anno ma **calo −35 %** (oltre il limite del −20 %), anni +70/+41/−14/+35/−15 %. Più fragile del Cecchino.
-- **Cecchino su 29 monete** (12 liquide + 17 nuove, regola identica, `cecchino_29_monete_rev1.py`): netto +0,40 R, senza le 10 migliori +0,20 R, prova +0,33 / verifica +0,55, **+31 %/anno, calo −14 %, tutti gli anni positivi** (+18/+45/+16/+51/+8 %), 98 op/anno (60 % su monete nuove). Togliere APE e XTZ (spread > 0,2 %) non cambia nulla. Segugio a 29: +37 %/anno ma calo −24 % e R per operazione più basso.
+- **Cecchino su 29 monete** (12 liquide + 17 nuove, regola identica, `cecchino_29_monete_rev1.py`): netto +0,40 R, senza le 10 migliori +0,20 R, prova +0,33 / verifica +0,55, **+31 %/anno, calo −14 %, tutti gli anni positivi** (+18/+45/+16/+51/+8 %), 98 op/anno (60 % su monete nuove). Togliere APE e XTZ (spread > 0,2 %) non cambia nulla. Con 10 posizioni (`cecchino_29_posizioni_rev1.py`): rischio 0,75 % → +29 %/anno ma calo −23 %; rischio 0,50 % → 158 op/anno, +26 %, calo −18 %; scelto 5 posizioni a 0,75 %. Segugio a 29: +37 %/anno ma calo −24 % e R per operazione più basso.
 - Controllo: sulle 12 d'origine lo stesso script riproduce i test (Cecchino +22 %/anno, Segugio +33 %).
 
 ### Regola "BTC guida" (Cecchino / Segugio) — perpetui Kraken, solo long, candele 4h
@@ -75,7 +76,6 @@ Cecchino e Segugio sono partiti il 24/11/2026; servono 3-4 mesi di dati dal vivo
 - I bot GitHub che scrivono nel repository usano il gruppo di concorrenza `scrittura-repository`; per avviarli a mano: `gh api repos/giovanninirta/trading/actions/workflows/<file>.yml/dispatches -f ref=main`.
 
 ## Idee aperte
-- Nuovo bot simulato "Cecchino 29" (regola Cecchino sulle 29 monete) da affiancare a Cecchino e Segugio.
 - Aggiungere ai cruscotti di Cecchino e Segugio la riga "guadagno convertito in BTC".
 - Notifiche sul telefono a ogni operazione (es. app ntfy).
 - Fase 2 del progetto: dopo qualche mese dal vivo, analizzare le operazioni in perdita (con verifica fuori campione di ogni filtro).
