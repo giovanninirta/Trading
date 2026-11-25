@@ -1,45 +1,39 @@
-### python analisi_ingressi_pullback_rev1.py
+### python test_pullback_15m_rev1.py
 
-13 monete, dal 2022-06-27 al 2026-11-22; prova fino al 2025-02-17. Riferimento: P 5, 2 tocchi, uscita Cecchino 1,5 R.
-op/a = operazioni/anno; lordo = R medio prima dei costi; prova/verif = R netto; -top10 = senza le 10 migliori.
+13 monete, dal 2022-06-27 al 2026-11-22; prova fino al 2025-02-17.
+lordo = R medio prima dei costi; costo = costo medio in R; R prova / R verif = netti; -top10 = senza le 10
+migliori; stop = % uscite allo stop iniziale; >3R = % arrivate oltre +3 R; ore = durata media.
 
-=== 1) IMBUTO (ogni pullback contato una volta; profondita' minima 3 ATR) ===
-   ripartenza + profondita' >= 3 ATR      5006 /anno
-   profondita' >= 5 ATR                   4526 /anno   (-10 %)
-   + T1 almeno 2+2 pivot                  4526 /anno   (-0 %)
-   + T2 massimi crescenti                 2134 /anno   (-53 %)
-   + T3 minimi crescenti                  1245 /anno   (-42 %)
-   + T4 non rompe l'ultimo minimo          243 /anno   (-80 %)
-   + supporto >= 1 tocco                   109 /anno   (-55 %)
-   + supporto >= 2 tocchi                   48 /anno   (-56 %)
-   + stop tra 0,3 % e 10 %                  47 /anno   (-1 %)
-   + una posizione per moneta (blocco)      46 /anno
+=== A) RIFERIMENTO 1h: con e senza rientri sullo stesso pullback ===
+   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
+🟡 1h P 4 | 2 toc | rientri si     74 +0,316   0,16  +0,015  +0,355  -0,113   36%   48%    7%    26   +7,9%   -19%
+🟡 1h P 4 | 2 toc | rientri no     62 +0,199   0,16  +0,017  +0,075  -0,214   35%   49%    5%    24   +1,2%   -15%
+🟡 1h P 5 | 2 toc | rientri si     53 +0,382   0,15  +0,081  +0,443  -0,114   37%   47%    9%    30   +8,7%   -11%
+🟡 1h P 5 | 2 toc | rientri no     46 +0,244   0,16  +0,034  +0,167  -0,227   34%   49%    7%    29   +2,5%   -12%
 
-=== 2) CHI BLOCCA DA SOLO: pullback (P >= 5) che falliscono SOLO questa condizione ===
-   condizione                            op/a   lordo   prova   verif  -top10
-   T1 pochi pivot                         153  +0,152  +0,041  -0,154  -0,152
-   T2 massimi crescenti                    31  +0,054  -0,143  -0,065  -0,423
-   T3 minimi crescenti                     61  +0,133  +0,176  -0,369  -0,277
-   T4 rompe l'ultimo minimo               244  +0,059  +0,008  -0,183  -0,156
-   S supporto (meno di 2 tocchi)          210  +0,034  -0,139  -0,077  -0,204
-   L stop fuori limiti                      2  -0,616  -0,490  -0,700  +0,000
-   (riferimento: presi da tutti i filtri)    47  +0,215  +0,010  +0,134  -0,245
+=== B) 15 MIN, stessa forma (72 candele, pivot 5, storia 200) ===
+   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
+🔴 15m P 3 | 1 toc                754 -0,015   0,30  -0,241  -0,380  -0,347   25%   53%    5%     6  -82,1%  -100%
+🔴 15m P 4 | 1 toc                550 -0,051   0,29  -0,245  -0,440  -0,385   24%   54%    5%     6  -73,0%  -100%
+🔴 15m P 5 | 1 toc                385 -0,051   0,28  -0,243  -0,429  -0,396   24%   55%    5%     7  -61,0%   -99%
+🔴 15m P 6 | 1 toc                268 -0,032   0,28  -0,226  -0,406  -0,393   25%   55%    5%     7  -46,5%   -94%
+🔴 15m P 3 | 2 toc                308 +0,008   0,29  -0,192  -0,371  -0,349   26%   52%    5%     6  -48,1%   -94%
+🔴 15m P 4 | 2 toc                222 -0,017   0,29  -0,174  -0,430  -0,385   26%   53%    5%     7  -39,0%   -89%
+🔴 15m P 5 | 2 toc                153 -0,006   0,27  -0,167  -0,395  -0,397   26%   53%    5%     8  -27,1%   -76%
+🔴 15m P 6 | 2 toc                111 -0,028   0,27  -0,207  -0,389  -0,459   25%   55%    4%     8  -22,2%   -69%
+🔴 15m P 5 | 2 toc | rientri no   129 +0,024   0,28  -0,112  -0,404  -0,385   27%   52%    5%     9  -22,1%   -67%
 
-=== 3) SCENARI: una condizione tolta o allentata alla volta (senza blocco per moneta) ===
-   scenario                                    op/a   lordo   prova   verif  -top10
-   RIFERIMENTO P5, 2 tocchi                      47  +0,215  +0,010  +0,134  -0,245   (con blocco: 46/anno)
-   profondita' P 4                               64  +0,178  -0,001  +0,054  -0,228   (con blocco: 62/anno)
-   profondita' P 3                               86  +0,137  -0,111  +0,107  -0,212   (con blocco: 83/anno)
-   supporto 1 tocco                             108  +0,119  -0,110  +0,056  -0,195   (con blocco: 104/anno)
-   supporto 0 (nessuno)                         238  +0,058  -0,109  -0,066  -0,178   (con blocco: 217/anno)
-   tolleranza supporto 1,0 ATR                   85  +0,142  -0,104  +0,106  -0,213   (con blocco: 81/anno)
-   storia supporti 500 ore                       83  +0,165  +0,036  -0,041  -0,202   (con blocco: 80/anno)
-   senza T2 massimi crescenti                    79  +0,151  -0,060  +0,078  -0,198   (con blocco: 76/anno)
-   senza T3 minimi crescenti                    109  +0,168  +0,105  -0,144  -0,158   (con blocco: 104/anno)
-   senza T4                                     281  +0,077  +0,007  -0,150  -0,135   (con blocco: 226/anno)
-   senza trend (T1-T4)                          766  +0,102  +0,007  -0,127  -0,078   (con blocco: 559/anno)
-   finestra massimo 120 ore                      39  +0,156  -0,014  +0,029  -0,323   (con blocco: 38/anno)
-   finestra massimo 48 ore                       51  +0,202  -0,090  +0,267  -0,221   (con blocco: 46/anno)
-   pivot 3 candele per lato                      54  +0,067  -0,288  +0,171  -0,325   (con blocco: 53/anno)
-   pivot 8 candele per lato                      29  +0,258  +0,199  -0,062  -0,363   (con blocco: 27/anno)
+=== C) 15 MIN, stessa durata (288 candele, pivot 20, storia 800) ===
+   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
+🔴 15m P 3 | 1 toc                389 -0,009   0,25  -0,218  -0,294  -0,311   27%   54%    5%    10  -50,0%   -96%
+🔴 15m P 4 | 1 toc                360 +0,013   0,24  -0,186  -0,274  -0,289   28%   53%    5%    10  -44,9%   -95%
+🔴 15m P 5 | 1 toc                320 +0,029   0,24  -0,179  -0,244  -0,277   29%   52%    5%    11  -39,2%   -91%
+🔴 15m P 6 | 1 toc                281 +0,035   0,24  -0,187  -0,219  -0,278   29%   52%    5%    11  -34,8%   -88%
+🔴 15m P 3 | 2 toc                109 +0,013   0,24  -0,237  -0,217  -0,355   29%   53%    5%    10  -17,1%   -59%
+🔴 15m P 4 | 2 toc                 99 +0,041   0,24  -0,206  -0,184  -0,333   30%   52%    5%    10  -14,1%   -53%
+🔴 15m P 5 | 2 toc                 89 +0,038   0,24  -0,223  -0,175  -0,347   30%   52%    5%    10  -13,1%   -50%
+🔴 15m P 6 | 2 toc                 80 +0,073   0,24  -0,240  -0,078  -0,326   31%   51%    6%    11   -9,9%   -44%
+🔴 15m P 5 | 2 toc | rientri no    61 +0,064   0,26  -0,197  -0,189  -0,393   31%   52%    6%    10   -9,1%   -41%
+
+Lettura: 🟢 = R > +0,10 in prova, > +0,05 in verifica e positivo senza le 10 migliori; 🟡 = positivo in entrambe.
 
