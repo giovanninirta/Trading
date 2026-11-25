@@ -1,19 +1,12 @@
-### python cecchino_29_monete_rev1.py
+### python cecchino_29_posizioni_rev1.py
 
-Dal 2022-07-02 al 2026-11-20; prova fino al 2025-02-17. 29 monete caricate.
-Escluse nella variante 'senza spread > 0,20 %': APE XTZ
+29 monete, dal 2022-07-02. Leva massima 3.
 
-=== Cecchino ===
-   universo                      op/a   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
-   12 liquide (bot attuale)        81  +0,363  +0,246  +0,570  +0,164    47%  +22,1%   -16%   +16%   +10%   +17%   +37%   +16%
-   17 nuove                        83  +0,357  +0,356  +0,360  +0,093    44%  +21,9%   -19%   +22%   +48%    +6%   +41%   -11%
-   29 insieme                      98  +0,404  +0,331  +0,545  +0,199    46%  +30,9%   -14%   +18%   +45%   +16%   +51%    +8%
-      operazioni prese: 175 su monete liquide, 255 su nuove
-   29 senza spread > 0,20 %        97  +0,400  +0,326  +0,539  +0,195    46%  +30,0%   -13%   +20%   +40%   +15%   +50%    +8%
+   max posizioni | rischio     op/a   netto   prova   verif  -top10   annuo   calo pos.max   2022   2023   2024   2025   2026
+   5 | 0,75 %                    98  +0,404  +0,331  +0,545  +0,199  +30,9%   -14%       5   +18%   +45%   +16%   +51%    +8%
+   10 | 0,75 %                  126  +0,311  +0,252  +0,414  +0,150  +29,1%   -23%      10   +23%   +41%   +14%   +48%    +4%
+   10 | 0,50 %                  158  +0,337  +0,241  +0,516  +0,197  +26,4%   -18%      10   +20%   +23%   +17%   +57%    +3%
+   8 | 0,75 %                   122  +0,349  +0,277  +0,475  +0,182  +32,2%   -20%       8   +23%   +44%   +15%   +59%    +5%
 
-=== Segugio (solo informativo) ===
-   universo                      op/a   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
-   12 liquide (bot attuale)       168  +0,250  +0,191  +0,356  +0,150    45%  +33,3%   -16%   +22%   +21%   +27%   +38%   +36%
-   29 insieme                     285  +0,173  +0,150  +0,219  +0,089    42%  +36,8%   -24%   +66%   +49%    -3%   +55%    +5%
-
+pos.max = massimo di posizioni aperte contemporaneamente nel periodo.
 
