@@ -1,0 +1,39 @@
+### python test_pullback_15m_rev1.py
+
+13 monete, dal 2022-06-27 al 2026-11-22; prova fino al 2025-02-17.
+lordo = R medio prima dei costi; costo = costo medio in R; R prova / R verif = netti; -top10 = senza le 10
+migliori; stop = % uscite allo stop iniziale; >3R = % arrivate oltre +3 R; ore = durata media.
+
+=== A) RIFERIMENTO 1h: con e senza rientri sullo stesso pullback ===
+   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
+🟡 1h P 4 | 2 toc | rientri si     74 +0,316   0,16  +0,015  +0,355  -0,113   36%   48%    7%    26   +7,9%   -19%
+🟡 1h P 4 | 2 toc | rientri no     62 +0,199   0,16  +0,017  +0,075  -0,214   35%   49%    5%    24   +1,2%   -15%
+🟡 1h P 5 | 2 toc | rientri si     53 +0,382   0,15  +0,081  +0,443  -0,114   37%   47%    9%    30   +8,7%   -11%
+🟡 1h P 5 | 2 toc | rientri no     46 +0,244   0,16  +0,034  +0,167  -0,227   34%   49%    7%    29   +2,5%   -12%
+
+=== B) 15 MIN, stessa forma (72 candele, pivot 5, storia 200) ===
+   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
+🔴 15m P 3 | 1 toc                754 -0,015   0,30  -0,241  -0,380  -0,347   25%   53%    5%     6  -82,1%  -100%
+🔴 15m P 4 | 1 toc                550 -0,051   0,29  -0,245  -0,440  -0,385   24%   54%    5%     6  -73,0%  -100%
+🔴 15m P 5 | 1 toc                385 -0,051   0,28  -0,243  -0,429  -0,396   24%   55%    5%     7  -61,0%   -99%
+🔴 15m P 6 | 1 toc                268 -0,032   0,28  -0,226  -0,406  -0,393   25%   55%    5%     7  -46,5%   -94%
+🔴 15m P 3 | 2 toc                308 +0,008   0,29  -0,192  -0,371  -0,349   26%   52%    5%     6  -48,1%   -94%
+🔴 15m P 4 | 2 toc                222 -0,017   0,29  -0,174  -0,430  -0,385   26%   53%    5%     7  -39,0%   -89%
+🔴 15m P 5 | 2 toc                153 -0,006   0,27  -0,167  -0,395  -0,397   26%   53%    5%     8  -27,1%   -76%
+🔴 15m P 6 | 2 toc                111 -0,028   0,27  -0,207  -0,389  -0,459   25%   55%    4%     8  -22,2%   -69%
+🔴 15m P 5 | 2 toc | rientri no   129 +0,024   0,28  -0,112  -0,404  -0,385   27%   52%    5%     9  -22,1%   -67%
+
+=== C) 15 MIN, stessa durata (288 candele, pivot 20, storia 800) ===
+   variante                      op/a  lordo  costo R prova R verif  -top10 vinte  stop   >3R   ore   annuo   calo
+🔴 15m P 3 | 1 toc                389 -0,009   0,25  -0,218  -0,294  -0,311   27%   54%    5%    10  -50,0%   -96%
+🔴 15m P 4 | 1 toc                360 +0,013   0,24  -0,186  -0,274  -0,289   28%   53%    5%    10  -44,9%   -95%
+🔴 15m P 5 | 1 toc                320 +0,029   0,24  -0,179  -0,244  -0,277   29%   52%    5%    11  -39,2%   -91%
+🔴 15m P 6 | 1 toc                281 +0,035   0,24  -0,187  -0,219  -0,278   29%   52%    5%    11  -34,8%   -88%
+🔴 15m P 3 | 2 toc                109 +0,013   0,24  -0,237  -0,217  -0,355   29%   53%    5%    10  -17,1%   -59%
+🔴 15m P 4 | 2 toc                 99 +0,041   0,24  -0,206  -0,184  -0,333   30%   52%    5%    10  -14,1%   -53%
+🔴 15m P 5 | 2 toc                 89 +0,038   0,24  -0,223  -0,175  -0,347   30%   52%    5%    10  -13,1%   -50%
+🔴 15m P 6 | 2 toc                 80 +0,073   0,24  -0,240  -0,078  -0,326   31%   51%    6%    11   -9,9%   -44%
+🔴 15m P 5 | 2 toc | rientri no    61 +0,064   0,26  -0,197  -0,189  -0,393   31%   52%    6%    10   -9,1%   -41%
+
+Lettura: 🟢 = R > +0,10 in prova, > +0,05 in verifica e positivo senza le 10 migliori; 🟡 = positivo in entrambe.
+

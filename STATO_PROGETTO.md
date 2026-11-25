@@ -13,10 +13,17 @@ File da leggere all'inizio di ogni nuova chat: riassume cosa è stato provato, c
 |---|---|---|---|
 | 🎯 **Cecchino** (Rev 6) | `bot/rev6` | BTC guida, scatto BTC oltre 2 ATR | ogni 15 min (`bot_btc_guida.yml`) |
 | 🐕 **Segugio** (Rev 7) | `bot/rev7` | BTC guida, scatto BTC oltre +1,25 % | ogni 15 min (`bot_btc_guida.yml`) |
+| 🎯 **Cecchino 29** (Rev 8) | `bot/rev8` | regola Cecchino, sceglie tra 29 monete (max 5 posizioni) | ogni 15 min (`bot_btc_guida.yml`) |
 | Trend Rev 2 | `bot/rev2` | Canale 55/20 giornaliero, 30 monete spot EUR | ogni giorno 00:20 UTC (`bot.yml`) |
 | Trend Rev 3 | `bot/rev3` | come Rev 2 + filtro forza vs BTC +10 % | ogni giorno 00:20 UTC (`bot.yml`) |
 
-Cecchino e Segugio sono partiti il 24/11/2026; servono 3-4 mesi di dati dal vivo per un giudizio.
+Cecchino e Segugio sono partiti il 24/11/2026 (Cecchino 29 appena unito a main); servono 3-4 mesi di dati dal vivo per un giudizio.
+
+**Verifica sulle 17 monete mai usate (25/11/2026, `verifica_monete_nuove_btc_guida_rev1.py`, criterio fissato prima: netto > +0,05 R, senza le 10 migliori > 0, annuo > 0):**
+- 🎯 Cecchino **PROMOSSO in modo netto**: netto +0,36 R (come sulle 12 d'origine), prova +0,36 / verifica +0,36, senza le 10 migliori +0,09 R, +22 %/anno, calo −19 %; 12 monete su 17 positive; anni +22/+48/+6/+41/−11 %.
+- 🐕 Segugio **promosso al limite**: netto +0,14 R, senza le 10 migliori +0,03 R, +22 %/anno ma **calo −35 %** (oltre il limite del −20 %), anni +70/+41/−14/+35/−15 %. Più fragile del Cecchino.
+- **Cecchino su 29 monete** (12 liquide + 17 nuove, regola identica, `cecchino_29_monete_rev1.py`): netto +0,40 R, senza le 10 migliori +0,20 R, prova +0,33 / verifica +0,55, **+31 %/anno, calo −14 %, tutti gli anni positivi** (+18/+45/+16/+51/+8 %), 98 op/anno (60 % su monete nuove). Togliere APE e XTZ (spread > 0,2 %) non cambia nulla. Con 10 posizioni (`cecchino_29_posizioni_rev1.py`): rischio 0,75 % → +29 %/anno ma calo −23 %; rischio 0,50 % → 158 op/anno, +26 %, calo −18 %; scelto 5 posizioni a 0,75 %. Segugio a 29: +37 %/anno ma calo −24 % e R per operazione più basso.
+- Controllo: sulle 12 d'origine lo stesso script riproduce i test (Cecchino +22 %/anno, Segugio +33 %).
 
 ### Regola "BTC guida" (Cecchino / Segugio) — perpetui Kraken, solo long, candele 4h
 - **Segnale:** candela 4h di BTC in salita oltre 2 ATR (Cecchino) o oltre +1,25 % (Segugio). ATR = 14 candele, Wilder.
@@ -46,11 +53,24 @@ Cecchino e Segugio sono partiti il 24/11/2026; servono 3-4 mesi di dati dal vivo
 | Trailing che si allarga senza fasi / senza limite di tempo | ❌ | dipende da pochi colpi enormi |
 | BTC guida su spot | ❌ | costi spot troppo alti |
 | BTC guida / trend contro BTC (accumulo BTC su spot) | ❌ | le monete non battono BTC: perde BTC sempre |
+| Pullback 1h dentro il trend giornaliero 55/20 (`test_intraday_rev1.py`) | ❌ | vantaggio lordo ≈ 0, perde i costi (−0,11/−0,19 R); il filtro di trend non aiuta |
+| Pullback 1h con trend ORARIO + minimo su supporto (`test_intraday_rev2.py`) | ⚠️ | EMA 50/200 oraria e supporto da soli peggiorano; solo struttura (massimi e minimi crescenti) + minimo su vecchio minimo alza il lordo (fino a +0,09/+0,13 R, crescente con la profondità) ma i costi (~0,2 R) lo superano: netto in prova −0,10/−0,12 R |
+| Pullback Rev 3 (`test_intraday_rev3.py`): struttura + supporto + uscita Cecchino in R senza limite di tempo | 🟡 | l'uscita Cecchino alza molto il lordo (fino a +0,3/+0,4 R). Migliore: mercato, supporto toccato 2 volte, P 4-5 → netto prova +0,02/+0,08, verifica +0,36/+0,44, +8 %/anno, calo −11/−19 %, ma solo 50-75 op/anno e negativo senza le 10 migliori. Trailing 1,0 R peggio di 1,5 R. Ordine limite sul supporto peggio (esecuzioni sfavorevoli) |
+| Pullback Rev 4: chiusura di metà posizione a 2R o 3R (`test_intraday_rev4.py`) | ❌ | toglie circa 0,1 R lordo a tutte le varianti, il calo non scende. Senza parziale, P 5 + 2 tocchi è positivo in ogni anno 2022-2026 (+5, +2, +8, +12, +13 %) |
+| Pullback su 15 min (`test_pullback_15m_rev1.py`, stessa forma e stessa durata) | ❌ | lordo ≈ 0 e costi 0,24-0,30 R: nessun vantaggio nemmeno prima dei costi |
+| Pullback 1h: rientri sullo stesso pullback dopo uno stop (`studio_falsa_rottura_rev1.py`) | ⚠️ | P 5: 36 rientri, media +1,07 R ma mediana 0 e senza i 3 migliori (NEAR +16,4, BTC +8,7, +6,5) ≈ +0,2 R come i primi ingressi: nessun vantaggio speciale, solo 3 colpi fortunati. Anche i primi ingressi: senza i 3 migliori il lordo scende da +0,26 a ≈ +0,11 R |
+| Falsa rottura del supporto come regola a sé (stesso script) | ❌ | senza T4 lordo ≈ 0; con T4 lordo +0,1/+0,23 ma netto in prova ≈ 0 e anni incoerenti |
+| **Verifica finale pullback Rev 3 sulle 17 monete mai usate** (`verifica_monete_nuove_pullback_rev1.py`, criterio fissato prima) | ❌ | BOCCIATA: lordo +0,05 R, netto −0,18 R, mediana −1 R, 11 monete su 17 negative, anni −14/+10/−9/−15 %. Anche sulle 13 d'origine il lordo senza le 10 migliori è solo +0,03 R. **Linea del pullback orario chiusa.** |
+| Rottura + ritest su 1h, long e short, con falsa rottura precedente (`test_rottura_ritest_rev1.py`) | ❌ | 32 varianti tutte negative al netto (−0,12/−0,26 R) su liquide e nuove; lordo solo +0,0/+0,16 R contro costi ~0,25 R; la falsa rottura precedente non aggiunge nulla, il ritest è peggio dell'ingresso alla rottura, la struttura peggiora |
+| Rottura con ingresso adattivo (subito se coda lunga, ritest se chiusura sull'estremo; `test_rottura_ritest_rev2.py`) | ❌ | 48 varianti tutte negative al netto (−0,08/−0,25 R). La parte "subito con coda lunga" ha il lordo migliore (fino a +0,22 R), la parte "ritest dopo chiusura sull'estremo" è la più debole; costi ~0,25-0,3 R |
+| Rottura con ingresso adattivo su **4 ore** (`test_rottura_ritest_rev3.py`) | ⚠️ | costi scesi a ~0,15 R. Formalmente PROMOSSA (short, 3 tocchi, adattivo 0,40: sulle 17 nuove netto +0,10 R, senza le 10 migliori +0,04, +15 %/anno) MA: sulle 13 liquide è negativa anche in prova (−0,01) e in tutto (−0,02 R, −11 %/anno); calo −42 % sulle nuove; tutti gli short positivi sulle nuove e negativi sulle liquide → probabile effetto del calo strutturale delle alt meno liquide (2022-2026), da verificare con ingressi short a caso. Long sempre negativi |
+| Momento intraday per fascia oraria (salita dall'apertura UTC → tenuta fino a fine giornata) | ⚠️ | solo long con salite forti (≥0,5-0,8 ATR giornalieri, ore 8 e 16 UTC) appena positivo, più in verifica che in prova; senza le 10 migliori ≈ 0; short sempre negativo |
 
-**Lezioni ricorrenti:** i risultati belli spesso vengono da monete illiquide o dal 2023-24; controllare sempre ritardo d'ingresso (dati al minuto), spread reale, monete liquide e "senza le 10 operazioni migliori".
+**Lezioni ricorrenti:** una regola che funziona su 13 monete va sempre verificata su monete mai usate (le altre 17 dei 30 perpetui), con criterio fissato prima.  i risultati belli spesso vengono da monete illiquide o dal 2023-24; controllare sempre ritardo d'ingresso (dati al minuto), spread reale, monete liquide e "senza le 10 operazioni migliori".
 **Per accumulare BTC:** tenere i BTC fermi e convertire periodicamente in BTC i guadagni del bot sui perpetui.
 
 ## Come si lavora
+- I test si possono lanciare anche da un ramo di lavoro con `workflow_dispatch` di `test.yml` sul ramo (il risultato viene salvato sul ramo).
 - La sandbox di Claude non raggiunge Kraken: **i test girano su GitHub**. Si scrive il nome dello script in `test/comando.txt` e si fa push; il risultato arriva in `test/risultati/ultimo.txt` (workflow `test.yml`, dati in cache in `test/dati`).
 - Metodo: **prova** = primo 60 % dei dati, **verifica** = ultimo 40 %; si sceglie guardando solo la prova.
 - Costi modellati: perpetui 0,07 % per ordine + funding 0,01 %/8h + spread reale (`SPREAD.json`) + ritardo; spot 0,25-0,40 % per ordine.

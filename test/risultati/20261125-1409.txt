@@ -1,0 +1,12 @@
+### python cecchino_29_posizioni_rev1.py
+
+29 monete, dal 2022-07-02. Leva massima 3.
+
+   max posizioni | rischio     op/a   netto   prova   verif  -top10   annuo   calo pos.max   2022   2023   2024   2025   2026
+   5 | 0,75 %                    98  +0,404  +0,331  +0,545  +0,199  +30,9%   -14%       5   +18%   +45%   +16%   +51%    +8%
+   10 | 0,75 %                  126  +0,311  +0,252  +0,414  +0,150  +29,1%   -23%      10   +23%   +41%   +14%   +48%    +4%
+   10 | 0,50 %                  158  +0,337  +0,241  +0,516  +0,197  +26,4%   -18%      10   +20%   +23%   +17%   +57%    +3%
+   8 | 0,75 %                   122  +0,349  +0,277  +0,475  +0,182  +32,2%   -20%       8   +23%   +44%   +15%   +59%    +5%
+
+pos.max = massimo di posizioni aperte contemporaneamente nel periodo.
+
