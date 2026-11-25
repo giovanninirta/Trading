@@ -47,6 +47,7 @@ Cecchino e Segugio sono partiti il 24/11/2026; servono 3-4 mesi di dati dal vivo
 | BTC guida su spot | ❌ | costi spot troppo alti |
 | BTC guida / trend contro BTC (accumulo BTC su spot) | ❌ | le monete non battono BTC: perde BTC sempre |
 | Pullback 1h dentro il trend giornaliero 55/20 (`test_intraday_rev1.py`) | ❌ | vantaggio lordo ≈ 0, perde i costi (−0,11/−0,19 R); il filtro di trend non aiuta |
+| Pullback 1h con trend ORARIO + minimo su supporto (`test_intraday_rev2.py`) | ⚠️ | EMA 50/200 oraria e supporto da soli peggiorano; solo struttura (massimi e minimi crescenti) + minimo su vecchio minimo alza il lordo (fino a +0,09/+0,13 R, crescente con la profondità) ma i costi (~0,2 R) lo superano: netto in prova −0,10/−0,12 R |
 | Momento intraday per fascia oraria (salita dall'apertura UTC → tenuta fino a fine giornata) | ⚠️ | solo long con salite forti (≥0,5-0,8 ATR giornalieri, ore 8 e 16 UTC) appena positivo, più in verifica che in prova; senza le 10 migliori ≈ 0; short sempre negativo |
 
 **Lezioni ricorrenti:** i risultati belli spesso vengono da monete illiquide o dal 2023-24; controllare sempre ritardo d'ingresso (dati al minuto), spread reale, monete liquide e "senza le 10 operazioni migliori".
