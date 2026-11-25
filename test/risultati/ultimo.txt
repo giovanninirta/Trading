@@ -1,53 +1,45 @@
-### python test_intraday_rev4.py
+### python analisi_ingressi_pullback_rev1.py
 
-13 monete (XBT AAVE ADA DOGE DOT ETH LINK LTC NEAR SOL TRX UNI XRP), dal 2022-06-27 al 2026-11-22; prova fino al 2025-02-17.
-Colonne come Rev 3. 'parz' = livello della chiusura di meta' posizione.
+13 monete, dal 2022-06-27 al 2026-11-22; prova fino al 2025-02-17. Riferimento: P 5, 2 tocchi, uscita Cecchino 1,5 R.
+op/a = operazioni/anno; lordo = R medio prima dei costi; prova/verif = R netto; -top10 = senza le 10 migliori.
 
-   variante                       op/a  eseg  lordo R prova R verif  -top10 vinte  stop  pari trail   >3R   ore   annuo   calo
-🔴 P 3 | tocchi 2 | parz no        100     - +0,219  -0,051  +0,215  -0,147   34%   50%   13%   37%    6%    22   +3,4%   -27%
-🔴 P 3 | tocchi 2 | parz 2R        100     - +0,155  -0,083  +0,108  -0,127   35%   50%   13%   37%    4%    22   -0,9%   -28%
-🔴 P 3 | tocchi 2 | parz 3R        100     - +0,168  -0,066  +0,118  -0,125   34%   50%   13%   37%    6%    22   -0,0%   -26%
+=== 1) IMBUTO (ogni pullback contato una volta; profondita' minima 3 ATR) ===
+   ripartenza + profondita' >= 3 ATR      5006 /anno
+   profondita' >= 5 ATR                   4526 /anno   (-10 %)
+   + T1 almeno 2+2 pivot                  4526 /anno   (-0 %)
+   + T2 massimi crescenti                 2134 /anno   (-53 %)
+   + T3 minimi crescenti                  1245 /anno   (-42 %)
+   + T4 non rompe l'ultimo minimo          243 /anno   (-80 %)
+   + supporto >= 1 tocco                   109 /anno   (-55 %)
+   + supporto >= 2 tocchi                   48 /anno   (-56 %)
+   + stop tra 0,3 % e 10 %                  47 /anno   (-1 %)
+   + una posizione per moneta (blocco)      46 /anno
 
-🟡 P 4 | tocchi 2 | parz no         74     - +0,316  +0,015  +0,355  -0,113   36%   48%   13%   39%    7%    26   +7,9%   -19%
-🔴 P 4 | tocchi 2 | parz 2R         74     - +0,222  -0,036  +0,204  -0,099   37%   48%   13%   39%    6%    26   +3,0%   -18%
-🔴 P 4 | tocchi 2 | parz 3R         74     - +0,233  -0,033  +0,225  -0,103   36%   48%   13%   39%    7%    26   +3,5%   -19%
+=== 2) CHI BLOCCA DA SOLO: pullback (P >= 5) che falliscono SOLO questa condizione ===
+   condizione                            op/a   lordo   prova   verif  -top10
+   T1 pochi pivot                         153  +0,152  +0,041  -0,154  -0,152
+   T2 massimi crescenti                    31  +0,054  -0,143  -0,065  -0,423
+   T3 minimi crescenti                     61  +0,133  +0,176  -0,369  -0,277
+   T4 rompe l'ultimo minimo               244  +0,059  +0,008  -0,183  -0,156
+   S supporto (meno di 2 tocchi)          210  +0,034  -0,139  -0,077  -0,204
+   L stop fuori limiti                      2  -0,616  -0,490  -0,700  +0,000
+   (riferimento: presi da tutti i filtri)    47  +0,215  +0,010  +0,134  -0,245
 
-🟡 P 5 | tocchi 2 | parz no         53     - +0,382  +0,081  +0,443  -0,114   37%   47%   15%   38%    9%    30   +8,7%   -11%
-🟡 P 5 | tocchi 2 | parz 2R         53     - +0,275  +0,020  +0,269  -0,088   37%   47%   15%   38%    6%    30   +4,5%   -11%
-🟡 P 5 | tocchi 2 | parz 3R         53     - +0,275  +0,011  +0,283  -0,111   37%   47%   15%   38%    9%    30   +4,4%   -12%
-
-🔴 P 6 | tocchi 2 | parz no         35     - +0,392  -0,076  +0,737  -0,252   35%   51%   13%   36%    8%    32   +5,8%   -15%
-🔴 P 6 | tocchi 2 | parz 2R         35     - +0,267  -0,127  +0,496  -0,194   35%   51%   13%   36%    6%    32   +2,7%   -16%
-🔴 P 6 | tocchi 2 | parz 3R         35     - +0,282  -0,131  +0,539  -0,213   35%   51%   13%   36%    8%    32   +3,0%   -15%
-
-🔴 P 4 | tocchi 1 | parz no        186     - +0,198  -0,028  +0,137  -0,082   34%   49%   15%   36%    6%    24   +0,9%   -34%
-🔴 P 4 | tocchi 1 | parz 2R        186     - +0,143  -0,055  +0,047  -0,085   34%   49%   15%   36%    5%    24   -4,8%   -36%
-🔴 P 4 | tocchi 1 | parz 3R        186     - +0,156  -0,058  +0,079  -0,078   34%   49%   15%   36%    6%    24   -3,5%   -33%
-
-🔴 P 5 | tocchi 1 | parz no        131     - +0,204  -0,068  +0,201  -0,121   34%   49%   15%   35%    6%    27   +2,9%   -30%
-🔴 P 5 | tocchi 1 | parz 2R        131     - +0,142  -0,101  +0,101  -0,114   34%   49%   15%   35%    4%    27   -2,6%   -34%
-🔴 P 5 | tocchi 1 | parz 3R        131     - +0,154  -0,108  +0,139  -0,110   34%   49%   15%   35%    6%    27   -1,6%   -33%
-
-=== Portafoglio anno per anno (rischio 0,75 %) ===
-   variante                          2022    2023    2024    2025    2026
-   P 3 | tocchi 2 | parz no         -2,1%   +0,6%   -5,2%  +11,8%  +11,2%
-   P 3 | tocchi 2 | parz 2R         -4,3%   -2,0%   -5,8%   +2,7%   +5,9%
-   P 3 | tocchi 2 | parz 3R         -4,5%   -0,9%   -3,7%   +4,7%   +4,6%
-   P 4 | tocchi 2 | parz no         +1,8%  +10,1%   -3,7%  +16,9%  +10,9%
-   P 4 | tocchi 2 | parz 2R         -1,1%   +6,5%   -3,8%   +7,4%   +4,6%
-   P 4 | tocchi 2 | parz 3R         -1,6%   +7,3%   -3,8%   +9,2%   +4,9%
-   P 5 | tocchi 2 | parz no         +4,8%   +1,6%   +7,8%  +11,7%  +12,7%
-   P 5 | tocchi 2 | parz 2R         +1,8%   +0,7%   +5,7%   +4,4%   +7,4%
-   P 5 | tocchi 2 | parz 3R         +1,4%   -0,7%   +6,4%   +5,4%   +7,2%
-   P 6 | tocchi 2 | parz no         +2,0%   -2,2%   +0,1%   +9,3%  +17,6%
-   P 6 | tocchi 2 | parz 2R         +0,3%   -3,1%   -0,6%   +4,6%  +11,2%
-   P 6 | tocchi 2 | parz 3R         -0,6%   -3,8%   +0,6%   +5,8%  +11,9%
-   P 4 | tocchi 1 | parz no         -1,9%  +15,6%  -10,3%   -4,7%   +7,3%
-   P 4 | tocchi 1 | parz 2R         -3,8%   +8,5%  -10,3%  -12,4%   -2,0%
-   P 4 | tocchi 1 | parz 3R         -5,5%   +8,8%  -10,0%   -7,7%   +0,2%
-   P 5 | tocchi 1 | parz no         +0,5%   +1,0%   -8,1%  +13,3%   +7,3%
-   P 5 | tocchi 1 | parz 2R         -1,2%   -3,2%   -9,6%   +1,4%   +1,3%
-   P 5 | tocchi 1 | parz 3R         -3,5%   -4,0%   -7,8%   +5,4%   +3,3%
-
-Nota: 2022 parte dal 2022-06-27, 2026 finisce il 2026-11-22.
+=== 3) SCENARI: una condizione tolta o allentata alla volta (senza blocco per moneta) ===
+   scenario                                    op/a   lordo   prova   verif  -top10
+   RIFERIMENTO P5, 2 tocchi                      47  +0,215  +0,010  +0,134  -0,245   (con blocco: 46/anno)
+   profondita' P 4                               64  +0,178  -0,001  +0,054  -0,228   (con blocco: 62/anno)
+   profondita' P 3                               86  +0,137  -0,111  +0,107  -0,212   (con blocco: 83/anno)
+   supporto 1 tocco                             108  +0,119  -0,110  +0,056  -0,195   (con blocco: 104/anno)
+   supporto 0 (nessuno)                         238  +0,058  -0,109  -0,066  -0,178   (con blocco: 217/anno)
+   tolleranza supporto 1,0 ATR                   85  +0,142  -0,104  +0,106  -0,213   (con blocco: 81/anno)
+   storia supporti 500 ore                       83  +0,165  +0,036  -0,041  -0,202   (con blocco: 80/anno)
+   senza T2 massimi crescenti                    79  +0,151  -0,060  +0,078  -0,198   (con blocco: 76/anno)
+   senza T3 minimi crescenti                    109  +0,168  +0,105  -0,144  -0,158   (con blocco: 104/anno)
+   senza T4                                     281  +0,077  +0,007  -0,150  -0,135   (con blocco: 226/anno)
+   senza trend (T1-T4)                          766  +0,102  +0,007  -0,127  -0,078   (con blocco: 559/anno)
+   finestra massimo 120 ore                      39  +0,156  -0,014  +0,029  -0,323   (con blocco: 38/anno)
+   finestra massimo 48 ore                       51  +0,202  -0,090  +0,267  -0,221   (con blocco: 46/anno)
+   pivot 3 candele per lato                      54  +0,067  -0,288  +0,171  -0,325   (con blocco: 53/anno)
+   pivot 8 candele per lato                      29  +0,258  +0,199  -0,062  -0,363   (con blocco: 27/anno)
 
