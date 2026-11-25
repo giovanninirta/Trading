@@ -1,5 +1,7 @@
 # Trading
 
+📌 **[Stato del progetto](STATO_PROGETTO.md)**: cosa è stato provato, cosa funziona, cosa gira adesso.
+
 ## Bot simulati "BTC guida" (perpetui, candele 4h, controllo ogni 15 minuti)
 
 - **[🎯 Cecchino](bot/rev6/README.md)** · Rev 6 · versione A: scatto di BTC oltre 2 ATR, pochi colpi mirati
