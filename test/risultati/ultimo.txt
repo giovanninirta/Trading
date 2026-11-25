@@ -1,20 +1,19 @@
-### python verifica_monete_nuove_btc_guida_rev1.py
+### python cecchino_29_monete_rev1.py
 
-Dal 2022-07-02 al 2026-11-20; prova fino al 2025-02-17. Rischio 0,75 %, max 5 posizioni, leva 3.
+Dal 2022-07-02 al 2026-11-20; prova fino al 2025-02-17. 29 monete caricate.
+Escluse nella variante 'senza spread > 0,20 %': APE XTZ
 
 === Cecchino ===
-   universo                    op/a   lordo   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
-   A) 12 liquide (origine)       81  +0,503  +0,363  +0,246  +0,570  +0,164    47%  +22,1%   -16%   +16%   +10%   +17%   +37%   +16%
-   B) 17 NUOVE (mai viste)       83  +0,578  +0,357  +0,356  +0,360  +0,093    44%  +21,9%   -19%   +22%   +48%    +6%   +41%   -11%
-      nuove per moneta (operazioni / R netto medio): ALGO 21/+0,14  APE 13/+0,28  ARB 14/+0,32  ATOM 9/-0,20  AVAX 21/-0,03  AXS 17/+0,51  BCH 25/-0,07  COMP 28/+1,13  CRV 15/+0,50  ETC 38/+0,67  FIL 16/-0,16  INJ 13/-0,21  MANA 25/+0,29  OP 23/+0,62  SAND 37/+0,29  XLM 24/-0,05  XTZ 26/+0,95
+   universo                      op/a   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
+   12 liquide (bot attuale)        81  +0,363  +0,246  +0,570  +0,164    47%  +22,1%   -16%   +16%   +10%   +17%   +37%   +16%
+   17 nuove                        83  +0,357  +0,356  +0,360  +0,093    44%  +21,9%   -19%   +22%   +48%    +6%   +41%   -11%
+   29 insieme                      98  +0,404  +0,331  +0,545  +0,199    46%  +30,9%   -14%   +18%   +45%   +16%   +51%    +8%
+      operazioni prese: 175 su monete liquide, 255 su nuove
+   29 senza spread > 0,20 %        97  +0,400  +0,326  +0,539  +0,195    46%  +30,0%   -13%   +20%   +40%   +15%   +50%    +8%
 
-=== Segugio ===
-   universo                    op/a   lordo   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
-   A) 12 liquide (origine)      168  +0,381  +0,250  +0,191  +0,356  +0,150    45%  +33,3%   -16%   +22%   +21%   +27%   +38%   +36%
-   B) 17 NUOVE (mai viste)      229  +0,340  +0,144  +0,150  +0,132  +0,032    41%  +22,0%   -35%   +70%   +41%   -14%   +35%   -15%
-      nuove per moneta (operazioni / R netto medio): ALGO 67/+0,13  APE 32/+0,30  ARB 41/+0,12  ATOM 30/-0,32  AVAX 37/+0,09  AXS 52/+0,20  BCH 70/-0,10  COMP 84/+0,43  CRV 49/+0,05  ETC 92/+0,22  FIL 33/-0,28  INJ 35/-0,14  MANA 74/+0,15  OP 71/+0,17  SAND 100/+0,01  XLM 53/+0,81  XTZ 87/+0,15
+=== Segugio (solo informativo) ===
+   universo                      op/a   netto   prova   verif  -top10  vinte   annuo   calo   2022   2023   2024   2025   2026
+   12 liquide (bot attuale)       168  +0,250  +0,191  +0,356  +0,150    45%  +33,3%   -16%   +22%   +21%   +27%   +38%   +36%
+   29 insieme                     285  +0,173  +0,150  +0,219  +0,089    42%  +36,8%   -24%   +66%   +49%    -3%   +55%    +5%
 
-=== VERDETTO sulle 17 nuove (serve: netto > +0,05 R, senza le 10 migliori > 0, annuo > 0) ===
-   Cecchino   netto +0,357 R   senza 10 +0,093 R   annuo +21,9 %   -> PROMOSSO
-   Segugio    netto +0,144 R   senza 10 +0,032 R   annuo +22,0 %   -> PROMOSSO
 
