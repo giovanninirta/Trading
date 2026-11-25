@@ -46,11 +46,14 @@ Cecchino e Segugio sono partiti il 24/11/2026; servono 3-4 mesi di dati dal vivo
 | Trailing che si allarga senza fasi / senza limite di tempo | ❌ | dipende da pochi colpi enormi |
 | BTC guida su spot | ❌ | costi spot troppo alti |
 | BTC guida / trend contro BTC (accumulo BTC su spot) | ❌ | le monete non battono BTC: perde BTC sempre |
+| Pullback 1h dentro il trend giornaliero 55/20 (`test_intraday_rev1.py`) | ❌ | vantaggio lordo ≈ 0, perde i costi (−0,11/−0,19 R); il filtro di trend non aiuta |
+| Momento intraday per fascia oraria (salita dall'apertura UTC → tenuta fino a fine giornata) | ⚠️ | solo long con salite forti (≥0,5-0,8 ATR giornalieri, ore 8 e 16 UTC) appena positivo, più in verifica che in prova; senza le 10 migliori ≈ 0; short sempre negativo |
 
 **Lezioni ricorrenti:** i risultati belli spesso vengono da monete illiquide o dal 2023-24; controllare sempre ritardo d'ingresso (dati al minuto), spread reale, monete liquide e "senza le 10 operazioni migliori".
 **Per accumulare BTC:** tenere i BTC fermi e convertire periodicamente in BTC i guadagni del bot sui perpetui.
 
 ## Come si lavora
+- I test si possono lanciare anche da un ramo di lavoro con `workflow_dispatch` di `test.yml` sul ramo (il risultato viene salvato sul ramo).
 - La sandbox di Claude non raggiunge Kraken: **i test girano su GitHub**. Si scrive il nome dello script in `test/comando.txt` e si fa push; il risultato arriva in `test/risultati/ultimo.txt` (workflow `test.yml`, dati in cache in `test/dati`).
 - Metodo: **prova** = primo 60 % dei dati, **verifica** = ultimo 40 %; si sceglie guardando solo la prova.
 - Costi modellati: perpetui 0,07 % per ordine + funding 0,01 %/8h + spread reale (`SPREAD.json`) + ritardo; spot 0,25-0,40 % per ordine.
