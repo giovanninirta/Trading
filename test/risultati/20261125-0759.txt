@@ -1,0 +1,175 @@
+### python statistiche_pullback_rev1.py
+13 monete liquide, dal 2022-06-27. R lordi (senza costi).
+
+### trend nessuno | supporto nessuno | P 3 | uscita 2R   (17659 operazioni; stop iniziale in media 2,8 ATR orari dall'ingresso)
+   Come finiscono:
+      stop iniziale            9940 (  56 %)
+      obiettivo 2R (TP)        4059 (  23 %)
+      tempo scaduto            3660 (  21 %)   (R medio +0,33)
+      di cui stop con TP nella stessa candela (contati come stop): 14
+   Stop iniziale: dopo quante candele (ore)
+      1 candela                 408 (   4 %)
+      2-3                      1603 (  16 %)
+      4-6                      1915 (  19 %)
+      7-12                     2283 (  23 %)
+      13-24                    2196 (  22 %)
+      oltre 24                 1535 (  15 %)
+   Stop iniziale: quanto era andata in guadagno prima (massimo, in R)
+      meno di +0,25 R          4211 (  42 %)
+      +0,25 / +0,5 R           1983 (  20 %)
+      +0,5 / +1 R              2188 (  22 %)
+      +1 / +1,5 R              1023 (  10 %)
+      oltre +1,5 R              535 (   5 %)
+   Obiettivo 2R: dopo quante candele
+      1-3                       301 (   7 %)
+      4-6                       458 (  11 %)
+      7-12                      881 (  22 %)
+      13-24                    1325 (  33 %)
+      oltre 24                 1094 (  27 %)
+   TRONCATE: chiuse allo stop ma arrivate a +2R entro 48 ore dall'ingresso:  1927 (  19 %) degli stop
+   Di quanto andava allargato lo stop per restare dentro (ATR orari oltre lo stop)
+      fino a 0,25 ATR           256 (  13 %)
+      0,25 / 0,5                237 (  12 %)
+      0,5 / 1                   391 (  20 %)
+      1 / 2                     462 (  24 %)
+      oltre 2                   581 (  30 %)
+   Dopo lo stop, discesa massima entro 48 ore dall'ingresso (in R; -1 = lo stop)
+      fino a 1,5 R             2159 (  22 %)
+      1,5 / 2 R                1764 (  18 %)
+      2 / 3 R                  2359 (  24 %)
+      oltre 3 R                3658 (  37 %)
+
+### trend struttura | supporto minimi | P 3 | uscita 2R   (1083 operazioni; stop iniziale in media 2,1 ATR orari dall'ingresso)
+   Come finiscono:
+      stop iniziale             641 (  59 %)
+      obiettivo 2R (TP)         320 (  30 %)
+      tempo scaduto             122 (  11 %)   (R medio +0,25)
+      di cui stop con TP nella stessa candela (contati come stop): 1
+   Stop iniziale: dopo quante candele (ore)
+      1 candela                  27 (   4 %)
+      2-3                       102 (  16 %)
+      4-6                       150 (  23 %)
+      7-12                      159 (  25 %)
+      13-24                     113 (  18 %)
+      oltre 24                   90 (  14 %)
+   Stop iniziale: quanto era andata in guadagno prima (massimo, in R)
+      meno di +0,25 R           239 (  37 %)
+      +0,25 / +0,5 R            119 (  19 %)
+      +0,5 / +1 R               173 (  27 %)
+      +1 / +1,5 R                67 (  10 %)
+      oltre +1,5 R               43 (   7 %)
+   Obiettivo 2R: dopo quante candele
+      1-3                        34 (  11 %)
+      4-6                        52 (  16 %)
+      7-12                       74 (  23 %)
+      13-24                      89 (  28 %)
+      oltre 24                   71 (  22 %)
+   TRONCATE: chiuse allo stop ma arrivate a +2R entro 48 ore dall'ingresso:   162 (  25 %) degli stop
+   Di quanto andava allargato lo stop per restare dentro (ATR orari oltre lo stop)
+      fino a 0,25 ATR            25 (  15 %)
+      0,25 / 0,5                 20 (  12 %)
+      0,5 / 1                    37 (  23 %)
+      1 / 2                      34 (  21 %)
+      oltre 2                    46 (  28 %)
+   Dopo lo stop, discesa massima entro 48 ore dall'ingresso (in R; -1 = lo stop)
+      fino a 1,5 R              127 (  20 %)
+      1,5 / 2 R                  98 (  15 %)
+      2 / 3 R                   153 (  24 %)
+      oltre 3 R                 263 (  41 %)
+
+### trend struttura | supporto minimi | P 4 | uscita 2R   (797 operazioni; stop iniziale in media 2,2 ATR orari dall'ingresso)
+   Come finiscono:
+      stop iniziale             455 (  57 %)
+      obiettivo 2R (TP)         247 (  31 %)
+      tempo scaduto              95 (  12 %)   (R medio +0,27)
+   Stop iniziale: dopo quante candele (ore)
+      1 candela                  19 (   4 %)
+      2-3                        63 (  14 %)
+      4-6                       106 (  23 %)
+      7-12                      100 (  22 %)
+      13-24                      94 (  21 %)
+      oltre 24                   73 (  16 %)
+   Stop iniziale: quanto era andata in guadagno prima (massimo, in R)
+      meno di +0,25 R           157 (  35 %)
+      +0,25 / +0,5 R             87 (  19 %)
+      +0,5 / +1 R               123 (  27 %)
+      +1 / +1,5 R                52 (  11 %)
+      oltre +1,5 R               36 (   8 %)
+   Obiettivo 2R: dopo quante candele
+      1-3                        21 (   9 %)
+      4-6                        37 (  15 %)
+      7-12                       60 (  24 %)
+      13-24                      67 (  27 %)
+      oltre 24                   62 (  25 %)
+   TRONCATE: chiuse allo stop ma arrivate a +2R entro 48 ore dall'ingresso:   110 (  24 %) degli stop
+   Di quanto andava allargato lo stop per restare dentro (ATR orari oltre lo stop)
+      fino a 0,25 ATR            18 (  16 %)
+      0,25 / 0,5                 14 (  13 %)
+      0,5 / 1                    22 (  20 %)
+      1 / 2                      28 (  25 %)
+      oltre 2                    28 (  25 %)
+   Dopo lo stop, discesa massima entro 48 ore dall'ingresso (in R; -1 = lo stop)
+      fino a 1,5 R               97 (  21 %)
+      1,5 / 2 R                  75 (  16 %)
+      2 / 3 R                   102 (  22 %)
+      oltre 3 R                 181 (  40 %)
+
+### trend struttura | supporto minimi | P 3 | uscita trail   (1196 operazioni; stop iniziale in media 2,1 ATR orari dall'ingresso)
+   Come finiscono:
+      stop iniziale             373 (  31 %)
+      trailing in guadagno      399 (  33 %)
+      trailing in pari/perdita  424 (  35 %)
+      tempo scaduto               0 (   0 %)   (R medio +0,00)
+   Stop iniziale: dopo quante candele (ore)
+      1 candela                  28 (   8 %)
+      2-3                       110 (  29 %)
+      4-6                       134 (  36 %)
+      7-12                       92 (  25 %)
+      13-24                       9 (   2 %)
+      oltre 24                    0 (   0 %)
+   Stop iniziale: quanto era andata in guadagno prima (massimo, in R)
+      meno di +0,25 R           222 (  60 %)
+      +0,25 / +0,5 R             84 (  23 %)
+      +0,5 / +1 R                58 (  16 %)
+      +1 / +1,5 R                 8 (   2 %)
+      oltre +1,5 R                1 (   0 %)
+   Trailing: risultato all'uscita e massimo raggiunto
+      <= 0 R                    424 (  52 %)
+      0 / +1 R                  182 (  22 %)
+      +1 / +2 R                 104 (  13 %)
+      +2 / +4 R                  75 (   9 %)
+      oltre +4 R                 38 (   5 %)
+      guadagno restituito dal massimo (trade arrivati oltre +1 R): 1,82 R in media
+   TRONCATE: chiuse allo stop ma arrivate a +2R entro 48 ore dall'ingresso:   130 (  35 %) degli stop
+   Di quanto andava allargato lo stop per restare dentro (ATR orari oltre lo stop)
+      fino a 0,25 ATR            19 (  15 %)
+      0,25 / 0,5                 15 (  12 %)
+      0,5 / 1                    28 (  22 %)
+      1 / 2                      25 (  19 %)
+      oltre 2                    43 (  33 %)
+   Dopo lo stop, discesa massima entro 48 ore dall'ingresso (in R; -1 = lo stop)
+      fino a 1,5 R               61 (  16 %)
+      1,5 / 2 R                  46 (  12 %)
+      2 / 3 R                    81 (  22 %)
+      oltre 3 R                 185 (  50 %)
+
+### IMBUTO: tutti i pullback di almeno 3 ATR con ripartenza (22349); esito ipotetico con uscita 2R, R lordo
+      categoria                                           quanti  R medio   TP 2R
+      PRESA (trend + supporto)                      661 (   3 %)   -0,000     29%
+      trend si, NO supporto                        1424 (   6 %)   -0,083     27%
+      NO trend: massimi non crescenti             10633 (  48 %)   -0,041     18%
+      NO trend: minimi non crescenti               4026 (  18 %)   -0,029     18%
+      NO trend: pullback rompe l'ultimo minimo     4024 (  18 %)   -0,014     16%
+      stop fuori limiti                            1581 (   7 %)   +0,066      6%
+      totale scartate dal filtro trend            18683 (  84 %)   -0,033
+
+### IMBUTO: tutti i pullback di almeno 4 ATR con ripartenza (21135); esito ipotetico con uscita 2R, R lordo
+      categoria                                           quanti  R medio   TP 2R
+      PRESA (trend + supporto)                      521 (   2 %)   +0,051     31%
+      trend si, NO supporto                         924 (   4 %)   -0,034     27%
+      NO trend: massimi non crescenti             10171 (  48 %)   -0,050     17%
+      NO trend: minimi non crescenti               3819 (  18 %)   -0,017     17%
+      NO trend: pullback rompe l'ultimo minimo     4138 (  20 %)   -0,020     16%
+      stop fuori limiti                            1562 (   7 %)   +0,067      6%
+      totale scartate dal filtro trend            18128 (  86 %)   -0,036
+
