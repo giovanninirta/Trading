@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-genetico_trend_btc_rev1.py
+test_intraday_rev1.py
