@@ -1,16 +1,53 @@
-### python cecchino_piu_short_rev1.py
+### python cecchino_29_stop_ingresso_rev1.py
 
-Dal 2022-08-06 al 2026-11-19. Rischio 0,75 % per operazione, leva massima 3.
+Cecchino 29 - dal 2023-01-01 al 2026-11-20 (crollo 2022 escluso); prova fino al 2025-05-01. 29 monete.
+Rischio 0,75 %, max 5 posizioni, leva 3. R = 1 ATR 4h. 'salt' = ordini stop mai raggiunti.
 
-                                       op/a   netto  -top10   annuo   calo        2022     2023     2024     2025     2026
-   Short n, 1 - 12 liquide               30  +0,367  +0,186   +8,2%    -7%      +18,9%    +0,7%    +5,5%   +18,2%    -5,9%
-   Short n, 1 - 17 nuove                 49  +0,219  +0,037   +7,4%    -9%      +23,1%    -5,5%    +8,5%   +18,3%    -9,0%
-   Short n, 1 - 29 insieme               69  +0,181  +0,065   +8,7%   -10%      +20,8%    -8,1%    +6,6%   +31,0%    -7,8%
-   Cecchino 29 (bot Rev 8)               96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%
+=== 29 monete ===
+   ingresso                op/a  salt   lordo   netto   prova   verif  -top10  vinte   annuo  calo an/calo  peggio   2023   2024   2025   2026
+   ATTUALE                   97     0  +0,585  +0,398  +0,289  +0,615  +0,175    46%  +29,7%  -14%    2,19   +0,00   +45%   +16%   +51%    +8%
+   STOP 0,1 ATR / 1 h        90    49  +0,619  +0,460  +0,355  +0,669  +0,192    45%  +32,3%  -13%    2,52   +0,10   +62%   +15%   +47%    +9%
+   STOP 0,1 ATR / 4 h        93    25  +0,580  +0,415  +0,300  +0,647  +0,192    45%  +29,9%  -12%    2,43   +0,10   +53%   +11%   +49%   +10%
+   STOP 0,25 ATR / 1 h       79    88  +0,535  +0,373  +0,234  +0,639  +0,119    46%  +22,0%  -13%    1,68   +0,25   +40%    +9%   +38%    +3%
+   STOP 0,25 ATR / 4 h       89    44  +0,560  +0,390  +0,303  +0,563  +0,161    46%  +26,6%  -13%    2,02   +0,25   +59%    +8%   +45%    +1%
+   STOP 0,5 ATR / 1 h        54   176  +0,438  +0,260  +0,296  +0,184  -0,015    43%  +10,0%  -12%    0,83   +0,50   +26%   +11%   +15%   -10%
+   STOP 0,5 ATR / 4 h        77   103  +0,474  +0,299  +0,315  +0,267  +0,025    45%  +16,7%  -16%    1,05   +0,50   +51%   +11%   +28%   -15%
+   STOP 0,75 ATR / 1 h       32   215  +0,440  +0,243  +0,276  +0,145  -0,129    42%   +5,4%  -13%    0,42   +0,75   +13%    +4%    +7%    -2%
+   STOP 0,75 ATR / 4 h       59   142  +0,498  +0,311  +0,249  +0,457  +0,035    46%  +13,4%   -9%    1,44   +0,75   +28%    +6%   +28%    -6%
 
-   Cecchino 29 da solo (stesso motore)    96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%   (414 long, 0 short)
-   CECCHINO 29 + SHORT (29 monete)      166  +0,302  +0,183  +40,1%   -19%      +30,8%   +33,3%   +23,5%   +98,1%    -0,2%   (414 long, 297 short)
+=== 12 liquide ===
+   ingresso                op/a  salt   lordo   netto   prova   verif  -top10  vinte   annuo  calo an/calo  peggio   2023   2024   2025   2026
+   ATTUALE                   80     0  +0,482  +0,346  +0,176  +0,661  +0,118    45%  +20,5%  -16%    1,25   +0,00   +10%   +17%   +37%   +16%
+   STOP 0,1 ATR / 1 h        72    19  +0,484  +0,363  +0,166  +0,728  +0,117    44%  +19,2%  -14%    1,39   +0,10    +7%   +18%   +36%   +15%
+   STOP 0,1 ATR / 4 h        75     8  +0,519  +0,394  +0,250  +0,654  +0,150    45%  +22,4%  -14%    1,59   +0,10   +22%   +17%   +34%   +15%
+   STOP 0,25 ATR / 1 h       57    42  +0,421  +0,301  +0,073  +0,678  -0,005    43%  +12,0%  -16%    0,75   +0,25    +3%   +15%   +26%    +4%
+   STOP 0,25 ATR / 4 h       69    20  +0,497  +0,371  +0,248  +0,577  +0,109    45%  +19,1%  -12%    1,59   +0,25   +24%   +15%   +29%    +7%
+   STOP 0,5 ATR / 1 h        30    81  +0,435  +0,315  +0,480  +0,004  -0,124    44%   +6,8%  -10%    0,68   +0,50   +18%   +13%    +5%    -8%
+   STOP 0,5 ATR / 4 h        52    47  +0,498  +0,370  +0,311  +0,487  +0,066    45%  +14,1%  -12%    1,16   +0,50   +31%   +15%   +22%    -9%
+   STOP 0,75 ATR / 1 h       16    97  +0,425  +0,294  +0,476  -0,137  -0,322    38%   +3,4%   -8%    0,40   +0,75   +10%    +6%    -0%    -2%
+   STOP 0,75 ATR / 4 h       38    68  +0,567  +0,431  +0,362  +0,590  +0,047    47%  +12,3%   -8%    1,63   +0,75   +20%   +15%   +16%    -2%
 
-Lettura: gli short servono se nel portafoglio insieme l'annuo sale e/o il calo scende rispetto a Cecchino 29 da solo,
-e se negli anni in cui Cecchino va peggio gli short aiutano.
+=== 17 NUOVE ===
+   ingresso                op/a  salt   lordo   netto   prova   verif  -top10  vinte   annuo  calo an/calo  peggio   2023   2024   2025   2026
+   ATTUALE                   83     0  +0,536  +0,317  +0,278  +0,403  +0,035    43%  +18,8%  -19%    0,99   +0,00   +48%    +6%   +41%   -11%
+   STOP 0,1 ATR / 1 h        70    43  +0,584  +0,397  +0,376  +0,442  +0,119    46%  +20,7%  -14%    1,51   +0,10   +63%    +5%   +24%    -2%
+   STOP 0,1 ATR / 4 h        76    22  +0,589  +0,391  +0,351  +0,479  +0,103    45%  +22,2%  -15%    1,51   +0,10   +64%    +4%   +35%    -5%
+   STOP 0,25 ATR / 1 h       59    66  +0,514  +0,322  +0,247  +0,494  +0,069    46%  +13,7%  -14%    0,95   +0,25   +39%    +2%   +16%    +0%
+   STOP 0,25 ATR / 4 h       71    35  +0,601  +0,400  +0,326  +0,573  +0,099    46%  +21,1%  -16%    1,31   +0,25   +61%    -2%   +39%    -5%
+   STOP 0,5 ATR / 1 h        40   102  +0,604  +0,397  +0,249  +0,766  +0,029    46%  +11,7%  -10%    1,21   +0,50   +19%    +3%   +23%    +2%
+   STOP 0,5 ATR / 4 h        56    67  +0,611  +0,402  +0,276  +0,707  +0,027    47%  +16,4%  -12%    1,33   +0,50   +33%    +2%   +36%    -2%
+   STOP 0,75 ATR / 1 h       25   124  +0,631  +0,413  +0,260  +0,944  -0,096    46%   +7,5%  -12%    0,60   +0,75   +10%    +2%   +14%    +3%
+   STOP 0,75 ATR / 4 h       44    86  +0,667  +0,451  +0,262  +1,051  -0,004    48%  +14,3%  -13%    1,13   +0,75   +25%    -1%   +34%    +2%
+
+peggio = di quanti ATR il prezzo d'ingresso e' sopra la chiusura del segnale (in media)
+
+=== VERDETTO (criterio fissato prima) ===
+   STOP 0,1 ATR / 1 h     annuo +32,3 % (attuale +29,7), calo -13 % (attuale -14), prova +0,355 / verif +0,669 (attuale +0,289 / +0,615), nuove +0,397 senza 10 +0,119 -> PROMOSSA
+   STOP 0,1 ATR / 4 h     annuo +29,9 % (attuale +29,7), calo -12 % (attuale -14), prova +0,300 / verif +0,647 (attuale +0,289 / +0,615), nuove +0,391 senza 10 +0,103 -> PROMOSSA
+   STOP 0,25 ATR / 1 h    annuo +22,0 % (attuale +29,7), calo -13 % (attuale -14), prova +0,234 / verif +0,639 (attuale +0,289 / +0,615), nuove +0,322 senza 10 +0,069 -> bocciata
+   STOP 0,25 ATR / 4 h    annuo +26,6 % (attuale +29,7), calo -13 % (attuale -14), prova +0,303 / verif +0,563 (attuale +0,289 / +0,615), nuove +0,400 senza 10 +0,099 -> bocciata
+   STOP 0,5 ATR / 1 h     annuo +10,0 % (attuale +29,7), calo -12 % (attuale -14), prova +0,296 / verif +0,184 (attuale +0,289 / +0,615), nuove +0,397 senza 10 +0,029 -> bocciata
+   STOP 0,5 ATR / 4 h     annuo +16,7 % (attuale +29,7), calo -16 % (attuale -14), prova +0,315 / verif +0,267 (attuale +0,289 / +0,615), nuove +0,402 senza 10 +0,027 -> bocciata
+   STOP 0,75 ATR / 1 h    annuo +5,4 % (attuale +29,7), calo -13 % (attuale -14), prova +0,276 / verif +0,145 (attuale +0,289 / +0,615), nuove +0,413 senza 10 -0,096 -> bocciata
+   STOP 0,75 ATR / 4 h    annuo +13,4 % (attuale +29,7), calo -9 % (attuale -14), prova +0,249 / verif +0,457 (attuale +0,289 / +0,615), nuove +0,451 senza 10 -0,004 -> bocciata
 
