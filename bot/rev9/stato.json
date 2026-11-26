@@ -1,0 +1,28 @@
+{
+ "capitale": 2000.0,
+ "posizioni": [],
+ "ultima_candela": {
+  "long": 0,
+  "short": 1795680000
+ },
+ "chiuse": 0,
+ "vinte": 0,
+ "somma_r": 0.0,
+ "segnali": {
+  "long": 0,
+  "short": 0
+ },
+ "ultimo_segnale": {},
+ "btc_ultima": {
+  "short": {
+   "t": 1795680000,
+   "z": 0.04572787226855949,
+   "pct": 0.0014059346984682808,
+   "atr": 1823.5814196679826,
+   "prezzo": 60543.0,
+   "sma": 75620.675,
+   "ore": 8
+  }
+ },
+ "avvio": 1795712313
+}
