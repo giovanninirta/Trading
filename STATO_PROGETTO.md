@@ -16,6 +16,7 @@ File da leggere all'inizio di ogni nuova chat: riassume cosa è stato provato, c
 | 🎯 **Cecchino 29** (Rev 8) | `bot/rev8` | regola Cecchino, sceglie tra 29 monete (max 5 posizioni) | ogni 15 min (`bot_btc_guida.yml`) |
 | 🐕 **Segugio Short** (Rev 9) | `bot/rev9` | short dopo i crolli di BTC (8 h, < −1,5 %, BTC sotto media 160), genetico n. 1 | ogni 15 min (`bot_btc_guida.yml`) |
 | 🎯 **Cecchino + Short** (Rev 10) | `bot/rev10` | Cecchino 29 + Segugio Short nello stesso conto (5 long + 8 short, leva 3) | ogni 15 min (`bot_btc_guida.yml`) |
+| 🎯 **Cecchino 29 Stop** (Rev 11) | `bot/rev11` | come Cecchino 29 ma ingresso con ordine stop 0,1 ATR sopra la chiusura, valido 4 h; stop 1 ATR sotto il prezzo pagato | ogni 15 min (`bot_btc_guida.yml`) |
 | Trend Rev 2 | `bot/rev2` | Canale 55/20 giornaliero, 30 monete spot EUR | ogni giorno 00:20 UTC (`bot.yml`) |
 | Trend Rev 3 | `bot/rev3` | come Rev 2 + filtro forza vs BTC +10 % | ogni giorno 00:20 UTC (`bot.yml`) |
 

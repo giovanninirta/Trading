@@ -14,6 +14,7 @@ Perpetui Kraken, controllo ogni 15 minuti ([esecuzioni](https://github.com/giova
 | **[🎯 Cecchino 29](bot/rev8/README.md)** | **Long**, stessa regola di Cecchino ma sceglie tra più monete | 29 | 25/11/2026 | ≈ +31 %/anno, calo −14 % |
 | **[🐕 Segugio Short](bot/rev9/README.md)** | **Short** quando BTC scende di oltre l'1,5 % in 8 ore ed è sotto la sua media: vende le monete che crollano con lui (non le più crollate) | 29 | 26/11/2026 | ≈ +9 %/anno, calo −10 % |
 | **[🎯 Cecchino + Short](bot/rev10/README.md)** | **Long e short insieme** sullo stesso conto: Cecchino 29 + Segugio Short | 29 | 26/11/2026 | ≈ +40 %/anno, calo −19 % |
+| **[🎯 Cecchino 29 Stop](bot/rev11/README.md)** | **Long**, come Cecchino 29 ma non compra subito: ordine stop 0,1 ATR sopra la chiusura, valido 4 ore (compra solo se la moneta continua a salire) | 29 | 27/11/2026 | 2023-2026: ≈ +30 %/anno, calo −12 % (Cecchino 29 nello stesso periodo +30 %, −14 %) |
 
 Rischio 0,75 % del capitale per operazione, leva massima 3. I numeri dei test sono ottimisti (regole scelte guardando il passato): dal vivo è normale fare meno. Il confronto dal vivo dirà quale regge.
 
@@ -36,6 +37,7 @@ Girano in parallelo per vedere sui prezzi reali se il filtro "più forte di BTC"
 |---|---|
 | [`bot/rev6`](bot/rev6) · [`rev7`](bot/rev7) · [`rev8`](bot/rev8) | Cecchino, Segugio, Cecchino 29 (BTC guida, solo long) |
 | [`bot/rev9`](bot/rev9) · [`rev10`](bot/rev10) | Segugio Short, Cecchino + Short (motore long/short) |
+| [`bot/rev11`](bot/rev11) | Cecchino 29 Stop (ingresso con ordine stop) |
 | [`bot/rev2`](bot/rev2) · [`rev3`](bot/rev3) | Trend semplice, Trend più forte di BTC |
 | [`bot/archivio_rev1`](bot/archivio_rev1) | Prima versione (10 monete in USDT), non più attiva |
 | [`test/`](test) | Script di verifica delle strategie sui dati storici |
