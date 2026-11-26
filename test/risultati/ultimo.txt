@@ -1,37 +1,80 @@
-### python test_btc_guida_short_rev1.py
+### python genetico_cecchino_rev1.py
 
-12 liquide + 17 nuove, dal 2022-07-02 al 2026-11-20; prova fino al 2025-02-17.
-BTC nel periodo: da 19.255 a 58.483 $.
+12 liquide + 17 nuove, dal 2022-08-06 al 2026-11-19. L'algoritmo vede solo la prova fino al 2025-03-03.
+18 geni, 1.9e+14 combinazioni possibili.
 
-   segnale | regime | uscita               -------------- 12 LIQUIDE --------------             ||           -------------- 17 NUOVE --------------            
-                                   op/a   lordo   netto   prova   verif  -top10   annuo   calo  ||  op/a   lordo   netto   prova   verif  -top10   annuo   calo
-   atr2 | nessuno | specchio         89  +0,056  -0,063  -0,040  -0,100  -0,193   -5,2%   -33%  ||    95  +0,161  -0,002  +0,108  -0,187  -0,198   -2,6%   -39%  (99 segnali BTC)
-   atr2 | nessuno | v2               89  +0,018  -0,069  -0,104  -0,013  -0,163   -5,2%   -28%  ||    96  +0,064  -0,053  -0,028  -0,095  -0,186   -5,0%   -33%  (99 segnali BTC)
-   atr2 | sma50 | specchio           79  +0,064  -0,054  -0,013  -0,112  -0,201   -4,2%   -37%  ||    84  +0,107  -0,055  +0,037  -0,190  -0,272   -5,5%   -51%  (88 segnali BTC)
-   atr2 | sma50 | v2                 78  +0,024  -0,062  -0,088  -0,026  -0,169   -4,2%   -30%  ||    84  +0,034  -0,083  -0,073  -0,100  -0,231   -6,2%   -42%  (88 segnali BTC)
+   seme 1 generazione  1: miglior voto +0.33
+   seme 1 generazione  6: miglior voto +2.39
+   seme 1 generazione 11: miglior voto +2.51
+   seme 1 generazione 16: miglior voto +3.42
+   seme 1 generazione 21: miglior voto +3.64
+   seme 1 generazione 26: miglior voto +3.81
+   seme 1 generazione 31: miglior voto +4.35
+   seme 1 generazione 35: miglior voto +4.67
+   seme 1: BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,25 | trail 1,25 | f1 8h | fase2 2,0 | allarga 0,05 | media 190 -0%   [1998 combinazioni valutate, 0 min]
 
-   pct1,25 | nessuno | specchio     212  +0,025  -0,104  -0,120  -0,078  -0,171  -17,2%   -57%  ||   273  +0,190  +0,011  -0,014  +0,056  -0,109   -5,6%   -44%  (655 segnali BTC)
-   pct1,25 | nessuno | v2           215  +0,026  -0,067  -0,097  -0,017  -0,114  -11,4%   -44%  ||   280  +0,075  -0,055  -0,077  -0,015  -0,123  -14,0%   -51%  (655 segnali BTC)
-   pct1,25 | sma50 | specchio       170  +0,035  -0,090  -0,127  -0,038  -0,175  -12,7%   -48%  ||   207  +0,202  +0,029  -0,022  +0,105  -0,126   -2,4%   -41%  (486 segnali BTC)
-   pct1,25 | sma50 | v2             173  +0,032  -0,060  -0,101  -0,000  -0,119   -8,5%   -38%  ||   213  +0,063  -0,062  -0,106  +0,005  -0,146  -12,0%   -44%  (486 segnali BTC)
+   seme 2 generazione  1: miglior voto +0.33
+   seme 2 generazione  6: miglior voto +1.87
+   seme 2 generazione 11: miglior voto +3.26
+   seme 2 generazione 16: miglior voto +3.26
+   seme 2 generazione 21: miglior voto +3.26
+   seme 2 generazione 26: miglior voto +3.39
+   seme 2 generazione 31: miglior voto +3.43
+   seme 2 generazione 35: miglior voto +3.45
+   seme 2: BTC >1,0 % | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 70 | stop 1,1 | pari 1,5 | trail 1,5 | f1 20h | fase2 4,5 | allarga 0,05 | media 200 -2%   [3973 combinazioni valutate, 1 min]
 
-   pct1,6 | nessuno | specchio      178  +0,047  -0,076  -0,109  -0,022  -0,156  -11,6%   -46%  ||   218  +0,255  +0,084  +0,058  +0,127  -0,066   +6,3%   -38%  (420 segnali BTC)
-   pct1,6 | nessuno | v2            180  +0,042  -0,047  -0,097  +0,036  -0,101   -7,2%   -36%  ||   224  +0,113  -0,011  -0,038  +0,035  -0,096   -5,0%   -36%  (420 segnali BTC)
-   pct1,6 | sma50 | specchio        147  +0,085  -0,036  -0,061  -0,001  -0,132   -5,7%   -35%  ||   172  +0,288  +0,121  +0,084  +0,175  -0,065   +9,4%   -31%  (322 segnali BTC)
-   pct1,6 | sma50 | v2              148  +0,061  -0,026  -0,066  +0,030  -0,092   -3,9%   -30%  ||   176  +0,116  -0,005  -0,042  +0,049  -0,106   -3,2%   -31%  (322 segnali BTC)
+   seme 3 generazione  1: miglior voto +0.33
+   seme 3 generazione  6: miglior voto +2.92
+   seme 3 generazione 11: miglior voto +2.99
+   seme 3 generazione 16: miglior voto +3.37
+   seme 3 generazione 21: miglior voto +3.97
+   seme 3 generazione 26: miglior voto +4.45
+   seme 3 generazione 31: miglior voto +4.45
+   seme 3 generazione 35: miglior voto +4.55
+   seme 3: BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,5 | trail 1,0 | f1 8h | fase2 4,0 | allarga 0,05 | media 60 -0%   [5949 combinazioni valutate, 1 min]
 
-=== SCELTA (miglior netto in PROVA sulle 12 liquide): atr2 | sma50 | specchio ===
-                                                 op/a   lordo   netto  -top10   annuo   calo
-   12 liquide: regola (le 5 piu' deboli)           79  +0,064  -0,054  -0,201   -4,2%   -37%
-   12 liquide: (a) stessi segnali, monete a caso    98  +0,038  -0,072  -0,199   -6,4%   -42%
-   12 liquide: (b) momenti e monete a caso         96  +0,038  -0,092  -0,199   -7,3%   -42%
-   17 nuove: regola (le 5 piu' deboli)             84  +0,107  -0,055  -0,272   -5,5%   -51%
-   17 nuove: (a) stessi segnali, monete a caso     99  +0,064  -0,078  -0,212   -6,9%   -47%
-   17 nuove: (b) momenti e monete a caso           97  +0,074  -0,098  -0,216   -7,9%   -45%
+=== LE MIGLIORI (voto in prova) a confronto con CECCHINO attuale ===
+               voto |  prova 12: op/a netto annuo calo   |  verifica 12: netto annuo calo  |   17 nuove: netto -top10 annuo calo   
+   CECCHINO   +0,33 |    84  +0,239  +14,7%   -16%      |   +0,612   +34,9%     -9%        |   +0,327  +0,065   +19,4%    -19%
+      BTC >2,0 ATR | 4h | ATR14 | moneta >1,7 | max 5 | dalla 1a | RSI - | stop 1,0 | pari 1,0 | trail 1,5 | f1 16h | fase2 3,0 | allarga 0,1 | senza regime
+   n, 1       +4,68 |    43  +0,637  +21,7%    -4%      |   -0,107    -2,7%     -9%        |   +0,303  +0,112    +9,5%    -10%
+      BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,25 | trail 1,25 | f1 8h | fase2 2,0 | allarga 0,05 | media 190 -0%
+   n, 2       +4,67 |    43  +0,611  +20,7%    -4%      |   -0,072    -1,9%     -9%        |   +0,303  +0,118    +9,5%    -10%
+      BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,5 | trail 1,25 | f1 8h | fase2 2,0 | allarga 0,0 | media 200 -0%
+   n, 3       +4,66 |    43  +0,653  +22,2%    -4%      |   -0,085    -2,2%     -9%        |   +0,334  +0,118   +10,5%    -10%
+      BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,5 | trail 1,25 | f1 8h | fase2 2,0 | allarga 0,1 | media 200 -0%
+   n, 4       +4,66 |    43  +0,653  +22,2%    -4%      |   -0,085    -2,2%     -9%        |   +0,334  +0,118   +10,5%    -10%
+      BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,5 | trail 1,25 | f1 8h | fase2 2,0 | allarga 0,1 | media 190 -0%
+   n, 5       +4,58 |    43  +0,530  +17,8%    -4%      |   -0,076    -2,0%     -9%        |   +0,313  +0,137    +9,8%    -10%
+      BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,5 | trail 1,5 | f1 8h | fase2 4,0 | allarga 0,0 | media 200 -0%
+   n, 6       +4,55 |    52  +0,464  +18,9%    -4%      |   -0,136    -4,7%    -14%        |   +0,238  +0,097    +9,1%    -14%
+      BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,5 | trail 1,0 | f1 8h | fase2 4,0 | allarga 0,05 | media 60 -0%
+   n, 7       +4,55 |    52  +0,462  +18,9%    -4%      |   -0,136    -4,8%    -14%        |   +0,236  +0,097    +9,1%    -14%
+      BTC >2,75 ATR | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 75 | stop 1,3 | pari 1,5 | trail 1,0 | f1 8h | fase2 4,0 | allarga 0,1 | media 60 -0%
+   n, 8       +3,45 |   118  +0,407  +40,2%   -12%      |   +0,253   +19,7%    -15%        |   +0,135  +0,062   +16,5%    -34%
+      BTC >1,0 % | 4h | ATR10 | moneta >1,7 | max 8 | dalla 1a | RSI 70 | stop 1,1 | pari 1,5 | trail 1,5 | f1 20h | fase2 4,5 | allarga 0,05 | media 200 -2%
 
-   anno per anno          2022    2023    2024    2025    2026
-   12 liquide           +18,0%   -1,0%  -14,1%  -10,8%   -7,2%
-   17 nuove             +47,4%  -16,0%  -14,6%  -14,1%  -14,1%
+=== PARAMETRI VICINI della n. 1 (ogni gene un passo in piu' e in meno): voto in prova ===
+   tipo     (atr) -> pct: +1.72
+   btc_atr  (2.75) -> 2.5: +2.64   3.0: +1.17
+   btc_pct  (2.0) -> 1.75: +4.68   2.25: +4.68
+   ore      (4) -> 6: -5.20
+   atr_p    (10) -> 12: +4.50
+   moneta   (1.7) -> 1.6: +4.22   1.8: +4.56
+   maxpos   (8) -> 7: +4.40
+   salta    (0) -> 1: +3.93
+   rsi      (75) -> 70: +3.99   80: +4.42
+   stop     (1.3) -> 1.2: +4.62   1.4: +4.66
+   pari     (1.25) -> 1.0: +4.57   1.5: +4.68
+   trail    (1.25) -> 1.0: +4.79   1.5: +4.60
+   f1       (8) -> 12: +4.04
+   s2       (2.0) -> 2.5: +4.65
+   allarga  (0.05) -> 0.0: +4.67   0.1: +4.66
+   regime   (True) -> False: +3.74
+   sma      (190) -> 180: +3.87   200: +4.68
+   toll     (0.0) -> 0.01: +3.87
+   vicini con voto almeno 70 % della n. 1: 23 su 27
 
-=== VERDETTO sulle 17 nuove: netto -0,055 R (> +0,05), senza 10 -0,272 (> 0), annuo -5,5 % (> 0), calo -51 % (>= -20), controllo (b) -0,098 (serve regola >= controllo + 0,05) -> BOCCIATA ===
+=== VERDETTO: verifica 12 netto -0,107 (Cecchino +0,612); 17 nuove annuo +9,5 % (Cecchino +19,4 %), calo -10 % (>= -20), senza 10 +0,112 (> 0) -> NON BATTE CECCHINO: si tiene la regola attuale ===
+Tempo totale 1 minuti.
 
