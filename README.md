@@ -2,29 +2,42 @@
 
 📌 **[Stato del progetto](STATO_PROGETTO.md)**: cosa è stato provato, cosa funziona, cosa gira adesso.
 
-## Bot simulati "BTC guida" (perpetui, candele 4h, controllo ogni 15 minuti)
+Tutti i bot sono **simulati**: seguono i prezzi veri di Kraken e registrano cosa avrebbero fatto, senza ordini reali e senza chiavi API. Ognuno parte con 2.000 simulati.
 
-- **[🎯 Cecchino](bot/rev6/README.md)** · Rev 6 · versione A: scatto di BTC oltre 2 ATR, pochi colpi mirati
-- **[🐕 Segugio](bot/rev7/README.md)** · Rev 7 · versione B: scatto di BTC oltre +1,25 %, circa il doppio delle operazioni
+## 🚀 Bot "BTC guida": dopo uno scatto forte di BTC
+Perpetui Kraken, controllo ogni 15 minuti ([esecuzioni](https://github.com/giovanninirta/Trading/actions/workflows/bot_btc_guida.yml)).
 
-Quando una candela da 4 ore di BTC scatta in salita, comprano le monete liquide che l'hanno seguita
-(stop 1 ATR, pareggio, trailing, 16 ore o fase 2). 2.000 $ simulati ciascuno, rischio 0,75 % per operazione.
+| Bot | Cosa fa | Monete | Dal | Test 2022-2026 |
+|---|---|---|---|---|
+| **[🎯 Cecchino](bot/rev6/README.md)** | **Long** quando BTC sale di oltre 2 ATR in 4 ore: compra le monete che l'hanno seguito con più forza | 12 liquide | 24/11/2026 | ≈ +26 %/anno, calo −13 % |
+| **[🐕 Segugio](bot/rev7/README.md)** | **Long** come Cecchino, ma basta un +1,25 % di BTC: circa il doppio delle operazioni | 12 liquide | 24/11/2026 | ≈ +34 %/anno, calo −16 % |
+| **[🎯 Cecchino 29](bot/rev8/README.md)** | **Long**, stessa regola di Cecchino ma sceglie tra più monete | 29 | 25/11/2026 | ≈ +31 %/anno, calo −14 % |
+| **[🐕 Segugio Short](bot/rev9/README.md)** | **Short** quando BTC scende di oltre l'1,5 % in 8 ore ed è sotto la sua media: vende le monete che crollano con lui (non le più crollate) | 29 | 26/11/2026 | ≈ +9 %/anno, calo −10 % |
+| **[🎯 Cecchino + Short](bot/rev10/README.md)** | **Long e short insieme** sullo stesso conto: Cecchino 29 + Segugio Short | 29 | 26/11/2026 | ≈ +40 %/anno, calo −19 % |
 
-## Bot simulati trend giornaliero (aggiornati ogni giorno alle 00:20 UTC)
+Rischio 0,75 % del capitale per operazione, leva massima 3. I numeri dei test sono ottimisti (regole scelte guardando il passato): dal vivo è normale fare meno. Il confronto dal vivo dirà quale regge.
 
-- **[Rev 2 · senza filtro](bot/rev2/README.md)**
-- **[Rev 3 · con filtro "forza contro BTC"](bot/rev3/README.md)**
+## 📈 Bot "trend giornaliero": seguono i trend di settimane
+Canale 55/20 giornaliero su 30 monete spot in EUR, aggiornati ogni giorno alle 00:20 UTC ([esecuzioni](https://github.com/giovanninirta/Trading/actions/workflows/bot.yml)).
 
-Stessa regola (Canale 55/20, 30 monete in EUR, 2.000 EUR simulati): girano in parallelo per vedere sui prezzi reali se il filtro aiuta.
+| Bot | Cosa fa |
+|---|---|
+| **[📈 Trend semplice](bot/rev2/README.md)** | Compra quando una moneta rompe il massimo di 55 giorni, vende sotto il minimo di 20 |
+| **[📈 Trend più forte di BTC](bot/rev3/README.md)** | Come il semplice, ma solo se la moneta sta facendo almeno il 10 % meglio di BTC |
 
-## Test
+Girano in parallelo per vedere sui prezzi reali se il filtro "più forte di BTC" aiuta.
 
-- **[Ultimo risultato](test/risultati/ultimo.txt)**
-- Per lanciare un test: modificare `test/comando.txt` (una riga per script). GitHub lo esegue e salva l'output in `test/risultati/`.
+## 🧪 Test
+- **[Ultimo risultato](test/risultati/ultimo.txt)** · [tutti i risultati](test/risultati/) · [esecuzioni](https://github.com/giovanninirta/Trading/actions/workflows/test.yml)
+- Per lanciare un test: scrivere il nome dello script in `test/comando.txt` (una riga per script). GitHub lo esegue e salva l'output in `test/risultati/`.
 
+## 📁 Cartelle
 | Cartella | Contenuto |
 |---|---|
-| `bot/rev6`, `bot/rev7` | Bot simulati BTC guida (Cecchino, Segugio): nessun ordine reale, nessuna chiave API |
-| `bot/rev2`, `bot/rev3` | Bot simulati trend giornaliero: nessun ordine reale, nessuna chiave API |
-| `bot/archivio_rev1` | Prima versione (10 monete in USDT), non piu' attiva |
-| `test/` | Script di verifica delle strategie sui dati storici |
+| [`bot/rev6`](bot/rev6) · [`rev7`](bot/rev7) · [`rev8`](bot/rev8) | Cecchino, Segugio, Cecchino 29 (BTC guida, solo long) |
+| [`bot/rev9`](bot/rev9) · [`rev10`](bot/rev10) | Segugio Short, Cecchino + Short (motore long/short) |
+| [`bot/rev2`](bot/rev2) · [`rev3`](bot/rev3) | Trend semplice, Trend più forte di BTC |
+| [`bot/archivio_rev1`](bot/archivio_rev1) | Prima versione (10 monete in USDT), non più attiva |
+| [`test/`](test) | Script di verifica delle strategie sui dati storici |
+
+In ogni cartella dei bot: `README.md` = cruscotto, `registro.csv` = tutte le operazioni (compare alla prima operazione), `stato.json` = memoria del bot.
