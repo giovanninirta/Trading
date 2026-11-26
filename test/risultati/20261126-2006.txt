@@ -1,0 +1,75 @@
+### python statistiche_cecchino_5m_rev1.py
+
+SHORT ZB 4 ZM 3.5 ST 2 TR 1.5 F1 48 - 29 monete - dal 2022-06-28 al 2026-11-25 (1611 giorni)
+
+Segnali candidati: 8186 (1855/anno, 5.08/giorno)
+Controllo con cecchino_5m_rev1: lordo medio +0,587 contro +0,587
+
+=== PORTAFOGLIO MAKER (rischio 0,75 %, max 5, leva 3) ===
+   operazioni prese 880 = 199/anno = 0,55/giorno; capitale x6,77; annuo +54,3 %; calo massimo -37 %
+   giorni 1611: con operazioni chiuse 450 (28 %), positivi 191, negativi 259, oltre +1 % 121, sotto -1 % 171
+   rendimento medio al giorno +0,133 % (obiettivo +1 %); migliore +19,0 %, peggiore -5,4 %
+   mesi: 22-06 -2%  22-07 +40%  22-08 +15%  22-09 +29%  22-10 +2%  22-11 +40%  22-12 +4%  23-01 -4%  23-02 +0%  23-03 +19%  23-04 +13%  23-05 +2%  23-06 -2%  23-07 +10%  23-08 -8%  23-09 -3%  23-10 +1%  23-11 -3%  23-12 +14%  24-01 -5%  24-02 -1%  24-03 -8%  24-04 +5%  24-05 -9%  24-06 -11%  24-07 -1%  24-08 -1%  24-09 -8%  24-10 +1%  24-11 +4%  24-12 -7%  25-01 +4%  25-02 -2%  25-03 +5%  25-04 +13%  25-05 +0%  25-06 +21%  25-07 +0%  25-08 -0%  25-09 +9%  25-10 +4%  25-11 +7%  25-12 +4%  26-01 +7%  26-02 -5%  26-03 +8%  26-04 +0%  26-05 +9%  26-06 -2%  26-07 +1%  26-08 +8%  26-09 +1%  26-10 +6%  26-11 -4%
+
+=== PORTAFOGLIO TAKER (rischio 0,75 %, max 5, leva 3) ===
+   operazioni prese 880 = 199/anno = 0,55/giorno; capitale x0,51; annuo -14,2 %; calo massimo -75 %
+   giorni 1611: con operazioni chiuse 450 (28 %), positivi 153, negativi 297, oltre +1 % 96, sotto -1 % 225
+   rendimento medio al giorno -0,027 % (obiettivo +1 %); migliore +18,5 %, peggiore -6,4 %
+   mesi: 22-06 -4%  22-07 +21%  22-08 +3%  22-09 +18%  22-10 -8%  22-11 +20%  22-12 -8%  23-01 -14%  23-02 -5%  23-03 +11%  23-04 +3%  23-05 -8%  23-06 -11%  23-07 +4%  23-08 -14%  23-09 -6%  23-10 -4%  23-11 -4%  23-12 +12%  24-01 -8%  24-02 -1%  24-03 -10%  24-04 -2%  24-05 -16%  24-06 -15%  24-07 -5%  24-08 -3%  24-09 -12%  24-10 +0%  24-11 +3%  24-12 -8%  25-01 +1%  25-02 -4%  25-03 +3%  25-04 +10%  25-05 -1%  25-06 +19%  25-07 +0%  25-08 -3%  25-09 +8%  25-10 +1%  25-11 +2%  25-12 -3%  26-01 +3%  26-02 -8%  26-03 +4%  26-04 -4%  26-05 +7%  26-06 -5%  26-07 -2%  26-08 +5%  26-09 -2%  26-10 +1%  26-11 -8%
+
+=== OPERAZIONI PRESE NEL PORTAFOGLIO MAKER: 880 ===
+   vinte 345 (39 %), R netto medio +2,53, mediana +1,35, durata mediana 25 min
+   perse 535 (61 %), R netto medio -1,10, durata mediana 10 min
+   somma R netto +284,6; le 10 migliori valgono +153,7 R, le 30 migliori +318,6 R
+   distribuzione R netto: < -1,2: 283  -1,2/-0,8: 141  -0,8/-0,2: 83  -0,2/0: 28  0/0,5: 74  0,5/1: 67  1/2: 65  2/4: 70  4/8: 47  >= 8: 22
+
+   motivo uscita       n  quota   lordo   netto  vinte    MFE    MAE   min
+   stop iniziale     402    46%   -1,00   -1,32     0%   0,04   1,00    10
+   pareggio           41     5%   +0,00   -0,31     0%   0,69   0,30    15
+   trailing          401    46%   +2,36   +2,01    83%   3,73   0,21    20
+   tempo              34     4%   +0,00   -0,31    26%   0,26   0,30   240
+   tetto               2     0%  +14,73  +14,33   100%  15,20   0,00  1440
+   (MFE = massimo guadagno toccato in R, MAE = massima perdita toccata in R; R = stop = 2 ATR 5m)
+
+   PERSE: fin dove erano arrivate a favore prima di girarsi (MFE)
+      mai sopra +0,25 R     386 ( 72 %)  R netto medio -1,28
+      +0,25/+0,5 R           41 (  8 %)  R netto medio -1,20
+      +0,5/+1 R              79 ( 15 %)  R netto medio -0,39
+      +1/+2 R                26 (  5 %)  R netto medio -0,48
+      oltre +2 R              3 (  1 %)  R netto medio -0,69
+   VINTE: quanto hanno restituito dal massimo (MFE - risultato lordo)
+      massimo medio toccato +4,24 R, chiuse in media a +2,88 R lordo, restituito in media 1,36 R
+   Ingressi: R netto per forza della moneta (z) e minuti del giorno UTC
+      z 3,5-4,5      63  R netto +0,25
+      z 4,5-6        73  R netto -0,03
+      z oltre 6     574  R netto +0,31
+      00-08 UTC     299  R netto +0,45
+      08-13 UTC     166  R netto +0,43
+      13-17 UTC     153  R netto -0,15
+      17-24 UTC     262  R netto +0,38
+
+=== USCITE ALTERNATIVE sugli stessi 8186 ingressi (tutti i candidati, senza portafoglio; R = 2 ATR) ===
+   gestione                                        lordo  maker  prova  verif -top10  taker vinte  min
+   ATTUALE (pareggio 1, trail 1,5 da 1, fase 2)    +0,59  +0,28  +0,23  +0,41  +0,25  -0,09   39%   10
+   senza pareggio (trail 1,5 da 1)                 +0,59  +0,29  +0,23  +0,42  +0,25  -0,08   39%   10
+   pareggio a 2 ATR, trail da 2                    +0,59  +0,28  +0,20  +0,48  +0,25  -0,09   43%   15
+   trailing 1,0                                    +0,58  +0,27  +0,23  +0,38  +0,24  -0,09   42%   10
+   trailing 2,5                                    +0,59  +0,28  +0,21  +0,47  +0,25  -0,09   34%   15
+   trailing 1,5 che parte da 2 ATR                 +0,59  +0,28  +0,23  +0,42  +0,25  -0,09   39%   10
+   obiettivo fisso 1 R (2 ATR), niente trailing    -0,03  -0,31  -0,38  -0,13  -0,31  -0,68   48%   10
+   obiettivo fisso 1,5 R                           +0,05  -0,23  -0,32  -0,00  -0,23  -0,60   42%   10
+   obiettivo fisso 2 R                             +0,11  -0,17  -0,28  +0,10  -0,18  -0,54   37%   15
+   obiettivo fisso 3 R                             +0,20  -0,09  -0,23  +0,25  -0,09  -0,46   30%   15
+   solo stop + tempo 15 min                        +0,35  +0,08  +0,05  +0,15  +0,04  -0,29   32%   15
+   solo stop + tempo 30 min                        +0,39  +0,11  -0,00  +0,40  +0,07  -0,25   32%   30
+   solo stop + tempo 1 h                           +0,42  +0,14  -0,01  +0,50  +0,09  -0,23   30%   40
+   solo stop + tempo 4 h                           +0,27  -0,03  -0,13  +0,23  -0,07  -0,40   21%   40
+   attuale ma limite fase 1 = 30 min               +0,51  +0,22  +0,17  +0,33  +0,18  -0,15   37%   10
+   attuale ma limite fase 1 = 1 h                  +0,55  +0,25  +0,19  +0,39  +0,21  -0,12   38%   10
+   stop 1 ATR (R diverso!), resto attuale          +1,30  +0,70  +0,64  +0,83  +0,63  -0,04   33%   10
+   stop 3 ATR (R diverso!), resto attuale          +0,37  +0,17  +0,11  +0,31  +0,15  -0,08   43%   15
+   pareggio 1 + obiettivo 2 R                      +0,16  -0,13  -0,21  +0,05  -0,14  -0,50   31%   10
+   trailing 1,5 senza fase 2, tetto 24 h           +0,60  +0,29  +0,25  +0,40  +0,26  -0,08   39%   10
+
+Lettura: si sceglie guardando la colonna 'prova'; 'verif' dice se regge. Il maker resta ottimista (limite sempre eseguito).
+
