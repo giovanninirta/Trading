@@ -1,60 +1,16 @@
-### python genetico_short_rev1.py
+### python cecchino_piu_short_rev1.py
 
-SHORT. 12 liquide + 17 nuove, dal 2022-08-06 al 2026-11-19. L'algoritmo vede solo la prova fino al 2025-03-03.
+Dal 2022-08-06 al 2026-11-19. Rischio 0,75 % per operazione, leva massima 3.
 
-   seme 1 generazione  1: miglior voto -0.20
-   seme 1 generazione  6: miglior voto +0.90
-   seme 1 generazione 11: miglior voto +1.40
-   seme 1 generazione 16: miglior voto +1.94
-   seme 1 generazione 21: miglior voto +2.79
-   seme 1 generazione 26: miglior voto +3.69
-   seme 1 generazione 31: miglior voto +4.29
-   seme 1 generazione 35: miglior voto +4.91
-   seme 1: BTC <-1,5 % | 8h | ATR20 | moneta <-1,8 | max 8 | dalla 3a piu' debole | RSI min 25 | stop 0,9 | pari 1,75 | trail 2,0 | f1 8h | fase2 2,5 | allarga 0,1 | BTC sotto media 160 +5%   [2004 combinazioni, 1 min]
+                                       op/a   netto  -top10   annuo   calo        2022     2023     2024     2025     2026
+   Short n, 1 - 12 liquide               30  +0,367  +0,186   +8,2%    -7%      +18,9%    +0,7%    +5,5%   +18,2%    -5,9%
+   Short n, 1 - 17 nuove                 49  +0,219  +0,037   +7,4%    -9%      +23,1%    -5,5%    +8,5%   +18,3%    -9,0%
+   Short n, 1 - 29 insieme               69  +0,181  +0,065   +8,7%   -10%      +20,8%    -8,1%    +6,6%   +31,0%    -7,8%
+   Cecchino 29 (bot Rev 8)               96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%
 
-   seme 2 generazione  1: miglior voto -0.16
-   seme 2 generazione  6: miglior voto +1.20
-   seme 2 generazione 11: miglior voto +1.74
-   seme 2 generazione 16: miglior voto +2.19
-   seme 2 generazione 21: miglior voto +2.28
-   seme 2 generazione 26: miglior voto +2.28
-   seme 2 generazione 31: miglior voto +2.28
-   seme 2 generazione 35: miglior voto +2.28
-   seme 2: BTC <-1,0 % | 6h | ATR12 | moneta <-2,2 | max 8 | dalla 3a piu' debole | RSI min 25 | stop 0,7 | pari 1,25 | trail 1,0 | f1 8h | fase2 2,5 | allarga 0,05 | senza regime   [3983 combinazioni, 1 min]
+   Cecchino 29 da solo (stesso motore)    96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%   (414 long, 0 short)
+   CECCHINO 29 + SHORT (29 monete)      166  +0,302  +0,183  +40,1%   -19%      +30,8%   +33,3%   +23,5%   +98,1%    -0,2%   (414 long, 297 short)
 
-   seme 3 generazione  1: miglior voto +1.38
-   seme 3 generazione  6: miglior voto +2.58
-   seme 3 generazione 11: miglior voto +2.80
-   seme 3 generazione 16: miglior voto +2.80
-   seme 3 generazione 21: miglior voto +2.80
-   seme 3 generazione 26: miglior voto +2.96
-   seme 3 generazione 31: miglior voto +3.12
-   seme 3 generazione 35: miglior voto +3.25
-   seme 3: BTC <-1,5 ATR | 6h | ATR14 | moneta <-2,1 | max 8 | dalla 2a piu' debole | RSI min 20 | stop 0,6 | pari 1,5 | trail 1,0 | f1 24h | fase2 5,0 | allarga 0,15 | BTC sotto media 30 +1%   [5944 combinazioni, 1 min]
-
-=== LE MIGLIORI (voto in prova) e lo SPECCHIO DI CECCHINO ===
-               voto |  prova 12: op/a netto annuo calo   |  verifica 12: netto annuo calo  |   17 nuove: op/a netto -top10 annuo calo   
-   SPECCHIO   -5,27 |    98  -0,035   -4,1%   -27%      |   -0,076    -4,7%    -14%        |    95  +0,011  -0,190    -1,8%    -38%
-      BTC <-2,0 ATR | 4h | ATR14 | moneta <-1,7 | max 5 | dalla 1a piu' debole | RSI min - | stop 1,0 | pari 1,0 | trail 1,5 | f1 16h | fase2 3,0 | allarga 0,1 | senza regime
-   n, 1       +4,91 |    26  +0,622  +12,4%    -2%      |   +0,099    +2,4%     -7%        |    49  +0,219  +0,037    +7,4%     -9%
-      BTC <-1,5 % | 8h | ATR20 | moneta <-1,8 | max 8 | dalla 3a piu' debole | RSI min 25 | stop 0,9 | pari 1,75 | trail 2,0 | f1 8h | fase2 2,5 | allarga 0,1 | BTC sotto media 160 +5%
-   n, 2       +4,85 |    26  +0,489   +9,8%    -1%      |   +0,114    +2,9%     -6%        |    50  +0,201  +0,044    +6,9%     -7%
-      BTC <-1,5 % | 8h | ATR20 | moneta <-1,8 | max 8 | dalla 3a piu' debole | RSI min 25 | stop 1,1 | pari 1,75 | trail 2,0 | f1 8h | fase2 3,0 | allarga 0,0 | BTC sotto media 160 +5%
-   n, 3       +4,85 |    26  +0,489   +9,8%    -1%      |   +0,114    +2,9%     -6%        |    50  +0,201  +0,044    +6,9%     -7%
-      BTC <-1,5 % | 8h | ATR20 | moneta <-1,8 | max 8 | dalla 3a piu' debole | RSI min 25 | stop 1,1 | pari 1,75 | trail 2,0 | f1 8h | fase2 3,5 | allarga 0,0 | BTC sotto media 160 +5%
-   n, 4       +4,69 |    26  +0,424   +8,5%    -1%      |   +0,147    +3,8%     -5%        |    50  +0,165  +0,038    +5,7%     -7%
-      BTC <-1,5 % | 8h | ATR20 | moneta <-1,8 | max 8 | dalla 3a piu' debole | RSI min 25 | stop 1,1 | pari 1,25 | trail 1,0 | f1 8h | fase2 4,0 | allarga 0,15 | BTC sotto media 160 +5%
-   n, 5       +4,67 |    26  +0,531  +10,5%    -1%      |   +0,107    +2,6%     -7%        |    50  +0,215  +0,048    +7,4%     -8%
-      BTC <-1,5 % | 8h | ATR20 | moneta <-1,8 | max 8 | dalla 3a piu' debole | RSI min 25 | stop 1,0 | pari 1,75 | trail 2,0 | f1 8h | fase2 3,0 | allarga 0,05 | BTC sotto media 160 +5%
-   n, 6       +3,42 |    48  +0,923  +36,0%    -7%      |   +0,083    +1,6%    -22%        |    65  +0,376  +0,042   +15,4%    -25%
-      BTC <-1,5 ATR | 6h | ATR14 | moneta <-2,1 | max 8 | dalla 2a piu' debole | RSI min 20 | stop 0,6 | pari 1,5 | trail 1,0 | f1 24h | fase2 5,0 | allarga 0,15 | BTC sotto media 30 +1%
-   n, 7       +3,31 |    49  +0,895  +35,4%    -7%      |   +0,009    -0,6%    -22%        |    67  +0,383  +0,060   +16,2%    -25%
-      BTC <-2,0 % | 6h | ATR14 | moneta <-2,1 | max 8 | dalla 2a piu' debole | RSI min 20 | stop 0,6 | pari 1,5 | trail 1,0 | f1 24h | fase2 5,0 | allarga 0,2 | BTC sotto media 30 +1%
-   n, 8       +3,28 |    49  +0,866  +34,4%    -8%      |   +0,177    +4,1%    -19%        |    65  +0,437  +0,107   +18,9%    -19%
-      BTC <-2,0 % | 6h | ATR16 | moneta <-2,1 | max 8 | dalla 2a piu' debole | RSI min 20 | stop 0,6 | pari 1,0 | trail 1,0 | f1 24h | fase2 5,0 | allarga 0,2 | BTC sotto media 30 +1%
-
-   controllo 17 nuove, short in momenti e monete a caso (parametri d'uscita della n, 1, 20 estrazioni): 73 op/a, netto -0,068 R, senza 10 -0,149, annuo -4,2 %, calo -29 %
-
-=== VERDETTO n, 1: 17 nuove netto +0,219 (> +0,05), senza 10 +0,037 (> 0), annuo +7,4 % (> 0), calo -9 % (>= -20), controllo a caso -0,068 (serve +0,05 in piu'); verifica 12 netto +0,099 (> 0) -> PROMOSSA ===
-Tempo totale 1 minuti.
+Lettura: gli short servono se nel portafoglio insieme l'annuo sale e/o il calo scende rispetto a Cecchino 29 da solo,
+e se negli anni in cui Cecchino va peggio gli short aiutano.
 
