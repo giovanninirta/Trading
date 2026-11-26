@@ -99,7 +99,7 @@ def simula(g, btc, monete, t_da, t_a, momenti=None, rng=None):
             fine, px = esci(M, k, e, a, chiusura, g)
             lordo = (e - px) / (g["stop"] * a); ore = (fine - chiusura) / 3600
             netto = lordo - (2 * COSTO + M.sp + RITARDO + FUNDING_ORA * ore) / pct
-            aperte.append((M.m, fine, importo, noz, netto)); ops.append((chiusura, M.m, lordo, netto))
+            aperte.append((M.m, fine, importo, noz, netto)); ops.append((chiusura, M.m, lordo, netto, fine, pct))
     for p in sorted(aperte, key=lambda p: p[1]):
         cap += p[2] * p[4]; picco = max(picco, cap); calo = min(calo, cap / picco - 1); curva.append((p[1], cap))
     return ops, cap, calo, curva
