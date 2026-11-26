@@ -3,13 +3,13 @@
 
 ## ➡️ 2.000,00 $   (+0,00 %)
 
-Capitale di partenza 2.000 $ simulati · attivo da 2 giorni · ultimo controllo 2026-11-26 16:58 UTC
+Capitale di partenza 2.000 $ simulati · attivo da 2 giorni · ultimo controllo 2026-11-26 21:00 UTC
 
 | Posizioni aperte | Operazioni chiuse | Vinte | Risultato medio | Scatti di BTC |
 |:-:|:-:|:-:|:-:|:-:|
 | **0** | **0** | **0 %** | **+0,00 R** | **1** |
 
-**BTC adesso:** ultima candela 4h chiusa alle 2026-11-26 16:00: **-0,17 % (serve oltre 1,25 %)**
+**BTC adesso:** ultima candela 4h chiusa alle 2026-11-26 20:00: **+0,16 % (serve oltre 1,25 %)**
 
 **Ultimo scatto di BTC:** 2026-11-25 20:00 UTC, +1,2 ATR (+2,66 %) → nessuna moneta abbastanza forte · saltato: controllo arrivato 229 minuti dopo la chiusura
 
