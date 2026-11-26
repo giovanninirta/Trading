@@ -1,0 +1,16 @@
+### python cecchino_piu_short_rev1.py
+
+Dal 2022-08-06 al 2026-11-19. Rischio 0,75 % per operazione, leva massima 3.
+
+                                       op/a   netto  -top10   annuo   calo        2022     2023     2024     2025     2026
+   Short n, 1 - 12 liquide               30  +0,367  +0,186   +8,2%    -7%      +18,9%    +0,7%    +5,5%   +18,2%    -5,9%
+   Short n, 1 - 17 nuove                 49  +0,219  +0,037   +7,4%    -9%      +23,1%    -5,5%    +8,5%   +18,3%    -9,0%
+   Short n, 1 - 29 insieme               69  +0,181  +0,065   +8,7%   -10%      +20,8%    -8,1%    +6,6%   +31,0%    -7,8%
+   Cecchino 29 (bot Rev 8)               96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%
+
+   Cecchino 29 da solo (stesso motore)    96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%   (414 long, 0 short)
+   CECCHINO 29 + SHORT (29 monete)      166  +0,302  +0,183  +40,1%   -19%      +30,8%   +33,3%   +23,5%   +98,1%    -0,2%   (414 long, 297 short)
+
+Lettura: gli short servono se nel portafoglio insieme l'annuo sale e/o il calo scende rispetto a Cecchino 29 da solo,
+e se negli anni in cui Cecchino va peggio gli short aiutano.
+
