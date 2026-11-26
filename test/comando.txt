@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-cecchino_piu_short_rev1.py
+cecchino_5m_rev1.py
