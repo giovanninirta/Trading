@@ -14,10 +14,12 @@ File da leggere all'inizio di ogni nuova chat: riassume cosa è stato provato, c
 | 🎯 **Cecchino** (Rev 6) | `bot/rev6` | BTC guida, scatto BTC oltre 2 ATR | ogni 15 min (`bot_btc_guida.yml`) |
 | 🐕 **Segugio** (Rev 7) | `bot/rev7` | BTC guida, scatto BTC oltre +1,25 % | ogni 15 min (`bot_btc_guida.yml`) |
 | 🎯 **Cecchino 29** (Rev 8) | `bot/rev8` | regola Cecchino, sceglie tra 29 monete (max 5 posizioni) | ogni 15 min (`bot_btc_guida.yml`) |
+| 🐕 **Segugio Short** (Rev 9) | `bot/rev9` | short dopo i crolli di BTC (8 h, < −1,5 %, BTC sotto media 160), genetico n. 1 | ogni 15 min (`bot_btc_guida.yml`) |
+| 🎯 **Cecchino + Short** (Rev 10) | `bot/rev10` | Cecchino 29 + Segugio Short nello stesso conto (5 long + 8 short, leva 3) | ogni 15 min (`bot_btc_guida.yml`) |
 | Trend Rev 2 | `bot/rev2` | Canale 55/20 giornaliero, 30 monete spot EUR | ogni giorno 00:20 UTC (`bot.yml`) |
 | Trend Rev 3 | `bot/rev3` | come Rev 2 + filtro forza vs BTC +10 % | ogni giorno 00:20 UTC (`bot.yml`) |
 
-Cecchino e Segugio sono partiti il 24/11/2026 (Cecchino 29 appena unito a main); servono 3-4 mesi di dati dal vivo per un giudizio.
+Cecchino e Segugio sono partiti il 24/11/2026 (Cecchino 29, Segugio Short e Cecchino + Short dal 26/11/2026); servono 3-4 mesi di dati dal vivo per un giudizio.
 
 **Verifica sulle 17 monete mai usate (25/11/2026, `verifica_monete_nuove_btc_guida_rev1.py`, criterio fissato prima: netto > +0,05 R, senza le 10 migliori > 0, annuo > 0):**
 - 🎯 Cecchino **PROMOSSO in modo netto**: netto +0,36 R (come sulle 12 d'origine), prova +0,36 / verifica +0,36, senza le 10 migliori +0,09 R, +22 %/anno, calo −19 %; 12 monete su 17 positive; anni +22/+48/+6/+41/−11 %.

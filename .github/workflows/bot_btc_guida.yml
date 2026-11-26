@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["bot/rev6/*.py", "bot/rev7/*.py", "bot/rev8/*.py", ".github/workflows/bot_btc_guida.yml"]
+    paths: ["bot/rev6/*.py", "bot/rev7/*.py", "bot/rev8/*.py", "bot/rev9/*.py", "bot/rev10/*.py", ".github/workflows/bot_btc_guida.yml"]
 
 permissions:
   contents: write
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   esegui:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,12 +35,20 @@ jobs:
         if: always()
         working-directory: bot/rev8
         run: python bot_btc_guida_rev8.py
+      - name: Segugio Short (Rev 9, short dopo i crolli di BTC)
+        if: always()
+        working-directory: bot/rev9
+        run: python bot_btc_guida_rev9.py
+      - name: Cecchino + Short (Rev 10, long e short nello stesso conto)
+        if: always()
+        working-directory: bot/rev10
+        run: python bot_btc_guida_rev10.py
       - name: Salva i risultati
         if: always()
         run: |
           git config user.name "bot-btc-guida"
           git config user.email "bot-btc-guida@users.noreply.github.com"
-          git add bot/rev6 bot/rev7 bot/rev8
+          git add bot/rev6 bot/rev7 bot/rev8 bot/rev9 bot/rev10
           git diff --cached --quiet && exit 0
           git commit -m "Bot BTC guida: aggiornamento $(date -u +%Y-%m-%d_%H:%M)"
           git pull --rebase
