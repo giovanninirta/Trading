@@ -1,16 +1,86 @@
-### python cecchino_piu_short_rev1.py
+### python cecchino_5m_rev1.py
+Carico/scarico i dati a 5 minuti di 30 perpetui...
 
-Dal 2022-08-06 al 2026-11-19. Rischio 0,75 % per operazione, leva massima 3.
+Dal 2022-06-28 al 2026-11-25; prova fino al 2025-02-19. 12 liquide + 17 nuove.
+Candele 5m: BTC 481195. Eventi BTC long per ZB: 2: 1368/anno  3: 404/anno  4: 161/anno  5: 87/anno
+Colonne in R (R = stop). lordo = prima dei costi. durata = mediana in minuti.
 
-                                       op/a   netto  -top10   annuo   calo        2022     2023     2024     2025     2026
-   Short n, 1 - 12 liquide               30  +0,367  +0,186   +8,2%    -7%      +18,9%    +0,7%    +5,5%   +18,2%    -5,9%
-   Short n, 1 - 17 nuove                 49  +0,219  +0,037   +7,4%    -9%      +23,1%    -5,5%    +8,5%   +18,3%    -9,0%
-   Short n, 1 - 29 insieme               69  +0,181  +0,065   +8,7%   -10%      +20,8%    -8,1%    +6,6%   +31,0%    -7,8%
-   Cecchino 29 (bot Rev 8)               96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%
+=============== LONG: griglia sulla PROVA delle 12 liquide (96 varianti) ===============
+   ZB  ZM  ST  TR  F1      op/a  lordo  n.tak  n.mak cost.t
+   5  2,5  1  3  48         282 +0,729 -0,050 +0,387  0,779
+   5  2,5  1  3  12         282 +0,701 -0,075 +0,362  0,776
+   5  3,5  1  3  48         224 +0,659 -0,115 +0,319  0,774
+   5  1,5  1  3  48         339 +0,640 -0,139 +0,298  0,780
+   5  1,5  1  3  12         339 +0,622 -0,156 +0,282  0,777
+   5  3,5  2  3  48         444 +0,552 -0,076 +0,276  0,628
+   5  3,5  1  3  12         224 +0,613 -0,159 +0,276  0,771
+   5  2,5  2  3  48         534 +0,526 -0,090 +0,255  0,616
+   5  3,5  2  3  12         444 +0,522 -0,102 +0,250  0,624
+   3  3,5  2  3  48        1098 +0,530 -0,117 +0,245  0,647
+   2  3,5  2  3  48        1943 +0,540 -0,137 +0,242  0,678
+   5  2,5  2  3  12         534 +0,506 -0,106 +0,239  0,612
+   5  3,5  2  1,5  48       444 +0,510 -0,117 +0,235  0,627
+   5  1,5  2  3  48         632 +0,496 -0,114 +0,228  0,610
+   5  1,5  2  1,5  48       632 +0,491 -0,119 +0,223  0,610
+   ... (peggiori)
+   2  1,5  2  3  12        5927 +0,290 -0,307 +0,030  0,598
+   2  1,5  1  1,5  12      3197 +0,370 -0,411 +0,029  0,781
+   4  3,5  1  1,5  12       322 +0,361 -0,430 +0,015  0,791
+   2  1,5  1  3  48        3197 +0,359 -0,425 +0,015  0,784
+   2  1,5  1  3  12        3197 +0,344 -0,437 +0,003  0,781
+   varianti con lordo > 0: 96/96; con netto taker > 0: 0; con netto maker > 0: 96
 
-   Cecchino 29 da solo (stesso motore)    96  +0,389  +0,185  +29,0%   -14%       +8,3%   +45,1%   +15,9%   +51,2%    +8,2%   (414 long, 0 short)
-   CECCHINO 29 + SHORT (29 monete)      166  +0,302  +0,183  +40,1%   -19%      +30,8%   +33,3%   +23,5%   +98,1%    -0,2%   (414 long, 297 short)
+   --- LONG TAKER: migliore in prova ZB 5, ZM 2.5, ST 1, TR 3, F1 48 -> portafoglio ---
+                                       op/a  lordo  netto  prova  verif -top10 vinte    annuo  calo durata   2022   2023   2024   2025   2026
+   12 liquide (scelta qui)               51  +0,28  -0,39  -0,41  -0,35  -0,81   22%   -14,8%  -54%    10m    -5%   -22%   -14%    -9%   -15%
+   17 NUOVE (mai viste)                  41  +1,23  +0,17  +0,72  -0,96  -0,76   26%    +3,1%  -39%    20m   +68%    -2%    +3%    -4%   -30%
+   29 insieme                            54  +0,73  -0,18  +0,07  -0,81  -0,79   23%    -8,9%  -52%    15m   +37%   -17%   -13%    -1%   -32%
+   VERDETTO LONG TAKER sulle 17 nuove: netto +0,173, senza 10 -0,763, annuo +3,1 %, calo -39 % -> BOCCIATA
 
-Lettura: gli short servono se nel portafoglio insieme l'annuo sale e/o il calo scende rispetto a Cecchino 29 da solo,
-e se negli anni in cui Cecchino va peggio gli short aiutano.
+   --- LONG MAKER: migliore in prova ZB 5, ZM 2.5, ST 1, TR 3, F1 48 -> portafoglio ---
+                                       op/a  lordo  netto  prova  verif -top10 vinte    annuo  calo durata   2022   2023   2024   2025   2026
+   12 liquide (scelta qui)               51  +0,28  -0,02  -0,03  +0,01  -0,44   24%    -1,7%  -24%    10m   +13%    -7%    -7%    +1%    -6%
+   17 NUOVE (mai viste)                  41  +1,23  +0,75  +1,27  -0,34  -0,19   30%   +22,7%  -24%    20m   +93%   +24%   +13%   +12%   -19%
+   29 insieme                            54  +0,73  +0,32  +0,55  -0,25  -0,29   26%   +11,6%  -26%    15m   +68%    +9%    -4%   +16%   -21%
+   VERDETTO LONG MAKER sulle 17 nuove: netto +0,748, senza 10 -0,189, annuo +22,7 %, calo -24 % -> BOCCIATA
+
+=============== SHORT: griglia sulla PROVA delle 12 liquide (96 varianti) ===============
+   ZB  ZM  ST  TR  F1      op/a  lordo  n.tak  n.mak cost.t
+   4  3,5  2  1,5  48      1041 +0,396 -0,165 +0,149  0,561
+   4  2,5  2  1,5  48      1208 +0,381 -0,170 +0,139  0,551
+   4  1,5  2  1,5  48      1369 +0,374 -0,175 +0,134  0,549
+   2  3,5  2  1,5  48      2966 +0,403 -0,213 +0,132  0,616
+   2  3,5  2  3  48        2966 +0,394 -0,222 +0,123  0,616
+   4  3,5  2  3  48        1041 +0,368 -0,193 +0,121  0,561
+   4  3,5  2  1,5  12      1041 +0,355 -0,202 +0,113  0,557
+   4  3,5  1  1,5  48       623 +0,430 -0,295 +0,112  0,724
+   4  1,5  1  1,5  48       836 +0,423 -0,295 +0,109  0,718
+   4  2,5  2  1,5  12      1208 +0,347 -0,200 +0,109  0,548
+   4  2,5  2  3  48        1208 +0,349 -0,202 +0,107  0,551
+   4  2,5  1  1,5  48       740 +0,424 -0,299 +0,107  0,722
+   2  3,5  1  1,5  48      1561 +0,442 -0,333 +0,102  0,776
+   4  1,5  2  1,5  12      1369 +0,340 -0,206 +0,102  0,546
+   3  3,5  2  1,5  48      1738 +0,349 -0,227 +0,096  0,576
+   ... (peggiori)
+   5  1,5  1  3  12         472 +0,250 -0,453 -0,057  0,703
+   3  2,5  1  3  12        1350 +0,267 -0,477 -0,058  0,744
+   2  1,5  1  3  48        4239 +0,268 -0,477 -0,059  0,745
+   3  1,5  1  3  12        1702 +0,252 -0,484 -0,069  0,736
+   2  1,5  1  3  12        4239 +0,255 -0,488 -0,069  0,743
+   varianti con lordo > 0: 96/96; con netto taker > 0: 0; con netto maker > 0: 74
+
+   --- SHORT TAKER: migliore in prova ZB 4, ZM 3.5, ST 2, TR 1.5, F1 48 -> portafoglio ---
+                                       op/a  lordo  netto  prova  verif -top10 vinte    annuo  calo durata   2022   2023   2024   2025   2026
+   12 liquide (scelta qui)              202  +0,33  -0,16  -0,19  -0,10  -0,29   34%   -24,2%  -82%    10m   +25%   -38%   -52%    -6%   -16%
+   17 NUOVE (mai viste)                 183  +0,65  -0,11  -0,17  +0,07  -0,29   32%   -17,3%  -77%    15m   +49%   -38%   -55%   +12%    -6%
+   29 insieme                           199  +0,65  -0,07  -0,15  +0,16  -0,24   33%   -14,2%  -75%    15m   +42%   -34%   -56%   +35%    -9%
+   VERDETTO SHORT TAKER sulle 17 nuove: netto -0,105, senza 10 -0,290, annuo -17,3 %, calo -77 % -> BOCCIATA
+
+   --- SHORT MAKER: migliore in prova ZB 4, ZM 3.5, ST 2, TR 1.5, F1 48 -> portafoglio ---
+                                       op/a  lordo  netto  prova  verif -top10 vinte    annuo  calo durata   2022   2023   2024   2025   2026
+   12 liquide (scelta qui)              202  +0,33  +0,11  +0,11  +0,12  -0,02   38%   +14,9%  -48%    10m  +127%    +7%   -37%   +13%    +7%
+   17 NUOVE (mai viste)                 183  +0,65  +0,31  +0,25  +0,46  +0,12   38%   +45,0%  -39%    15m  +187%   +33%   -35%   +53%   +36%
+   29 insieme                           199  +0,65  +0,32  +0,25  +0,55  +0,15   39%   +54,3%  -37%    15m  +203%   +42%   -35%   +83%   +33%
+   VERDETTO SHORT MAKER sulle 17 nuove: netto +0,305, senza 10 +0,118, annuo +45,0 %, calo -39 % -> BOCCIATA
+
 
