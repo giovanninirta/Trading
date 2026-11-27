@@ -1,2 +1,2 @@
 # Una riga per test: nome dello script nella cartella test + eventuali parametri.
-cecchino_29_stop_ingresso_rev1.py
+trend_15m_rev1.py
