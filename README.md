@@ -7,7 +7,29 @@ Tutti i bot sono **simulati**: seguono i prezzi veri di Kraken e registrano cosa
 <!-- RIEPILOGO -->
 ## 📡 Situazione adesso
 
-In attesa del primo aggiornamento (ogni 15 minuti).
+BTC **59.920 $** · aggiornato alle **17:15 UTC** del 27/11/2026 (ogni 15 minuti) · ATR 4 h di BTC 1.225 $
+
+### Quanto manca al prossimo segnale
+Il segnale conta solo **alla chiusura della candela**: guarda il movimento della candela in corso rispetto alla chiusura precedente.
+
+| Segnale (bot) | Candela in corso | Movimento adesso | Serve alla chiusura | Manca | Chiude |
+|---|---|--:|---|--:|---|
+| **Long, BTC oltre 2 ATR** (Cecchino, Cecchino 29, Cecchino 29 Stop, Cecchino + Short) | 4 h dalle 16:00 | **−0,1 ATR** (−0,21 %) | oltre +2,0 ATR → BTC sopra **62.496 $** | **+2,1 ATR** = +2.576 $ (+4,30 %) | 20:00 UTC (tra 2 h 44 min) |
+| **Long, BTC oltre +1,25 %** (Segugio) | 4 h dalle 16:00 | **−0,21 %** | oltre +1,25 % → BTC sopra **60.797 $** | **+1,46 %** = +877 $ | 20:00 UTC (tra 2 h 44 min) |
+| **Short, BTC sotto −1,5 %** (Segugio Short, Cecchino + Short) | 8 h dalle 16:00 | **−0,21 %** | sotto −1,5 % → BTC sotto **59.145 $** e BTC sotto 78.904 $ (media 160 × 1,05): ✅ sì | **−1,29 %** = −774 $ | 00:00 UTC (tra 6 h 44 min) |
+
+### Bot
+
+| Bot | Capitale (equity) | Risultato | Operazioni chiuse | Vinte | Risultato medio | Aperte | Ordini in attesa | Scatti BTC visti |
+|---|--:|--:|:-:|:-:|:-:|:-:|:-:|:-:|
+| [🎯 Cecchino](bot/rev6/README.md) | ⚪ **2.000,00 $** | +0,00 % | **0** | – | – | 0 | – | 0 |
+| [🐕 Segugio](bot/rev7/README.md) | ⚪ **2.000,00 $** | +0,00 % | **0** | – | – | 0 | – | 1 |
+| [🎯 Cecchino 29](bot/rev8/README.md) | ⚪ **2.000,00 $** | +0,00 % | **0** | – | – | 0 | – | 0 |
+| [🎯 Cecchino 29 Stop](bot/rev11/README.md) | ⚪ **2.000,00 $** | +0,00 % | **0** | – | – | 0 | 0 | 0 |
+| [🐕 Segugio Short](bot/rev9/README.md) | ⚪ **2.000,00 $** | +0,00 % | **0** | – | – | 0 | – | 1 |
+| [🎯 Cecchino + Short](bot/rev10/README.md) | ⚪ **2.000,00 $** | +0,00 % | **0** | – | – | 0 | – | 1 |
+
+Capitale di partenza 2.000 $ simulati per bot; l'equity comprende le posizioni aperte ai prezzi di adesso.
 <!-- /RIEPILOGO -->
 
 ## 🚀 Bot "BTC guida": dopo uno scatto forte di BTC
