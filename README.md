@@ -4,6 +4,12 @@
 
 Tutti i bot sono **simulati**: seguono i prezzi veri di Kraken e registrano cosa avrebbero fatto, senza ordini reali e senza chiavi API. Ognuno parte con 2.000 simulati.
 
+<!-- RIEPILOGO -->
+## 📡 Situazione adesso
+
+In attesa del primo aggiornamento (ogni 15 minuti).
+<!-- /RIEPILOGO -->
+
 ## 🚀 Bot "BTC guida": dopo uno scatto forte di BTC
 Perpetui Kraken, controllo ogni 15 minuti ([esecuzioni](https://github.com/giovanninirta/Trading/actions/workflows/bot_btc_guida.yml)).
 
