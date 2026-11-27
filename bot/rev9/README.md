@@ -3,14 +3,14 @@
 
 ## ➡️ 2.000,00 $   (+0,00 %)
 
-Capitale di partenza 2.000 $ simulati · attivo da 0 giorni · ultimo controllo 2026-11-26 16:58 UTC
+Capitale di partenza 2.000 $ simulati · attivo da 1 giorni · ultimo controllo 2026-11-27 10:45 UTC
 
 | Posizioni aperte | Operazioni chiuse | Vinte | Risultato medio | Segnali di BTC |
 |:-:|:-:|:-:|:-:|:-:|
 | **0** | **0** | **0 %** | **+0,00 R** | **short 0** |
 
 **BTC adesso:**
-- short: candela 8 h chiusa alle 2026-11-26 16:00 UTC: **+0,14 % (serve sotto -1,50 %), BTC sotto la media 160**
+- short: candela 8 h chiusa alle 2026-11-27 08:00 UTC: **+1,78 % (serve sotto -1,50 %), BTC sotto la media 160**
 
 ---
 
