@@ -3,13 +3,13 @@
 
 ## ➡️ 2.000,00 $   (+0,00 %)
 
-Capitale di partenza 2.000 $ simulati · attivo da 1 giorni · ultimo controllo 2026-11-27 17:15 UTC
+Capitale di partenza 2.000 $ simulati · attivo da 1 giorni · ultimo controllo 2026-11-28 02:14 UTC
 
 | Posizioni aperte | Ordini in attesa | Operazioni chiuse | Vinte | Risultato medio | Scatti di BTC | Ordini scaduti |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | **0** | **0** | **0** | **0 %** | **+0,00 R** | **0** | **0** |
 
-**BTC adesso:** ultima candela 4h chiusa alle 2026-11-27 16:00: **-1,4 ATR (serve oltre 2,0)**
+**BTC adesso:** ultima candela 4h chiusa alle 2026-11-28 00:00: **+0,0 ATR (serve oltre 2,0)**
 
 ---
 
@@ -21,7 +21,7 @@ Capitale di partenza 2.000 $ simulati · attivo da 1 giorni · ultimo controllo 
 
 ### 1 · Aspetta lo scatto di BTC
 Ogni 4 ore, alla chiusura della candela (01, 05, 09, 13, 17, 21 ora italiana d'inverno; un'ora dopo d'estate), il bot guarda quanto e' salita BTC.
-C'e' uno **scatto** quando BTC chiude la candela da 4 ore **in salita di oltre 2,0 volte il suo ATR**. L'ATR e' l'oscillazione media di BTC nelle ultime 14 candele da 4 ore: la soglia si adatta da sola, piu' alta quando il mercato e' agitato, piu' bassa quando e' calmo. Con i prezzi di oggi (ATR di BTC circa 1.222 $) vuol dire una salita di almeno **2.443 $**, cioe' circa **4,1 %** in 4 ore.
+C'e' uno **scatto** quando BTC chiude la candela da 4 ore **in salita di oltre 2,0 volte il suo ATR**. L'ATR e' l'oscillazione media di BTC nelle ultime 14 candele da 4 ore: la soglia si adatta da sola, piu' alta quando il mercato e' agitato, piu' bassa quando e' calmo. Con i prezzi di oggi (ATR di BTC circa 1.147 $) vuol dire una salita di almeno **2.294 $**, cioe' circa **3,8 %** in 4 ore.
 Le candele rosse non contano: il bot compra soltanto (solo long).
 
 ### 2 · Sceglie le monete

@@ -7,16 +7,16 @@ Tutti i bot sono **simulati**: seguono i prezzi veri di Kraken e registrano cosa
 <!-- RIEPILOGO -->
 ## 📡 Situazione adesso
 
-BTC **59.966 $** · aggiornato alle **19:41 UTC** del 27/11/2026 (ogni 15 minuti) · ATR 4 h di BTC 1.225 $
+BTC **60.142 $** · aggiornato alle **02:14 UTC** del 28/11/2026 (ogni 15 minuti) · ATR 4 h di BTC 1.151 $
 
 ### Quanto manca al prossimo segnale
 Il segnale conta solo **alla chiusura della candela**: guarda il movimento della candela in corso rispetto alla chiusura precedente.
 
 | Segnale (bot) | Candela in corso | Movimento adesso | Serve alla chiusura | Manca | Chiude |
 |---|---|--:|---|--:|---|
-| **Long, BTC oltre 2 ATR** (Cecchino, Cecchino 29, Cecchino 29 Stop, Cecchino + Short) | 4 h dalle 16:00 | **−0,1 ATR** (−0,13 %) | oltre +2,0 ATR → BTC sopra **62.496 $** | **+2,1 ATR** = +2.529 $ (+4,22 %) | 20:00 UTC (tra 18 min) |
-| **Long, BTC oltre +1,25 %** (Segugio) | 4 h dalle 16:00 | **−0,13 %** | oltre +1,25 % → BTC sopra **60.797 $** | **+1,38 %** = +830 $ | 20:00 UTC (tra 18 min) |
-| **Short, BTC sotto −1,5 %** (Segugio Short, Cecchino + Short) | 8 h dalle 16:00 | **−0,13 %** | sotto −1,5 % → BTC sotto **59.145 $** e BTC sotto 78.904 $ (media 160 × 1,05): ✅ sì | **−1,37 %** = −821 $ | 00:00 UTC (tra 4 h 18 min) |
+| **Long, BTC oltre 2 ATR** (Cecchino, Cecchino 29, Cecchino 29 Stop, Cecchino + Short) | 4 h dalle 00:00 | **+0,2 ATR** (+0,45 %) | oltre +2,0 ATR → BTC sopra **62.172 $** | **+1,8 ATR** = +2.031 $ (+3,38 %) | 04:00 UTC (tra 1 h 45 min) |
+| **Long, BTC oltre +1,25 %** (Segugio) | 4 h dalle 00:00 | **+0,45 %** | oltre +1,25 % → BTC sopra **60.618 $** | **+0,79 %** = +477 $ | 04:00 UTC (tra 1 h 45 min) |
+| **Short, BTC sotto −1,5 %** (Segugio Short, Cecchino + Short) | 8 h dalle 00:00 | **+0,45 %** | sotto −1,5 % → BTC sotto **58.972 $** e BTC sotto 78.737 $ (media 160 × 1,05): ✅ sì | **−1,94 %** = −1.170 $ | 08:00 UTC (tra 5 h 45 min) |
 
 ### Bot
 

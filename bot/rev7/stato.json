@@ -1,7 +1,7 @@
 {
  "capitale": 2000.0,
  "posizioni": [],
- "ultima_candela": 1795780800,
+ "ultima_candela": 1795809600,
  "chiuse": 0,
  "vinte": 0,
  "somma_r": 0.0,
@@ -14,11 +14,11 @@
   "nota": "saltato: controllo arrivato 229 minuti dopo la chiusura"
  },
  "btc_ultima": {
-  "t": 1795780800,
-  "z": -1.4022253271353242,
-  "pct": -0.024879015232712964,
-  "atr": 1221.652723027016,
-  "prezzo": 60046.0
+  "t": 1795809600,
+  "z": 0.014896088038582266,
+  "pct": 0.00030074182984685116,
+  "atr": 1146.7730216048192,
+  "prezzo": 59870.0
  },
  "avvio": 1795559750
 }
